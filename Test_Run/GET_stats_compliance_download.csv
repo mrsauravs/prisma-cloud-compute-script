@@ -1,0 +1,581 @@
+ID,Benchmark ID,Regulation section,Description,Severity,Category,Type,Failed resources,Total resources
+9000,,,,,Custom,custom,0,0
+8232,CIS_Kubernetes1.20_1.0.0 - 4.1.4,,Ensure that the proxy kubeconfig file ownership is set to root:root,high,Kubernetes,k8s worker,0,0
+30026,CIS_OpenShift_1.1.0 - 2.6,,Ensure that the --peer-auto-tls argument is not set to true,medium,OpenShift,openshift master,0,0
+81411,CIS_Kubernetes1.20_1.0.0 - 1.1.11,,Ensure that the etcd data directory permissions are set to 700 or more restrictive,high,Kubernetes,k8s master,0,0
+321,CIS_Docker_v1.3.1 - 3.21,,Verify that /etc/sysconfig/docker file ownership is set to root:root,critical,Docker,daemon config files,0,0
+598,,,Container app is running with weak settings,critical,Twistlock Labs,container,0,0
+81111,CIS_Kubernetes1.20_1.0.0 - 1.2.10,,Ensure that the admission control policy is not set to AlwaysAdmit (kube-apiserver),high,Kubernetes,k8s master,0,0
+64222,CIS_Linux_2.0.0 - 4.2.2.2,,Ensure journald is configured to compress large log files,low,Linux,linux,0,0
+5059,,,Do not share the host's network namespace,critical,CRI,container,0,0
+5038,,,Verify that CRI global auth file permissions are set to 444 or more restrictive,high,CRI,host config,0,0
+300416,CIS_OpenShift_1.1.0 - 4.1.6,,Ensure that the --kubeconfig kubelet.conf file ownership is set to root:root,high,OpenShift,openshift worker,0,0
+215,CIS_Docker_v1.3.1 - 7.1,,"Do not enable swarm mode, if not needed",high,Docker,daemon config,0,0
+6231,CIS_Linux_2.0.0 - 2.3.1,,Ensure NIS Client is not installed,low,Linux,linux,0,0
+30024,CIS_OpenShift_1.1.0 - 2.4,,Ensure that the --peer-cert-file and --peer-key-file arguments are set as appropriate,medium,OpenShift,openshift master,0,0
+300424,CIS_OpenShift_1.1.0 - 4.2.4,,Verify that the read only port is not used or is set to 0,high,OpenShift,openshift worker,0,0
+445,,,Unused service API with information exfiltration risk,high,Twistlock Labs,serverless,0,0
+31,CIS_Docker_v1.3.1 - 3.1,,Verify that docker.service file ownership is set to root:root,high,Docker,daemon config files,0,0
+422,,,Image contains malware,critical,Twistlock Labs,image,0,0
+8116,CIS_Kubernetes1.20_1.0.0 - 1.2.17,,Ensure that the --insecure-bind-address argument is not set (kube-apiserver),critical,Kubernetes,k8s master,0,0
+81421,CIS_Kubernetes1.20_1.0.0 - 1.1.3,,Ensure that the controller manager pod specification file permissions are set to 644 or more restrictive,high,Kubernetes,k8s master,0,0
+6517,CIS_Linux_2.0.0 - 5.1.7,,Ensure permissions on /etc/cron.d are configured,medium,Linux,linux,0,0
+117,CIS_Docker_v1.3.1 - 1.1.4,,Audit Docker files and directories - /run/containerd,high,Docker,host config,1,0
+8136,CIS_Kubernetes1.20_1.0.0 - 1.3.5,,Ensure that the --root-ca-file argument is set as appropriate (kube-controller-manager),high,Kubernetes,k8s master,0,0
+8223,CIS_Kubernetes1.20_1.0.0 - 4.1.5,,Ensure that the kubelet file permissions are set to 644 or more restrictive,high,Kubernetes,k8s worker,0,0
+6215,CIS_Linux_2.0.0 - 2.1.5,,Ensure time services are not enabled,medium,Linux,linux,0,0
+62110,CIS_Linux_2.0.0 - 2.1.10,,Ensure xinetd is not enabled,high,Linux,linux,0,0
+604211,CIS_Linux_2.0.0 - 4.2.1.1,,Ensure rsyslog is installed,low,Linux,linux,0,0
+66213,CIS_Linux_2.0.0 - 6.2.13,,Ensure users' .netrc Files are not group or world accessible,high,Linux,linux,0,0
+5319,,,Verify that the CRI systemd daemon environment file ownership is set to root:root,high,CRI,host config,0,0
+519,CIS_Docker_v1.3.1 - 5.19,,Do not set mount propagation mode to shared,critical,Docker,container,0,0
+300122,CIS_OpenShift_1.1.0 - 1.2.2,,Ensure that the --basic-auth-file argument is not set,medium,OpenShift,openshift master,0,0
+3001114,CIS_OpenShift_1.1.0 - 1.1.14,,Ensure that the admin.conf file ownership is set to root:root,high,OpenShift,openshift master,0,0
+511,CIS_Docker_v1.3.1 - 5.11,,Set container CPU priority appropriately,high,Docker,container,0,0
+8133,CIS_Kubernetes_1.0 - 1.3.3,,Ensure that the --insecure-experimental-approve-all-kubelet-csrs-for-group argument is not set (kube-controller-manager),high,Kubernetes,k8s master,0,0
+605215,CIS_Linux_2.0.0 - 5.2.15,,Ensure only strong Key Exchange algorithms are used,medium,Linux,linux,0,0
+216,CIS_Docker_v1.3.1 - 7.2,,Control the number of manager nodes in swarm,medium,Docker,daemon config,0,0
+6328,CIS_Linux_2.0.0 - 3.2.8,,Ensure TCP SYN Cookies is enabled,medium,Linux,linux,0,0
+300115,CIS_OpenShift_1.1.0 - 1.1.5,,Ensure that the scheduler pod specification file permissions are set to 644 or more restrictive,high,OpenShift,openshift master,0,0
+61114,CIS_Linux_2.0.0 - 1.1.1.4,,Ensure mounting of hfs filesystems is disabled,low,Linux,linux,0,0
+219,CIS_Docker_v1.3.1 - 7.4,,Encrypt data exchanged between containers on different nodes on the overlay network,high,Docker,daemon config,0,0
+316,CIS_Docker_v1.3.1 - 3.16,,Verify that Docker socket file permissions are set to 660 or more restrictive,high,Docker,daemon config files,0,0
+8121,CIS_Kubernetes1.20_1.0.0 - 1.4.1,,Ensure that the --profiling argument is set to false (kube-scheduler),low,Kubernetes,k8s master,0,0
+3001111,CIS_OpenShift_1.1.0 - 1.1.11,,Ensure that the etcd data directory permissions are set to 700 or more restrictive,high,OpenShift,openshift master,0,0
+24,CIS_Docker_v1.3.1 - 2.5,,Do not use insecure registries,high,Docker,daemon config,0,0
+601117,CIS_Linux_2.0.0 - 1.1.1.7,,Ensure mounting of udf filesystems is disabled,low,Linux,linux,0,0
+61615,CIS_Linux_2.0.0 - 1.6.2.5,,Ensure the MCS Translation Service (mcstrans) is not installed,low,Linux,linux,0,0
+6226,CIS_Linux_2.0.0 - 2.2.6,,Ensure LDAP server is not enabled,high,Linux,linux,0,0
+5320,,,Verify that the CRI systemd daemon environment file permissions are set to 644 or more restrictive,high,CRI,host config,0,0
+51,CIS_Docker_v1.3.1 - 5.1,,"Verify AppArmor profile, if applicable",high,Docker,container,0,0
+81118,CIS_Kubernetes1.20_1.0.0 - 1.2.23,,Ensure that the --audit-log-maxbackup argument is set to 10 or as appropriate (kube-apiserver),low,Kubernetes,k8s master,0,0
+61713,CIS_Linux_2.0.0 - 1.7.1.3,,Ensure remote login warning banner is configured properly,medium,Linux,linux,0,0
+6523,CIS_Linux_2.0.0 - 5.2.5,,Ensure SSH LogLevel is appropriate,low,Linux,linux,0,0
+3001121,CIS_OpenShift_1.1.0 - 1.1.21,,Ensure that the OpenShift PKI key file permissions are set to 600,high,OpenShift,openshift master,0,0
+300121,CIS_OpenShift_1.1.0 - 1.2.1,,Ensure that anonymous requests are authorized,medium,OpenShift,openshift master,0,0
+3001219,CIS_OpenShift_1.1.0 - 1.2.19,,Ensure that the --insecure-port argument is set to 0,medium,OpenShift,openshift master,0,0
+81112,CIS_Kubernetes1.20_1.0.0 - 1.2.11,,Ensure that the admission control policy is set to AlwaysPullImages (kube-apiserver),high,Kubernetes,k8s master,0,0
+81429,CIS_Kubernetes1.20_1.0.0 - 1.1.21,,Ensure that the Kubernetes PKI key file permissions are set to 600,high,Kubernetes,k8s master,0,0
+8230,CIS_Kubernetes1.20_1.0.0 - 4.1.2,,Ensure that the kubelet service file ownership is set to root:root,high,Kubernetes,k8s worker,0,0
+6419,CIS_Linux_2.0.0 - 4.1.10,,Ensure session initiation information is collected,medium,Linux,linux,0,0
+81423,CIS_Kubernetes1.20_1.0.0 - 1.1.5,,Ensure that the scheduler pod specification file permissions are set to 644 or more restrictive,high,Kubernetes,k8s master,0,0
+65210,CIS_Linux_2.0.0 - 5.2.12,,Ensure SSH PermitUserEnvironment is disabled,medium,Linux,linux,0,0
+5531,,,Do not mount the CRI socket inside any containers,critical,CRI,container,0,0
+5032,,,Verify that the CRI service file permissions are set to 644 or more restrictive,high,CRI,host config,0,0
+30025,CIS_OpenShift_1.1.0 - 2.5,,Ensure that the --peer-client-cert-auth argument is set to true,medium,OpenShift,openshift master,0,0
+64117,CIS_Linux_2.0.0 - 4.1.18,,Ensure kernel module loading and unloading is collected,high,Linux,linux,0,0
+64223,CIS_Amazon_Linux_2.1.0 - 4.2.2.3,,Ensure syslog-ng default file permissions configured,medium,Linux,linux,0,0
+7143,CIS_Amazon_Linux_2.1.0 - 1.4.3,,Ensure interactive boot is not enabled,medium,Linux,linux,0,0
+5516,,,Do not share the host's IPC namespace,critical,CRI,container,0,0
+3001212,CIS_OpenShift_1.1.0 - 1.2.12,,Ensure that the admission control plugin AlwaysPullImages is not set,medium,OpenShift,openshift master,0,0
+6213,CIS_Linux_2.0.0 - 2.1.3,,Ensure discard services are not enabled,medium,Linux,linux,0,0
+8142,CIS_Kubernetes_1.1 - 1.4.2,,Ensure that the apiserver file ownership is set to root:root,high,Kubernetes,k8s master,0,0
+61711,CIS_Linux_2.0.0 - 1.7.1.1,,Ensure message of the day is configured properly,low,Linux,linux,0,0
+61714,CIS_Linux_2.0.0 - 1.7.1.4,,Ensure permissions on /etc/motd are configured,low,Linux,linux,0,0
+200005,,,Verify antivirus signatures expiration policy,critical,Twistlock Labs,windows,0,0
+81124,CIS_Kubernetes1.20_1.0.0 - 1.2.26,,Ensure that the --service-account-lookup argument is set to true (kube-apiserver),medium,Kubernetes,k8s master,0,0
+8114,CIS_Kubernetes_1.4 - 1.1.3,,Ensure that the --insecure-allow-any-token argument is not set (kube-apiserver),critical,Kubernetes,k8s master,0,0
+81428,CIS_Kubernetes1.20_1.0.0 - 1.1.20,,Ensure that the Kubernetes PKI certificate file permissions are set to 644 or more restrictive,high,Kubernetes,k8s master,0,0
+8229,CIS_Kubernetes1.20_1.0.0 - 4.1.1,,Ensure that the kubelet service file permissions are set to 644 or more restrictive,high,Kubernetes,k8s worker,0,0
+6327,CIS_Linux_2.0.0 - 3.2.7,,Ensure Reverse Path Filtering is enabled,medium,Linux,linux,0,0
+6613,CIS_Linux_2.0.0 - 6.1.3,,Ensure permissions on /etc/shadow are configured,high,Linux,linux,0,0
+6616,CIS_Linux_2.0.0 - 6.1.6,,Ensure permissions on /etc/passwd- are configured,high,Linux,linux,0,0
+406,CIS_Docker_v1.3.1 - 4.6,,Add HEALTHCHECK instruction to the container image,medium,Docker,image,0,0
+61112,CIS_Linux_2.0.0 - 1.1.1.2,,Ensure mounting of freevxfs filesystems is disabled,low,Linux,linux,0,0
+61121,CIS_Linux_2.0.0 - 1.1.17,,Ensure noexec option set on /dev/shm partition,medium,Linux,linux,0,0
+62217,CIS_Linux_2.0.0 - 2.2.17,,Ensure NIS Server is not enabled,high,Linux,linux,0,0
+81137,CIS_Kubernetes_1.4 - 1.1.37,,Ensure that the AdvancedAuditing argument is not set to false (kube-apiserver),high,Kubernetes,k8s master,0,0
+530,CIS_Docker_v1.3.1 - 5.30,,Do not share the host's user namespaces,high,Docker,container,0,0
+447,,,Unused service API with privilege elevation risk,critical,Twistlock Labs,serverless,0,0
+8217,CIS_Kubernetes1.20_1.0.0 - 4.2.6,,Ensure that the --protect-kernel-defaults argument is set to true (kubelet),medium,Kubernetes,k8s worker,0,0
+30027,CIS_OpenShift_1.1.0 - 2.7,,Ensure that a unique Certificate Authority is used for etcd,medium,OpenShift,openshift master,0,0
+521,CIS_Docker_v1.3.1 - 5.21,,Do not disable default seccomp profile,critical,Docker,container,0,0
+81422,CIS_Kubernetes1.20_1.0.0 - 1.1.4,,Ensure that the controller manager pod specification file ownership is set to root:root,high,Kubernetes,k8s master,0,0
+66215,CIS_Linux_2.0.0 - 6.2.15,,Ensure all groups in /etc/passwd exist in /etc/group,high,Linux,linux,0,0
+446,,,Unused service API with persistent access risk,high,Twistlock Labs,serverless,0,0
+214,CIS_Docker_v1.3.1 - 2.15,,Enable live restore,low,Docker,daemon config,0,0
+83118,CIS_Kubernetes_1.2 - 3.1.18,,Ensure that the --etcd-certfile and --etcd-keyfile arguments are set as appropriate (federation-apiserver),high,Kubernetes,k8s federation,0,0
+3001110,CIS_OpenShift_1.1.0 - 1.1.10,,Ensure that the Container Network Interface file ownership is set to root:root,medium,OpenShift,openshift master,0,0
+121,CIS_Docker_v1.3.1 - 1.1.16,,Audit Docker files and directories - /usr/bin/containerd-shim-runc-v1,medium,Docker,host config,0,0
+443,,,Unused service API with lateral movement risk,high,Twistlock Labs,serverless,0,0
+8228,CIS_Kubernetes1.20_1.0.0 - 4.1.8,,Ensure that the client certificate authorities file ownership is set to root:root,high,Kubernetes,k8s worker,0,0
+6151,CIS_Linux_2.0.0 - 1.5.1,,Ensure core dumps are restricted,high,Linux,linux,1,0
+200203,,,Verify Windows Defender Address Space Layout Randomization (ASLR) is enabled,critical,Twistlock Labs,windows,0,0
+5512,,,Mount container's root filesystem as read only,high,CRI,container,0,0
+3004110,CIS_OpenShift_1.1.0 - 4.1.10,,Ensure that the kubelet configuration file ownership is set to root:root,high,OpenShift,openshift worker,0,0
+111,CIS_Docker_v1.3.1 - 1.1.9,,Audit Docker files and directories - docker.socket,medium,Docker,host config,0,0
+81414,CIS_Kubernetes1.20_1.0.0 - 1.1.14,,Ensure that the admin.conf file ownership is set to root:root,high,Kubernetes,k8s master,0,0
+8156,CIS_Kubernetes1.20_1.0.0 - 2.6,,Ensure that the --peer-auto-tls argument is not set to true (etcd),high,Kubernetes,k8s master,0,0
+449,,,Ensure no pending OS security updates,high,Twistlock Labs,linux,0,0
+59,CIS_Docker_v1.3.1 - 5.9,,Do not share the host's network namespace,critical,Docker,container,0,0
+8234,CIS_Kubernetes1.20_1.0.0 - 4.1.9,,Ensure that the kubelet configuration file has permissions set to 644 or more restrictive,high,Kubernetes,k8s worker,0,0
+8317,CIS_Kubernetes_1.2 - 3.1.7,,Ensure that the --profiling argument is set to false (federation-apiserver),low,Kubernetes,k8s federation,0,0
+63522,CIS_Linux_2.0.0 - 3.5.2.2,,Ensure loopback traffic is configured,medium,Linux,linux,0,0
+65412,CIS_Linux_2.0.0 - 5.4.1.2,,Ensure minimum days between password changes is 7 or more,low,Linux,linux,0,0
+3001229,CIS_OpenShift_1.1.0 - 1.2.29,,Ensure that the --etcd-certfile and --etcd-keyfile arguments are set as appropriate,medium,OpenShift,openshift master,0,0
+81134,CIS_Kubernetes1.20_1.0.0 - 1.2.32,,Ensure that the --encryption-provider-config argument is set as appropriate (kube-apiserver),medium,Kubernetes,k8s master,0,0
+6515,CIS_Linux_2.0.0 - 5.1.5,,Ensure permissions on /etc/cron.weekly are configured,medium,Linux,linux,0,0
+81129,CIS_Kubernetes1.20_1.0.0 - 1.2.29,,Ensure that the --tls-cert-file and --tls-private-key-file arguments are set as appropriate (kube-apiserver),high,Kubernetes,k8s master,0,0
+8154,CIS_Kubernetes1.20_1.0.0 - 2.4,,Ensure that the --peer-cert-file and --peer-key-file arguments are set as appropriate (etcd),high,Kubernetes,k8s master,0,0
+5515,,,Do not share the host's process namespace,critical,CRI,container,0,0
+442,,,Unused service API with data tampering risk,high,Twistlock Labs,serverless,0,0
+6619,CIS_Linux_2.0.0 - 6.1.9,,Ensure permissions on /etc/gshadow- are configured,high,Linux,linux,0,0
+6623,CIS_Linux_2.0.0 - 6.2.3,,Ensure no legacy '+' entries exist in /etc/shadow,medium,Linux,linux,0,0
+6627,CIS_Linux_2.0.0 - 6.2.7,,Ensure all users' home directories exist,high,Linux,linux,0,0
+5317,,,Verify that the CRI config file ownership is set to root:root,high,CRI,host config,0,0
+38,CIS_Docker_v1.3.1 - 3.8,,Verify that registry certificate file permissions are set to 444 or more restrictive,high,Docker,daemon config files,0,0
+224,CIS_Docker_v1.3.1 - 2.14,,Ensure containers are restricted from acquiring new privileges,high,Docker,daemon config,1,0
+8115,CIS_Kubernetes1.20_1.0.0 - 1.2.3,,Ensure that the --kubelet-https argument is set to true (kube-apiserver),high,Kubernetes,k8s master,0,0
+61712,CIS_Linux_2.0.0 - 1.7.1.2,,Ensure local login warning banner is configured properly,low,Linux,linux,0,0
+60344,CIS_Linux_2.0.0 - 3.4.4,,Ensure TIPC is disabled,low,Linux,linux,0,0
+65414,CIS_Linux_2.0.0 - 5.4.1.4,,Ensure inactive password lock is 30 days or less,high,Linux,linux,1,0
+5037,,,Verify that CRI global auth file ownership is set to root:root,high,CRI,host config,0,0
+118,CIS_Docker_v1.3.1 - 1.1.8,,Audit Docker files and directories - containerd.sock,high,Docker,host config,0,0
+8151,CIS_Kubernetes1.20_1.0.0 - 2.1,,Ensure that the --cert-file and --key-file arguments are set as appropriate (etcd),high,Kubernetes,k8s master,0,0
+8319,CIS_Kubernetes_1.2 - 3.1.9,,Ensure that the admission control policy is set to NamespaceLifecycle (federation-apiserver),medium,Kubernetes,k8s federation,0,0
+6235,CIS_Linux_2.0.0 - 2.3.5,,Ensure LDAP client is not installed,low,Linux,linux,0,0
+312,CIS_Docker_v1.3.1 - 3.12,,Docker server certificate file permissions must be set to 444 or more restrictive,medium,Docker,daemon config files,0,0
+6423,CIS_Amazon_Linux_2.1.0 - 4.2.3,,Ensure rsyslog or syslog-ng is installed,medium,Linux,linux,0,0
+221,CIS_Docker_v1.3.1 - 2.18,,Avoid experimental features in production,high,Docker,daemon config,0,0
+62210,CIS_Linux_2.0.0 - 2.2.10,,Ensure HTTP server is not enabled,high,Linux,linux,0,0
+200400,,,Verify Windows Update is enabled,critical,Twistlock Labs,windows,0,0
+5528,,,Use PIDs cgroup limit,high,CRI,container,0,0
+425,,,Private keys stored in image,high,Twistlock Labs,image,0,0
+81126,CIS_Kubernetes1.20_1.0.0 - 1.2.27,,Ensure that the --service-account-key-file argument is set as appropriate (kube-apiserver),high,Kubernetes,k8s master,0,0
+81135,CIS_Kubernetes_1.4 - 1.1.35,,Ensure that the encryption provider is set to aescbc (kube-apiserver),medium,Kubernetes,k8s master,0,0
+83117,CIS_Kubernetes_1.2 - 3.1.17,,Ensure that the --service-account-key-file argument is set as appropriate (federation-apiserver),high,Kubernetes,k8s federation,0,0
+6233,CIS_Linux_2.0.0 - 2.3.3,,Ensure talk client is not installed,low,Linux,linux,0,0
+6322,CIS_Linux_2.0.0 - 3.2.2,,Ensure ICMP redirects are not accepted,medium,Linux,linux,0,0
+63512,CIS_Linux_2.0.0 - 3.5.1.2,,Ensure IPv6 loopback traffic is configured,high,Linux,linux,0,0
+6544,CIS_Linux_2.0.0 - 5.4.4,,Ensure default user umask is 027 or more restrictive,high,Linux,linux,1,0
+424,,,Sensitive information provided in environment variables,high,Twistlock Labs,image,0,0
+5036,,,Verify that permissions of CRI config directories under /etc are set to 755 or more restrictive,high,CRI,host config,0,0
+8218,CIS_Kubernetes1.20_1.0.0 - 4.2.7,,Ensure that the --make-iptables-util-chains argument is set to true (kubelet),medium,Kubernetes,k8s worker,0,0
+6214,CIS_Linux_2.0.0 - 2.1.4,,Ensure echo services are not enabled,medium,Linux,linux,0,0
+6329,CIS_Linux_2.0.0 - 3.2.9,,Ensure IPv6 router advertisements are not accepted,low,Linux,linux,0,0
+64110,CIS_Linux_2.0.0 - 4.1.11,,Ensure discretionary access control permission modification events are collected,low,Linux,linux,0,0
+6524,CIS_Linux_2.0.0 - 5.2.6,,Ensure SSH X11 forwarding is disabled,medium,Linux,linux,0,0
+435,,,Private keys stored in function,high,Twistlock Labs,serverless,0,0
+6516,CIS_Linux_2.0.0 - 5.1.6,,Ensure permissions on /etc/cron.monthly are configured,medium,Linux,linux,0,0
+6529,CIS_Linux_2.0.0 - 5.2.11,,Ensure SSH PermitEmptyPasswords is disabled,high,Linux,linux,0,0
+300423,CIS_OpenShift_1.1.0 - 4.2.3,,Ensure that the --client-ca-file argument is set as appropriate (kubelet),medium,OpenShift,openshift worker,0,0
+6225,CIS_Linux_2.0.0 - 2.2.5,,Ensure DHCP Server is not enabled,high,Linux,linux,0,0
+6154,CIS_Linux_2.0.0 - 1.5.4,,Ensure prelink is disabled,medium,Linux,linux,0,0
+6212,CIS_Linux_2.0.0 - 2.1.2,,Ensure daytime services are not enabled,medium,Linux,linux,0,0
+60412,CIS_Linux_2.0.0 - 4.1.2,,Ensure auditd is installed,low,Linux,linux,0,0
+122,CIS_Docker_v1.3.1 - 1.1.17,,Audit Docker files and directories - /usr/bin/containerd-shim-runc-v2,medium,Docker,host config,0,0
+62214,CIS_Linux_2.0.0 - 2.2.14,,Ensure SNMP Server is not enabled,critical,Linux,linux,0,0
+6624,CIS_Linux_2.0.0 - 6.2.4,,Ensure no legacy '+' entries exist in /etc/group,medium,Linux,linux,0,0
+5525,,,Restrict container from acquiring additional privileges,high,CRI,container,0,0
+30021,CIS_OpenShift_1.1.0 - 2.1,,Ensure that the --cert-file and --key-file arguments are set as appropriate,medium,OpenShift,openshift master,0,0
+18,CIS_Docker_v1.3.1 - 1.1.5,,Audit Docker files and directories - /var/lib/docker,medium,Docker,host config,0,0
+81133,CIS_Kubernetes1.20_1.0.0 - 1.2.16,,Ensure that the admission control policy is set to NodeRestriction (kube-apiserver),high,Kubernetes,k8s master,0,0
+601118,CIS_Amazon_Linux_2.1.0 - 1.1.1.8,,Ensure mounting of FAT filesystems is disabled,low,Linux,linux,0,0
+6345,CIS_Linux_2.0.0 - 3.3.5,,Ensure permissions on /etc/hosts.deny are configured,high,Linux,linux,0,0
+300133,CIS_OpenShift_1.1.0 - 1.3.3,,Ensure that the --use-service-account-credentials argument is set to true,medium,OpenShift,openshift master,0,0
+81117,CIS_Kubernetes1.20_1.0.0 - 1.2.22,,Ensure that the --audit-log-maxage argument is set to 30 or as appropriate (kube-apiserver),low,Kubernetes,k8s master,0,0
+56,CIS_Docker_v1.3.1 - 5.6,,Do not run ssh within containers,critical,Docker,container,0,0
+64211,CIS_Linux_2.0.0 - 4.2.1.2,,Ensure rsyslog Service is enabled,medium,Linux,linux,0,0
+200003,,,Verify Windows Defender always-on protection is enabled,medium,Twistlock Labs,windows,0,0
+210,CIS_Docker_v1.3.1 - 2.11,,Do not change base device size until needed,low,Docker,daemon config,0,0
+81427,CIS_Kubernetes1.20_1.0.0 - 1.1.19,,Ensure that the Kubernetes PKI directory and file ownership is set to root:root,high,Kubernetes,k8s master,0,0
+6542,CIS_Linux_2.0.0 - 5.4.2,,Ensure system accounts are secured,low,Linux,linux,0,0
+6543,CIS_Linux_2.0.0 - 5.4.3,,Ensure default group for the root account is GID 0,medium,Linux,linux,0,0
+3001215,CIS_OpenShift_1.1.0 - 1.2.15,,Ensure that the admission control plugin NamespaceLifecycle is set,medium,OpenShift,openshift master,0,0
+300136,CIS_OpenShift_1.1.0 - 1.3.6,,Ensure that the RotateKubeletServerCertificate argument is set to true,medium,OpenShift,openshift master,0,0
+8122,CIS_Kubernetes1.20_1.0.0 - 1.4.2,,Ensure that the --address argument is set to 127.0.0.1 (kube-scheduler),low,Kubernetes,k8s master,0,0
+8225,CIS_Kubernetes_1.1 - 2.2.5,,Ensure that the proxy file permissions are set to 644 or more restrictive,high,Kubernetes,k8s worker,0,0
+437,,,Overly permissive service access,high,Twistlock Labs,serverless,0,0
+61115,CIS_Linux_2.0.0 - 1.1.11,,Ensure separate partition exists for /var/log,medium,Linux,linux,0,0
+6232,CIS_Linux_2.0.0 - 2.3.2,,Ensure rsh client is not installed,low,Linux,linux,0,0
+6414,CIS_Linux_2.0.0 - 4.1.5,,Ensure events that modify date and time information are collected,low,Linux,linux,0,0
+64213,CIS_Linux_2.0.0 - 4.2.1.4,,Ensure rsyslog default file permissions configured,medium,Linux,linux,0,0
+6626,CIS_Linux_2.0.0 - 6.2.6,,Ensure root PATH Integrity,high,Linux,linux,0,0
+200007,,,Verify antispyware signatures expiration policy,critical,Twistlock Labs,windows,0,0
+300123,CIS_OpenShift_1.1.0 - 1.2.3,,Ensure that the --token-auth-file parameter is not set,medium,OpenShift,openshift master,0,0
+8321,CIS_Kubernetes_1.2 - 3.2.1,,Ensure that the --profiling argument is set to false (federation-controller-manager),low,Kubernetes,k8s federation,0,0
+300321,CIS_OpenShift_1.1.0 - 3.2.1,,Ensure that a minimal audit policy is created,medium,OpenShift,openshift master,0,0
+61116,CIS_Linux_2.0.0 - 1.1.12,,Ensure separate partition exists for /var/log/audit,medium,Linux,linux,0,0
+597,,,Secrets in clear text environment variables,high,Twistlock Labs,container,0,0
+8227,CIS_Kubernetes1.20_1.0.0 - 4.1.7,,Ensure that the certificate authorities file permissions are set to 644 or more restrictive (kubelet),high,Kubernetes,k8s worker,0,0
+3004211,CIS_OpenShift_1.1.0 - 4.2.11,,Ensure that the --rotate-certificates argument is not set to false (kubelet),medium,OpenShift,openshift worker,0,0
+510,CIS_Docker_v1.3.1 - 5.10,,Limit memory usage for container,high,Docker,container,0,0
+518,CIS_Docker_v1.3.1 - 5.18,,Override default ulimit at runtime only if needed,medium,Docker,container,0,0
+6216,CIS_Linux_2.0.0 - 2.1.6,,Ensure rsh server is not enabled,high,Linux,linux,0,0
+3001115,CIS_OpenShift_1.1.0 - 1.1.15,,Ensure that the scheduler.conf file permissions are set to 644 or more restrictive,high,OpenShift,openshift master,0,0
+34,CIS_Docker_v1.3.1 - 3.4,,Verify that docker.socket file permissions are set to 644 or more restrictive,high,Docker,daemon config files,0,0
+8311,CIS_Kubernetes_1.2 - 3.1.1,,Ensure that the --anonymous-auth argument is set to false (federation-apiserver),high,Kubernetes,k8s federation,0,0
+7123,CIS_Amazon_Linux_2.1.0 - 1.2.3,,Ensure gpgcheck is globally activated,low,Linux,linux,0,0
+300124,CIS_OpenShift_1.1.0 - 1.2.4,,Use https for kubelet connections,high,OpenShift,openshift master,0,0
+12,CIS_Docker_1.12.0 - 1.2,,Use the updated Linux Kernel,medium,Docker,host config,0,0
+5511,,,Set container CPU priority appropriately,high,CRI,container,0,0
+3001222,CIS_OpenShift_1.1.0 - 1.2.22,,Ensure that the --audit-log-path argument is set,high,OpenShift,openshift master,0,0
+83113,CIS_Kubernetes_1.2 - 3.1.13,,Ensure that the --audit-log-maxsize argument is set to 100 or as appropriate (federation-apiserver),low,Kubernetes,k8s federation,0,0
+6217,CIS_Linux_2.0.0 - 2.1.7,,Ensure talk server is not enabled,medium,Linux,linux,0,0
+8148,CIS_Kubernetes_1.1 - 1.4.8,,Ensure that the etcd.conf file ownership is set to root:root,high,Kubernetes,k8s master,0,0
+601116,CIS_Linux_2.0.0 - 1.1.1.6,,Ensure mounting of squashfs filesystems is disabled,low,Linux,linux,0,0
+6628,CIS_Linux_2.0.0 - 6.2.8,,Ensure users' home directories permissions are 750 or more restrictive,high,Linux,linux,1,0
+6629,CIS_Linux_2.0.0 - 6.2.9,,Ensure users own their home directories,high,Linux,linux,1,0
+300135,CIS_OpenShift_1.1.0 - 1.3.5,,Ensure that the --root-ca-file argument is set as appropriate,medium,OpenShift,openshift master,0,0
+16,CIS_Docker_v1.3.1 - 1.1.2,,Only allow trusted users to control Docker daemon,high,Docker,host config,1,0
+3001224,CIS_OpenShift_1.1.0 - 1.2.24,,Ensure that the audit-log-maxbackup argument is set to 10 or as appropriate,low,OpenShift,openshift master,0,0
+8134,CIS_Kubernetes1.20_1.0.0 - 1.3.3,,Ensure that the --use-service-account-credentials argument is set to true (kube-controller-manager),high,Kubernetes,k8s master,0,0
+81425,CIS_Kubernetes1.20_1.0.0 - 1.1.7,,Ensure that the etcd pod specification file permissions are set to 644 or more restrictive,high,Kubernetes,k8s master,0,0
+200201,,,Verify Windows Defender Control Flow Guard (CFG) is enabled,critical,Twistlock Labs,windows,0,0
+300128,CIS_OpenShift_1.1.0 - 1.2.8,,Verify that the Node authorizer is enabled,high,OpenShift,openshift master,0,0
+8117,CIS_Kubernetes1.20_1.0.0 - 1.2.18,,Ensure that the --insecure-port argument is set to 0 (kube-apiserver),critical,Kubernetes,k8s master,0,0
+54,CIS_Docker_v1.3.1 - 5.4,,Do not use privileged containers,critical,Docker,container,0,0
+81132,CIS_Kubernetes1.20_1.0.0 - 1.2.7,,Ensure that the --authorization-mode argument is set to Node (kube-apiserver),high,Kubernetes,k8s master,0,0
+8145,CIS_Kubernetes1.20_1.0.0 - 1.1.16,,Ensure that the scheduler file ownership is set to root:root,high,Kubernetes,k8s master,0,0
+83115,CIS_Kubernetes_1.2 - 3.1.15,,Ensure that the --token-auth-file parameter is not set (federation-apiserver),medium,Kubernetes,k8s federation,0,0
+6114,CIS_Linux_2.0.0 - 1.1.4,,Ensure nosuid option set on /tmp partition,medium,Linux,linux,0,0
+6612,CIS_Linux_2.0.0 - 6.1.2,,Ensure permissions on /etc/passwd are configured,high,Linux,linux,0,0
+66211,CIS_Linux_2.0.0 - 6.2.11,,Ensure no users have .forward files,medium,Linux,linux,0,0
+217,CIS_Docker_v1.3.1 - 7.3,,Bind swarm services to a specific host interface,high,Docker,daemon config,0,0
+300426,CIS_OpenShift_1.1.0 - 4.2.6,,Ensure that the --protect-kernel-defaults argument is not set (kubelet),medium,OpenShift,openshift worker,0,0
+6115,CIS_Linux_2.0.0 - 1.1.5,,Ensure noexec option set on /tmp partition,medium,Linux,linux,0,0
+526,CIS_Docker_v1.3.1 - 5.26,,Check container health at runtime,medium,Docker,container,0,0
+300413,CIS_OpenShift_1.1.0 - 4.1.3,,If proxy kubeconfig file exists ensure permissions are set to 644 or more restrictive,high,OpenShift,openshift worker,0,0
+8316,CIS_Kubernetes_1.2 - 3.1.6,,Ensure that the --secure-port argument is not set to 0 (federation-apiserver),critical,Kubernetes,k8s federation,0,0
+82111,CIS_Kubernetes1.20_1.0.0 - 4.2.9,,Ensure that the --event-qps argument is set to 0 (kubelet),medium,Kubernetes,k8s worker,0,0
+6152,CIS_Linux_2.0.0 - 1.5.2,,Ensure XD/NX support is enabled,critical,Linux,linux,0,0
+64112,CIS_Linux_2.0.0 - 4.1.1.2,,Ensure system is disabled when audit logs are full,medium,Linux,linux,0,0
+5026,,,Configure TLS authentication for CRI-O daemon,critical,CRI,host config,0,0
+300425,CIS_OpenShift_1.1.0 - 4.2.5,,Ensure that the --streaming-connection-idle-timeout argument is not set to 0 (kubelet),medium,OpenShift,openshift worker,0,0
+8146,CIS_Kubernetes1.20_1.0.0 - 1.1.15,,Ensure that the scheduler file permissions are set to 644 or more restrictive,high,Kubernetes,k8s master,0,0
+6117,CIS_Linux_2.0.0 - 1.1.7,,Ensure separate partition exists for /var/tmp,medium,Linux,linux,0,0
+6119,CIS_Linux_2.0.0 - 1.1.9,,Ensure nosuid option set on /var/tmp partition,medium,Linux,linux,0,0
+6224,CIS_Linux_2.0.0 - 2.2.4,,Ensure CUPS is not enabled,high,Linux,linux,1,0
+66219,CIS_Linux_2.0.0 - 6.2.19,,Ensure no duplicate group names exist,medium,Linux,linux,0,0
+81130,CIS_Kubernetes1.20_1.0.0 - 1.2.30,,Ensure that the --client-ca-file argument is set as appropriate (kube-apiserver),high,Kubernetes,k8s master,0,0
+513,CIS_Docker_v1.3.1 - 5.13,,Bind incoming container traffic to a specific host interface,medium,Docker,container,0,0
+6512,CIS_Linux_2.0.0 - 5.1.2,,Ensure permissions on /etc/crontab are configured,medium,Linux,linux,0,0
+3001116,CIS_OpenShift_1.1.0 - 1.1.16,,Ensure that the scheduler.conf file ownership is set to root:root,high,OpenShift,openshift master,0,0
+512,CIS_Docker_v1.3.1 - 5.12,,Mount container's root filesystem as read only,high,Docker,container,0,0
+524,CIS_Docker_v1.3.1 - 5.24,,Confirm cgroup usage,high,Docker,container,0,0
+520,CIS_Docker_v1.3.1 - 5.20,,Do not share the host's UTS namespace,critical,Docker,container,0,0
+6324,CIS_Linux_2.0.0 - 3.2.4,,Ensure suspicious packets are logged,medium,Linux,linux,0,0
+65415,CIS_Linux_2.0.0 - 5.4.1.5,,Ensure all users last password change date is in the past,low,Linux,linux,0,0
+81125,CIS_Kubernetes1.20_1.0.0 - 1.2.15,,Ensure that the admission control policy is set to PodSecurityPolicy (kube-apiserver),medium,Kubernetes,k8s master,0,0
+6621,CIS_Linux_2.0.0 - 6.2.1,,Ensure password fields are not empty,high,Linux,linux,0,0
+439,,,Suspicious function actions,high,Twistlock Labs,serverless,0,0
+81131,CIS_Kubernetes1.20_1.0.0 - 1.2.31,,Ensure that the --etcd-cafile argument is set as appropriate (kube-apiserver),high,Kubernetes,k8s master,0,0
+8143,CIS_Kubernetes_1.1 - 1.4.3,,Ensure that the config file permissions are set to 644 or more restrictive,high,Kubernetes,k8s master,0,0
+82114,CIS_Kubernetes1.20_1.0.0 - 4.2.11,,Ensure that the RotateKubeletClientCertificate argument is not set to false (kubelet),medium,Kubernetes,k8s worker,0,0
+83110,CIS_Kubernetes_1.2 - 3.1.10,,Ensure that the --audit-log-path argument is set as appropriate (federation-apiserver),low,Kubernetes,k8s federation,0,0
+300111,CIS_OpenShift_1.1.0 - 1.1.1,,Ensure that the API server pod specification file permissions are set to 644 or more restrictive,high,OpenShift,openshift master,0,0
+300113,CIS_OpenShift_1.1.0 - 1.1.3,,Ensure that the controller manager pod specification file permissions are set to 644 or more restrictive,high,OpenShift,openshift master,0,0
+115,CIS_Docker_v1.3.1 - 1.1.18,,Audit Docker files and directories - /usr/bin/runc,medium,Docker,host config,0,0
+300421,CIS_OpenShift_1.1.0 - 4.2.1,,Ensure that the --anonymous-auth argument is set to false (kubelet),high,OpenShift,openshift worker,0,0
+5056,,,Do not run ssh within containers,critical,CRI,container,0,0
+23,CIS_Docker_v1.3.1 - 2.4,,Allow Docker to make changes to iptables,medium,Docker,daemon config,0,0
+448,,,Package binaries should not be altered,critical,Twistlock Labs,image,0,0
+66217,CIS_Linux_2.0.0 - 6.2.17,,Ensure no duplicate GIDs exist,high,Linux,linux,0,0
+110,CIS_Docker_v1.3.1 - 1.1.7,,Audit Docker files and directories - docker.service,medium,Docker,host config,0,0
+434,,,Sensitive information provided in environment variables,high,Twistlock Labs,serverless,0,0
+8111,CIS_Kubernetes_1.1 - 1.1.1,,Ensure that the --allow-privileged argument is set to false (kube-apiserver),high,Kubernetes,k8s master,0,0
+6325,CIS_Linux_2.0.0 - 3.2.5,,Ensure broadcast ICMP requests are ignored,medium,Linux,linux,0,0
+6545,CIS_Linux_2.0.0 - 5.4.5,,Ensure default user shell timeout is 900 seconds or less,low,Linux,linux,0,0
+5315,,,Verify that the CRI socket file ownership is set to root:root,high,CRI,host config,0,0
+310,CIS_Docker_v1.3.1 - 3.10,,Docker TLS certificate authority (CA) certificate file permissions must be set to 444 or more restrictive,medium,Docker,daemon config files,0,0
+82113,CIS_Kubernetes_1.4 - 2.1.11,,Ensure that the --cadvisor-port argument is set to 0 (kubelet),critical,Kubernetes,k8s worker,0,0
+8315,CIS_Kubernetes_1.2 - 3.1.5,,Ensure that the --insecure-port argument is set to 0 (federation-apiserver),critical,Kubernetes,k8s federation,0,0
+6234,CIS_Linux_2.0.0 - 2.3.4,,Ensure telnet client is not installed,low,Linux,linux,0,0
+6615,CIS_Linux_2.0.0 - 6.1.5,,Ensure permissions on /etc/gshadow are configured,high,Linux,linux,0,0
+6618,CIS_Linux_2.0.0 - 6.1.8,,Ensure permissions on /etc/group- are configured,high,Linux,linux,0,0
+66218,CIS_Linux_2.0.0 - 6.2.18,,Ensure no duplicate user names exist,high,Linux,linux,0,0
+438,,,Broad resource access,medium,Twistlock Labs,serverless,0,0
+211,CIS_Docker_v1.3.1 - 2.12,,Use authorization plugin,high,Docker,daemon config,1,0
+35,CIS_Docker_v1.3.1 - 3.5,,Verify that /etc/docker directory ownership is set to root:root,high,Docker,daemon config files,0,0
+8113,CIS_Kubernetes_1.6 - 1.2.2,,Ensure that the --basic-auth-file argument is not set (kube-apiserver),medium,Kubernetes,k8s master,0,0
+8155,CIS_Kubernetes1.20_1.0.0 - 2.5,,Ensure that the --peer-client-cert-auth argument is set to true (etcd),high,Kubernetes,k8s master,0,0
+61612,CIS_Linux_2.0.0 - 1.6.2.2,,Ensure the SELinux state is enforcing,high,Linux,linux,0,0
+19,CIS_Docker_v1.3.1 - 1.1.6,,Audit Docker files and directories - /etc/docker,medium,Docker,host config,0,0
+61113,CIS_Linux_2.0.0 - 1.1.1.3,,Ensure mounting of jffs2 filesystems is disabled,low,Linux,linux,0,0
+6142,CIS_Linux_2.0.0 - 1.4.2,,Ensure bootloader password is set,high,Linux,linux,1,0
+5051,,,"Verify AppArmor profile, if applicable",high,CRI,container,0,0
+452,,,Enable Istio access control on all workloads in the mesh using Authorization Policies,critical,Istio,istio,0,0
+41,CIS_Docker_v1.3.1 - 4.1,,Image should be created with a non-root user,high,Docker,image,0,0
+8216,CIS_Kubernetes1.20_1.0.0 - 4.2.5,,Ensure that the --streaming-connection-idle-timeout argument is not set to 0 (kubelet),medium,Kubernetes,k8s worker,0,0
+63511,CIS_Linux_2.0.0 - 3.5.1.1,,Ensure IPv6 default deny firewall policy,high,Linux,linux,0,0
+300126,CIS_OpenShift_1.1.0 - 1.2.6,,Verify that the kubelet certificate authority is set as appropriate,high,OpenShift,openshift master,0,0
+313,CIS_Docker_v1.3.1 - 3.13,,Docker server certificate key file ownership must be set to root:root,high,Docker,daemon config files,0,0
+528,CIS_Docker_v1.3.1 - 5.28,,Use PIDs cgroup limit,high,Docker,container,0,0
+81420,CIS_Kubernetes1.20_1.0.0 - 1.1.2,,Ensure that the API server pod specification file ownership is set to root:root,high,Kubernetes,k8s master,0,0
+8215,CIS_Kubernetes1.20_1.0.0 - 4.2.4,,Ensure that the --read-only-port argument is set to 0 (kubelet),high,Kubernetes,k8s worker,0,0
+83111,CIS_Kubernetes_1.2 - 3.1.11,,Ensure that the --audit-log-maxage argument is set to 30 or as appropriate (federation-apiserver),low,Kubernetes,k8s federation,0,0
+62216,CIS_Linux_2.0.0 - 2.2.16,,Ensure rsync service is not enabled,high,Linux,linux,0,0
+5055,,,Do not mount sensitive host system directories on containers,critical,CRI,container,0,0
+28,CIS_Docker_v1.3.1 - 2.9,,Enable user namespace support,high,Docker,daemon config,1,0
+8119,CIS_Kubernetes1.20_1.0.0 - 1.2.20,,Ensure that the --profiling argument is set to false (kube-apiserver),low,Kubernetes,k8s master,0,0
+81114,CIS_Kubernetes1.20_1.0.0 - 1.2.12,,Ensure that the admission control policy is set to SecurityContextDeny (kube-apiserver),medium,Kubernetes,k8s master,0,0
+81141,CIS_Kubernetes1.20_1.0.0 - 1.2.8,,Ensure that the --authorization-mode argument includes RBAC (kube-apiserver),medium,Kubernetes,k8s master,0,0
+8149,CIS_Kubernetes_1.1 - 1.4.9,,Ensure that the flanneld file permissions are set to 644 or more restrictive,high,Kubernetes,k8s master,0,0
+8226,CIS_Kubernetes_1.1 - 2.2.6,,Ensure that the proxy file ownership is set to root:root,high,Kubernetes,k8s worker,0,0
+200004,,,Verify antivirus signatures are up-to-date,critical,Twistlock Labs,windows,0,0
+52,CIS_Docker_v1.3.1 - 5.2,,"Verify SELinux security options, if applicable",high,Docker,container,0,0
+596,,,Potentially dangerous NET_RAW capability enabled,medium,Twistlock Labs,container,0,0
+8135,CIS_Kubernetes1.20_1.0.0 - 1.3.4,,Ensure that the --service-account-private-key-file argument is set as appropriate (kube-controller-manager),high,Kubernetes,k8s master,0,0
+61614,CIS_Linux_2.0.0 - 1.6.2.4,,Ensure SETroubleshoot is not installed,low,Linux,linux,0,0
+200300,,,Verify Windows Firewall public profile is enabled,medium,Twistlock Labs,windows,0,0
+119,CIS_Docker_v1.3.1 - 1.1.12,,Audit Docker files and directories - /etc/containerd/config.toml,high,Docker,host config,0,0
+8118,CIS_Kubernetes1.20_1.0.0 - 1.2.19,,Ensure that the --secure-port argument is not set to 0 (kube-apiserver),critical,Kubernetes,k8s master,0,0
+8312,CIS_Kubernetes_1.2 - 3.1.2,,Ensure that the --basic-auth-file argument is not set (federation-apiserver),medium,Kubernetes,k8s federation,0,0
+66214,CIS_Linux_2.0.0 - 6.2.14,,Ensure no users have .rhosts files,medium,Linux,linux,0,0
+300414,CIS_OpenShift_1.1.0 - 4.1.4,,If proxy kubeconfig file exists ensure ownership is set to root:root,high,OpenShift,openshift worker,0,0
+55,CIS_Docker_v1.3.1 - 5.5,,Do not mount sensitive host system directories on containers,critical,Docker,container,0,0
+61126,CIS_Linux_2.0.0 - 1.1.22,,Disable Automounting,medium,Linux,linux,0,0
+200001,,,Verify Windows Defender antivirus is running,critical,Twistlock Labs,windows,0,0
+300117,CIS_OpenShift_1.1.0 - 1.1.7,,Ensure that the etcd pod specification file permissions are set to 644 or more restrictive,high,OpenShift,openshift master,0,0
+3001226,CIS_OpenShift_1.1.0 - 1.2.26,,Ensure that the --request-timeout argument is set as appropriate,low,OpenShift,openshift master,0,0
+8138,CIS_Kubernetes1.20_1.0.0 - 1.3.7,,Ensure that the --address argument is set to 127.0.0.1 (kube-controller-manager),medium,Kubernetes,k8s master,0,0
+8147,CIS_Kubernetes_1.1 - 1.4.7,,Ensure that the etcd.conf file permissions are set to 644 or more restrictive,high,Kubernetes,k8s master,0,0
+701070,DISA_STIG_Docker_EE_1.0.0 - DKER-EE-001070,,FIPS mode must be enabled on all Docker Engine - Enterprise nodes,medium,Docker (DISA STIG),docker stig,0,0
+319,CIS_Docker_v1.3.1 - 3.19,,Verify that /etc/default/docker file ownership is set to root:root,high,Docker,daemon config files,0,0
+64118,CIS_Linux_2.0.0 - 4.1.19,,Ensure the audit configuration is immutable,high,Linux,linux,0,0
+3001217,CIS_OpenShift_1.1.0 - 1.2.17,,Ensure that the admission control plugin NodeRestriction is set,medium,OpenShift,openshift master,0,0
+8231,CIS_Kubernetes1.20_1.0.0 - 4.1.3,,Ensure that the proxy kubeconfig file permissions are set to 644 or more restrictive,high,Kubernetes,k8s worker,0,0
+451,,,Avoid using permissive authorization policies without rules as it can compromise the target services,critical,Istio,istio,0,0
+65211,CIS_Linux_2.0.0 - 5.2.14,,Ensure only strong MAC algorithms are used,medium,Linux,linux,0,0
+30023,CIS_OpenShift_1.1.0 - 2.3,,Ensure that the --auto-tls argument is not set to true,medium,OpenShift,openshift master,0,0
+444,,,Unused service API with denial of service risk,high,Twistlock Labs,serverless,0,0
+83114,CIS_Kubernetes_1.2 - 3.1.14,,Ensure that the --authorization-mode argument is not set to AlwaysAllow (federation-apiserver),high,Kubernetes,k8s federation,0,0
+6118,CIS_Linux_2.0.0 - 1.1.8,,Ensure nodev option set on /var/tmp partition,medium,Linux,linux,0,0
+6341,CIS_Amazon_Linux_2.1.0 - 3.4.1,,Ensure TCP Wrappers is installed,low,Linux,linux,0,0
+3001213,CIS_OpenShift_1.1.0 - 1.2.13,,Ensure that the admission control plugin SecurityContextDeny is not set,high,OpenShift,openshift master,0,0
+531,CIS_Docker_v1.3.1 - 5.31,,Do not mount the Docker socket inside any containers,critical,Docker,container,0,0
+81123,CIS_Kubernetes1.20_1.0.0 - 1.2.4,,Ensure that the --kubelet-client-certificate and --kubelet-client-key arguments are set as appropriate (kube-apiserver),high,Kubernetes,k8s master,0,0
+15,CIS_Docker_v1.3.1 - 1.2.2,,Keep Docker up to date,medium,Docker,host config,0,0
+61123,CIS_Linux_2.0.0 - 1.1.23,,Disable USB Storage,medium,Linux,linux,0,0
+6323,CIS_Linux_2.0.0 - 3.2.3,,Ensure secure ICMP redirects are not accepted,medium,Linux,linux,0,0
+7162,CIS_Amazon_Linux_2.1.0 - 1.6.2,,Ensure SELinux is installed,high,Linux,linux,0,0
+3001120,CIS_OpenShift_1.1.0 - 1.1.20,,Ensure that the OpenShift PKI certificate file permissions are set to 644 or more restrictive,high,OpenShift,openshift master,0,0
+3001227,CIS_OpenShift_1.1.0 - 1.2.27,,Ensure that the --service-account-lookup argument is set to true ,medium,OpenShift,openshift master,0,0
+8112,CIS_Kubernetes1.20_1.0.0 - 1.2.1,,Ensure that the --anonymous-auth argument is set to false (kube-apiserver),high,Kubernetes,k8s master,0,0
+81417,CIS_Kubernetes1.20_1.0.0 - 1.1.17,,Ensure that the controller-manager.conf file permissions are set to 644 or more restrictive,high,Kubernetes,k8s master,0,0
+61117,CIS_Linux_2.0.0 - 1.1.13,,Ensure separate partition exists for /home,medium,Linux,linux,0,0
+62213,CIS_Linux_2.0.0 - 2.2.13,,Ensure HTTP Proxy Server is not enabled,high,Linux,linux,0,0
+64116,CIS_Linux_2.0.0 - 4.1.17,,Ensure system administrator actions (sudolog) are collected,high,Linux,linux,0,0
+6513,CIS_Linux_2.0.0 - 5.1.3,,Ensure permissions on /etc/cron.hourly are configured,medium,Linux,linux,0,0
+6617,CIS_Linux_2.0.0 - 6.1.7,,Ensure permissions on /etc/shadow- are configured,high,Linux,linux,0,0
+66216,CIS_Linux_2.0.0 - 6.2.16,,Ensure no duplicate UIDs exist,high,Linux,linux,0,0
+525,CIS_Docker_v1.3.1 - 5.25,,Restrict container from acquiring additional privileges,high,Docker,container,0,0
+82110,CIS_Kubernetes1.20_1.0.0 - 4.2.8,,Ensure that the --hostname-override argument is not set (kubelet),medium,Kubernetes,k8s worker,0,0
+61613,CIS_Linux_2.0.0 - 1.6.2.3,,Ensure SELinux policy is configured,high,Linux,linux,0,0
+65413,CIS_Linux_2.0.0 - 5.4.1.3,,Ensure password expiration warning days is 7 or more,low,Linux,linux,0,0
+200006,,,Verify antispyware signatures are up-to-date,critical,Twistlock Labs,windows,0,0
+3004212,CIS_OpenShift_1.1.0 - 4.2.12,,Verify that the RotateKubeletServerCertificate argument is set to true (kubelet),medium,OpenShift,openshift worker,0,0
+81410,CIS_Kubernetes_1.1 - 1.4.10,,Ensure that the flanneld file ownership is set to root,high,Kubernetes,k8s master,0,0
+81412,CIS_Kubernetes1.20_1.0.0 - 1.1.12,,Ensure that the etcd data directory ownership is set to etcd:etcd,high,Kubernetes,k8s master,0,0
+81139,CIS_Kubernetes1.20_1.0.0 - 1.2.9,,Ensure that the admission control policy is set to EventRateLimit (kube-apiserver),medium,Kubernetes,k8s master,0,0
+83119,CIS_Kubernetes_1.2 - 3.1.19,,Ensure that the --tls-cert-file and --tls-private-key-file arguments are set as appropriate (federation-apiserver),high,Kubernetes,k8s federation,0,0
+6311,CIS_Linux_2.0.0 - 3.1.1,," Ensure IP forwarding is disabled",medium,Linux,linux,0,0
+5054,,,Do not use privileged containers,critical,CRI,container,0,0
+300418,CIS_OpenShift_1.1.0 - 4.1.8,,Ensure that the client certificate authorities file ownership is set to root:root,high,OpenShift,openshift worker,0,0
+8224,CIS_Kubernetes1.20_1.0.0 - 4.1.6,,Ensure that the kubelet file ownership is set to root:root,high,Kubernetes,k8s worker,0,0
+6343,CIS_Linux_2.0.0 - 3.4.3,,Ensure RDS is disabled,low,Linux,linux,0,0
+64111,CIS_Linux_2.0.0 - 4.1.12,,Ensure unsuccessful unauthorized file access attempts are collected,medium,Linux,linux,0,0
+8318,CIS_Kubernetes_1.2 - 3.1.8,,Ensure that the admission control policy is not set to AlwaysAdmit (federation-apiserver),high,Kubernetes,k8s federation,0,0
+8212,CIS_Kubernetes1.20_1.0.0 - 4.2.1,,Ensure that the --anonymous-auth argument is set to false (kubelet),high,Kubernetes,k8s worker,0,0
+64221,CIS_Amazon_Linux2_1.0.0 - 4.2.2.1,,Ensure syslog-ng service is enabled,medium,Linux,linux,0,0
+65212,CIS_Linux_2.0.0 - 5.2.16,,Ensure SSH Idle Timeout Interval is configured,low,Linux,linux,0,0
+8137,CIS_Kubernetes1.20_1.0.0 - 1.3.6,,Ensure that the RotateKubeletServerCertificate argument is set to true (kube-controller-manager),medium,Kubernetes,k8s master,0,0
+315,CIS_Docker_v1.3.1 - 3.15,,Verify that Docker socket file ownership is set to root:docker,high,Docker,daemon config files,0,0
+8141,CIS_Kubernetes_1.1 - 1.4.1,,Ensure that the apiserver file permissions are set to 644 or more restrictive,high,Kubernetes,k8s master,0,0
+8144,CIS_Kubernetes_1.1 - 1.4.4,,Ensure that the config file ownership is set to root:root,high,Kubernetes,k8s master,0,0
+8214,CIS_Kubernetes1.20_1.0.0 - 4.2.3,,Ensure that the --client-ca-file argument is set as appropriate (kubelet),high,Kubernetes,k8s worker,0,0
+8219,CIS_Kubernetes_1.2 - 2.1.9,,Ensure that the --keep-terminated-pod-volumes argument is set to false (kubelet),medium,Kubernetes,k8s worker,0,0
+6223,CIS_Linux_2.0.0 - 2.2.3,,Ensure Avahi Server is not enabled,high,Linux,linux,1,0
+5519,,,Do not set mount propagation mode to shared,critical,CRI,container,0,0
+113,CIS_Docker_v1.3.1 - 1.1.11,,Audit Docker files and directories - /etc/docker/daemon.json,medium,Docker,host config,0,0
+65215,CIS_Linux_2.0.0 - 5.2.19,,Ensure SSH warning banner is configured,medium,Linux,linux,0,0
+33,CIS_Docker_v1.3.1 - 3.3,,Verify that docker.socket file ownership is set to root:root,high,Docker,daemon config files,0,0
+604221,CIS_Linux_2.0.0 - 4.2.2.1,,Ensure journald is configured to send logs to rsyslog,medium,Linux,linux,0,0
+6424,CIS_Linux_2.0.0 - 4.2.3,,Ensure permissions on all logfiles are configured,medium,Linux,linux,0,0
+60341,CIS_Linux_2.0.0 - 3.4.1,,Ensure DCCP is disabled,low,Linux,linux,0,0
+8132,CIS_Kubernetes1.20_1.0.0 - 1.3.2,,Ensure that the --profiling argument is set to false (kube-controller-manager),low,Kubernetes,k8s master,0,0
+61715,CIS_Linux_2.0.0 - 1.7.1.5,,Ensure permissions on /etc/issue are configured,low,Linux,linux,0,0
+5318,,,Verify that the CRI config file permissions are set to 644 or more restrictive,high,CRI,host config,0,0
+3001119,CIS_OpenShift_1.1.0 - 1.1.19,,Ensure that the OpenShift PKI directory and file ownership is set to root:root,high,OpenShift,openshift master,0,0
+300134,CIS_OpenShift_1.1.0 - 1.3.4,,Ensure that the --service-account-private-key-file argument is set as appropriate,medium,OpenShift,openshift master,0,0
+599,,,Container is running as root,high,Twistlock Labs,container,0,0
+61118,CIS_Linux_2.0.0 - 1.1.14,,Ensure nodev option set on /home partition,medium,Linux,linux,0,0
+6172,CIS_Linux_2.0.0 - 1.7.2,,Ensure GDM login banner is configured,low,Linux,linux,0,0
+6228,CIS_Linux_2.0.0 - 2.2.8,,Ensure DNS Server is not enabled,high,Linux,linux,0,0
+300119,CIS_OpenShift_1.1.0 - 1.1.9,,Ensure that the Container Network Interface file permissions are set to 644 or more restrictive,medium,OpenShift,openshift master,0,0
+441,,,Unused service API with data leakage risk,high,Twistlock Labs,serverless,0,0
+112,CIS_Docker_v1.3.1 - 1.1.10,,Audit Docker files and directories - /etc/default/docker,medium,Docker,host config,0,0
+311,CIS_Docker_v1.3.1 - 3.11,,Docker server certificate file ownership must be set to root:root,high,Docker,daemon config files,0,0
+324,CIS_Docker_v1.3.1 - 3.24,,Verify that the Containerd socket file permissions are set to 660 or more restrictively,high,Docker,daemon config files,0,0
+81115,CIS_Kubernetes1.20_1.0.0 - 1.2.14,,Ensure that the admission control plugin NamespaceLifecycle is set (kube-apiserver),medium,Kubernetes,k8s master,0,0
+6113,CIS_Linux_2.0.0 - 1.1.3,,Ensure nodev option set on /tmp partition,medium,Linux,linux,0,0
+5520,,,Do not share the host's UTS namespace,critical,CRI,container,0,0
+30022,CIS_OpenShift_1.1.0 - 2.2,,Ensure that the --client-cert-auth argument is set to true,medium,OpenShift,openshift master,0,0
+17,CIS_Docker_v1.3.1 - 1.1.3,,Audit Docker daemon,medium,Docker,host config,0,0
+66220,CIS_Linux_2.0.0 - 6.2.20,,Ensure shadow group is empty,medium,Linux,linux,0,0
+200401,,,Verify Windows Update is set to automatically install,critical,Twistlock Labs,windows,0,0
+6321,CIS_Linux_2.0.0 - 3.2.1,,Ensure source routed packets are not accepted,high,Linux,linux,0,0
+32,CIS_Docker_v1.3.1 - 3.2,,Verify that docker.service file permissions are set to 644 or more restrictive,high,Docker,daemon config files,0,0
+39,CIS_Docker_v1.3.1 - 3.9,,Docker TLS certificate authority (CA) certificate file ownership must be set to root:root,high,Docker,daemon config files,0,0
+6229,CIS_Linux_2.0.0 - 2.2.9,,Ensure FTP Server is not enabled,high,Linux,linux,0,0
+65411,CIS_Linux_2.0.0 - 5.4.1.1,,Ensure password expiration is 365 days or less,medium,Linux,linux,0,0
+5524,,,Confirm cgroup usage,high,CRI,container,0,0
+300415,CIS_OpenShift_1.1.0 - 4.1.5,,Ensure that the --kubeconfig kubelet.conf file permissions are set to 644 or more restrictive,high,OpenShift,openshift worker,0,0
+3004210,CIS_OpenShift_1.1.0 - 4.2.10,,Ensure that the --tls-cert-file and --tls-private-key-file arguments are set as appropriate,medium,OpenShift,openshift worker,0,0
+27,CIS_Docker_v1.3.1 - 2.8,,Set default ulimit as appropriate,medium,Docker,daemon config,0,0
+8211,CIS_Kubernetes_1.3 - 2.1.1,,Ensure that the --allow-privileged argument is set to false (kubelet),high,Kubernetes,k8s worker,0,0
+61119,CIS_Linux_2.0.0 - 1.1.15,,Ensure nodev option set on /dev/shm partition,medium,Linux,linux,0,0
+6222,CIS_Linux_2.0.0 - 2.2.2,,Ensure X Window System is not installed,low,Linux,linux,0,0
+8152,CIS_Kubernetes1.20_1.0.0 - 2.2,,Ensure that the --client-cert-auth argument is set to true (etcd),high,Kubernetes,k8s master,0,0
+517,CIS_Docker_v1.3.1 - 5.17,,Do not directly expose host devices to containers,high,Docker,container,0,0
+426,,,Image contains binaries used for crypto mining,high,Twistlock Labs,image,0,0
+81121,CIS_Kubernetes1.20_1.0.0 - 1.2.2,,Ensure that the --token-auth-file parameter is not set (kube-apiserver),medium,Kubernetes,k8s master,0,0
+82112,CIS_Kubernetes1.20_1.0.0 - 4.2.10,,Ensure that the --tls-cert-file and --tls-private-key-file arguments are set as appropriate (kubelet),high,Kubernetes,k8s worker,0,0
+6312,CIS_Linux_2.0.0 - 3.1.2,,Ensure packet redirect sending is disabled,medium,Linux,linux,0,0
+6344,CIS_Linux_2.0.0 - 3.3.4,,Ensure permissions on /etc/hosts.allow are configured,high,Linux,linux,0,0
+3001117,CIS_OpenShift_1.1.0 - 1.1.17,,Ensure that the controller-manager.conf file permissions are set to 644 or more restrictive,high,OpenShift,openshift master,0,0
+213,CIS_Docker_1.13.0 - 2.13,,Disable operations on legacy registry (v1),high,Docker,daemon config,0,0
+318,CIS_Docker_v1.3.1 - 3.18,,Verify that daemon.json file permissions are set to 644 or more restrictive,high,Docker,daemon config files,0,0
+323,CIS_Docker_v1.3.1 - 3.23,,Verify that the Containerd socket file ownership is set to root:root,high,Docker,daemon config files,0,0
+53,CIS_Docker_v1.3.1 - 5.3,,Restrict Linux kernel capabilities within containers,medium,Docker,container,0,0
+6361,CIS_Linux_2.0.0 - 3.5.3,,Ensure iptables is installed,critical,Linux,linux,0,0
+200002,,,Verify Windows Defender antivirus is enabled,critical,Twistlock Labs,windows,0,0
+300137,CIS_OpenShift_1.1.0 - 1.3.7,,Ensure that the --bind-address argument is set to 127.0.0.1,high,OpenShift,openshift master,0,0
+116,CIS_Docker_v1.3.1 - 1.1.13,,Audit Docker files and directories - /etc/sysconfig/docker,medium,Docker,host config,0,0
+6219,CIS_Linux_2.0.0 - 2.1.9,,Ensure tftp server is not enabled,high,Linux,linux,0,0
+6342,CIS_Linux_2.0.0 - 3.4.2,,Ensure SCTP is disabled,low,Linux,linux,0,0
+6528,CIS_Linux_2.0.0 - 5.2.10,,Ensure SSH root login is disabled,high,Linux,linux,0,0
+6614,CIS_Linux_2.0.0 - 6.1.4,,Ensure permissions on /etc/group are configured,high,Linux,linux,0,0
+61120,CIS_Linux_2.0.0 - 1.1.16,,Ensure nosuid option set on /dev/shm partition,medium,Linux,linux,0,0
+6153,CIS_Linux_2.0.0 - 1.5.3,,Ensure address space layout randomization (ASLR) is enabled,high,Linux,linux,0,0
+6521,CIS_Linux_2.0.0 - 5.2.1,,Ensure permissions on /etc/ssh/sshd_config are configured,high,Linux,linux,0,0
+200202,,,Verify Windows Defender Data Execution Prevention (DEP) is enabled,critical,Twistlock Labs,windows,0,0
+601115,CIS_Linux_2.0.0 - 1.1.1.5,,Ensure mounting of hfsplus filesystems is disabled,low,Linux,linux,0,0
+3001225,CIS_OpenShift_1.1.0 - 1.2.25,,Ensure that the audit-log-maxsize argument is set to 100 or as appropriate,low,OpenShift,openshift master,0,0
+21,CIS_Docker_v1.3.1 - 2.2,,Restrict network traffic between containers,high,Docker,daemon config,1,0
+8213,CIS_Kubernetes1.20_1.0.0 - 4.2.2,,Ensure that the --authorization-mode argument is not set to AlwaysAllow (kubelet),high,Kubernetes,k8s worker,0,0
+62211,CIS_Linux_2.0.0 - 2.2.11,,Ensure IMAP and POP3 server is not enabled,high,Linux,linux,0,0
+6412,CIS_Linux_2.0.0 - 4.1.3,,Ensure auditd service is enabled,high,Linux,linux,1,0
+5316,,,Verify that the CRI socket file permissions are set to 660 or more restrictive,high,CRI,host config,0,0
+81419,CIS_Kubernetes1.20_1.0.0 - 1.1.1,,Ensure that the API server pod specification file permissions are set to 644 or more restrictive,high,Kubernetes,k8s master,0,0
+81128,CIS_Kubernetes1.20_1.0.0 - 1.2.13,,Ensure that the admission control plugin ServiceAccount is set (kube-apiserver),high,Kubernetes,k8s master,0,0
+65221,CIS_Linux_2.0.0 - 5.2.21,,Ensure SSH AllowTcpForwarding is disabled,low,Linux,linux,0,0
+300412,CIS_OpenShift_1.1.0 - 4.1.2,,Ensure that the kubelet service file ownership is set to root:root,high,OpenShift,openshift worker,0,0
+223,CIS_Docker_v1.3.1 - 7.6,,Run swarm manager in auto-lock mode,medium,Docker,daemon config,0,0
+6211,CIS_Linux_2.0.0 - 2.1.1,,Ensure chargen services are not enabled,medium,Linux,linux,0,0
+6416,CIS_Linux_2.0.0 - 4.1.7,,Ensure events that modify the system's network environment are collected,low,Linux,linux,0,0
+5510,,,Limit memory usage for container,high,CRI,container,0,0
+322,CIS_Docker_v1.3.1 - 3.20,,Verify that /etc/sysconfig/docker file permissions are set to 644 or more restrictive,high,Docker,daemon config files,0,0
+60523,CIS_Linux_2.0.0 - 5.2.3,,Ensure permissions on SSH public host key files are configured,high,Linux,linux,0,0
+300114,CIS_OpenShift_1.1.0 - 1.1.4,,Ensure that the controller manager pod specification file ownership is set to root:root,high,OpenShift,openshift master,0,0
+61611,CIS_Linux_2.0.0 - 1.6.1.1,,Ensure SELinux or AppArmor are installed,high,Linux,linux,0,0
+83112,CIS_Kubernetes_1.2 - 3.1.12,,Ensure that the --audit-log-maxbackup argument is set to 10 or as appropriate (federation-apiserver),low,Kubernetes,k8s federation,0,0
+656,CIS_Linux_2.0.0 - 5.6,,Ensure access to the su command is restricted,high,Linux,linux,1,0
+26,CIS_Docker_v1.3.1 - 2.7,,Configure TLS authentication for Docker daemon,critical,Docker,daemon config,0,0
+57,CIS_Docker_v1.3.1 - 5.7,,Do not map privileged ports within containers,critical,Docker,container,0,0
+5052,,,"Verify SELinux security options, if applicable",high,CRI,container,0,0
+114,CIS_Docker_v1.3.1 - 1.1.14,,Audit Docker files and directories - /usr/bin/containerd,medium,Docker,host config,0,0
+62212,CIS_Linux_2.0.0 - 2.2.12,,Ensure Samba is not enabled,critical,Linux,linux,0,0
+6525,CIS_Linux_2.0.0 - 5.2.7,,Ensure SSH MaxAuthTries is set to 4 or less,high,Linux,linux,0,0
+300129,CIS_OpenShift_1.1.0 - 1.2.9,,Verify that RBAC is enabled,high,OpenShift,openshift master,0,0
+514,CIS_Docker_v1.3.1 - 5.14,,Do not set the 'on-failure' container restart policy to always,high,Docker,container,0,0
+3001232,CIS_OpenShift_1.1.0 - 1.2.32,,Ensure that the --etcd-cafile argument is set as appropriate,medium,OpenShift,openshift master,0,0
+81122,CIS_Kubernetes1.20_1.0.0 - 1.2.5,,Ensure that the --kubelet-certificate-authority argument is set as appropriate (kube-apiserver),high,Kubernetes,k8s master,0,0
+82115,CIS_Kubernetes1.20_1.0.0 - 4.2.12,,Ensure that the RotateKubeletServerCertificate argument is set to true (kubelet),medium,Kubernetes,k8s worker,0,0
+8233,CIS_Kubernetes1.20_1.0.0 - 4.1.10,,Ensure that the kubelet configuration file ownership is set to root:root,high,Kubernetes,k8s worker,0,0
+300411,CIS_OpenShift_1.1.0 - 4.1.1,,Ensure that the kubelet service file permissions are set to 644 or more restrictive,high,OpenShift,openshift worker,0,0
+22,CIS_Docker_v1.3.1 - 2.3,,Set the logging level,low,Docker,daemon config,0,0
+6218,CIS_Linux_2.0.0 - 2.1.8,,Ensure telnet server is not enabled,high,Linux,linux,0,0
+3001220,CIS_OpenShift_1.1.0 - 1.2.20,,Ensure that the --secure-port argument is not set to 0,critical,OpenShift,openshift master,0,0
+436,,,Unbounded service access,critical,Twistlock Labs,serverless,0,0
+515,CIS_Docker_v1.3.1 - 5.15,,Do not share the host's process namespace,critical,Docker,container,0,0
+81127,CIS_Kubernetes1.20_1.0.0 - 1.2.28,,Ensure that the --etcd-certfile and --etcd-keyfile arguments are set as appropriate (kube-apiserver),high,Kubernetes,k8s master,0,0
+6511,CIS_Linux_2.0.0 - 5.1.1,,Ensure cron daemon is enabled,medium,Linux,linux,0,0
+6531,CIS_Linux_2.0.0 - 5.3.1,,Ensure password creation requirements are configured,medium,Linux,linux,0,0
+6622,CIS_Linux_2.0.0 - 6.2.2,,Ensure no legacy '+' entries exist in /etc/passwd,medium,Linux,linux,0,0
+5521,,,Do not disable default seccomp profile,critical,CRI,container,0,0
+317,CIS_Docker_v1.3.1 - 3.17,,Verify that daemon.json file ownership is set to root:root,high,Docker,daemon config files,0,0
+81138,CIS_Kubernetes1.20_1.0.0 - 1.2.25,,Ensure that the --request-timeout argument is set as appropriate (kube-apiserver),high,Kubernetes,k8s master,0,0
+81418,CIS_Kubernetes1.20_1.0.0 - 1.1.18,,Ensure that the controller-manager.conf file ownership is set to root:root,high,Kubernetes,k8s master,0,0
+6143,CIS_Linux_2.0.0 - 1.4.3,,Ensure authentication required for single user mode,critical,Linux,linux,0,0
+65220,CIS_Linux_2.0.0 - 5.2.20,,Ensure SSH PAM is enabled,medium,Linux,linux,0,0
+81113,CIS_Kubernetes_1.4 - 1.1.12,,Ensure that the admission control policy is set to DenyEscalatingExec (kube-apiserver),medium,Kubernetes,k8s master,0,0
+8153,CIS_Kubernetes1.20_1.0.0 - 2.3,,Ensure that the --auto-tls argument is not set to true (etcd),high,Kubernetes,k8s master,0,0
+64114,CIS_Linux_2.0.0 - 4.1.15,,Ensure file deletion events by users are collected,medium,Linux,linux,0,0
+3001214,CIS_OpenShift_1.1.0 - 1.2.14,,Ensure that the admission control plugin ServiceAccount is set,medium,OpenShift,openshift master,0,0
+81116,CIS_Kubernetes1.20_1.0.0 - 1.2.21,,Ensure that the --audit-log-path argument is set as appropriate (kube-apiserver),low,Kubernetes,k8s master,0,0
+516,CIS_Docker_v1.3.1 - 5.16,,Do not share the host's IPC namespace,critical,Docker,container,0,0
+81119,CIS_Kubernetes1.20_1.0.0 - 1.2.24,,Ensure that the --audit-log-maxsize argument is set to 100 or as appropriate (kube-apiserver),low,Kubernetes,k8s master,0,0
+61110,CIS_Linux_2.0.0 - 1.1.10,,Ensure noexec option set on /var/tmp partition,medium,Linux,linux,0,0
+6326,CIS_Linux_2.0.0 - 3.2.6,,Ensure bogus ICMP responses are ignored,medium,Linux,linux,0,0
+5024,,,Do not use insecure registries,high,CRI,host config,0,0
+3001112,CIS_OpenShift_1.1.0 - 1.1.12,,Ensure that the etcd data directory ownership is set to root:root,high,OpenShift,openshift master,0,0
+314,CIS_Docker_v1.3.1 - 3.14,,Docker server certificate key file permissions must be set to 400,medium,Docker,daemon config files,0,0
+6141,CIS_Linux_2.0.0 - 1.4.1,,Ensure permissions on bootloader config are configured,high,Linux,linux,1,0
+64113,CIS_Linux_2.0.0 - 4.1.1.3,,Ensure audit logs are not automatically deleted,low,Linux,linux,0,0
+5041,,,Image should be created with a non-root user,high,CRI,image,0,0
+450,,,Enable mesh-wide mutual TLS authentication using Peer Authentication policy,medium,Istio,istio,0,0
+81424,CIS_Kubernetes1.20_1.0.0 - 1.1.6,,Ensure that the scheduler pod specification file ownership is set to root:root,high,Kubernetes,k8s master,0,0
+6131,CIS_Linux_2.0.0 - 1.3.1,,Ensure AIDE is installed,medium,Linux,linux,0,0
+6417,CIS_Linux_2.0.0 - 4.1.8,,Ensure events that modify the system's Mandatory Access Controls are collected,low,Linux,linux,0,0
+6526,CIS_Linux_2.0.0 - 5.2.8,,Ensure SSH IgnoreRhosts is enabled,medium,Linux,linux,0,0
+300116,CIS_OpenShift_1.1.0 - 1.1.6,,Ensure that the scheduler pod specification file ownership is set to root:root,high,OpenShift,openshift master,0,0
+300417,CIS_OpenShift_1.1.0 - 4.1.7,,Ensure that the certificate authorities file permissions are set to 644 or more restrictive,high,OpenShift,openshift worker,0,0
+58,CIS_Docker_v1.3.1 - 5.8,,Open only needed ports on container,high,Docker,container,0,0
+300112,CIS_OpenShift_1.1.0 - 1.1.2,,Ensure that the API server pod specification file ownership is set to root:root,high,OpenShift,openshift master,0,0
+3001218,CIS_OpenShift_1.1.0 - 1.2.18,,Ensure that the --insecure-bind-address argument is not set,critical,OpenShift,openshift master,0,0
+64115,CIS_Linux_2.0.0 - 4.1.16,,Ensure changes to system administration scope (sudoers) is collected,high,Linux,linux,0,0
+64,CIS_Docker_v1.3.1 - 6.1,,Avoid image sprawl,low,Docker,security operations,0,0
+83116,CIS_Kubernetes_1.2 - 3.1.16,,Ensure that the --service-account-lookup argument is set to true (federation-apiserver),medium,Kubernetes,k8s federation,0,0
+6227,CIS_Linux_2.0.0 - 2.2.7,,Ensure NFS and RPC are not enabled,high,Linux,linux,0,0
+6415,CIS_Linux_2.0.0 - 4.1.6,,Ensure events that modify user/group information are collected,low,Linux,linux,0,0
+3001228,CIS_OpenShift_1.1.0 - 1.2.28,,Ensure that the --service-account-key-file argument is set as appropriate,medium,OpenShift,openshift master,0,0
+320,CIS_Docker_v1.3.1 - 3.22,,Verify that /etc/default/docker file permissions are set to 644 or more restrictive,high,Docker,daemon config files,0,0
+8131,CIS_Kubernetes1.20_1.0.0 - 1.3.1,,Ensure that the --terminated-pod-gc-threshold argument is set as appropriate (kube-controller-manager),low,Kubernetes,k8s master,0,0
+81120,CIS_Kubernetes1.20_1.0.0 - 1.2.6,,Ensure that the --authorization-mode argument is not set to AlwaysAllow (kube-apiserver),high,Kubernetes,k8s master,0,0
+65,CIS_Docker_v1.3.1 - 6.2,,Avoid container sprawl,low,Docker,security operations,0,0
+81110,CIS_Kubernetes_1.4 - 1.1.9,,Ensure that the --repair-malformed-updates argument is set to false (kube-apiserver),medium,Kubernetes,k8s master,0,0
+6527,CIS_Linux_2.0.0 - 5.2.9,,Ensure SSH HostbasedAuthentication is disabled,medium,Linux,linux,0,0
+605213,CIS_Linux_2.0.0 - 5.2.13,,Ensure only strong Ciphers are used,medium,Linux,linux,0,0
+3001231,CIS_OpenShift_1.1.0 - 1.2.31,,Ensure that the --client-ca-file argument is set as appropriate,medium,OpenShift,openshift master,0,0
+212,CIS_Docker_v1.3.1 - 2.13,,Configure centralized and remote logging,low,Docker,daemon config,0,0
+81413,CIS_Kubernetes1.20_1.0.0 - 1.1.13,,Ensure that the admin.conf file permissions are set to 644 or more restrictive,high,Kubernetes,k8s master,0,0
+8314,CIS_Kubernetes_1.2 - 3.1.4,,Ensure that the --insecure-bind-address argument is not set (federation-apiserver),critical,Kubernetes,k8s federation,0,0
+6514,CIS_Linux_2.0.0 - 5.1.4,,Ensure permissions on /etc/cron.daily are configured,medium,Linux,linux,0,0
+6625,CIS_Linux_2.0.0 - 6.2.5,,Ensure root is the only UID 0 account,high,Linux,linux,0,0
+300419,CIS_OpenShift_1.1.0 - 4.1.9,,Ensure that the kubelet --config configuration file has permissions set to 644 or more restrictive,high,OpenShift,openshift worker,0,0
+25,CIS_Docker_v1.3.1 - 2.6,,Do not use the aufs storage driver,low,Docker,daemon config,0,0
+6418,CIS_Linux_2.0.0 - 4.1.9,,Ensure login and logout events are collected,medium,Linux,linux,0,0
+6522,CIS_Linux_2.0.0 - 5.2.4,,Ensure SSH Protocol is set to 2,high,Linux,linux,0,0
+5031,,,Verify that the CRI service file ownership is set to root:root,high,CRI,host config,0,0
+3001230,CIS_OpenShift_1.1.0 - 1.2.30,,Ensure that the --tls-cert-file and --tls-private-key-file arguments are set as appropriate,medium,OpenShift,openshift master,0,0
+440,,,Unused service API with information disclosure risk,medium,Twistlock Labs,serverless,0,0
+8157,CIS_Kubernetes_1.2 - 1.5.7,,Ensure that the --wal-dir argument is set as appropriate (etcd),medium,Kubernetes,k8s master,0,0
+60522,CIS_Linux_2.0.0 - 5.2.2,,Ensure permissions on SSH private host key files are configured,high,Linux,linux,0,0
+300118,CIS_OpenShift_1.1.0 - 1.1.8,,Ensure that the etcd pod specification file ownership is set to root:root,high,OpenShift,openshift master,0,0
+29,CIS_Docker_v1.3.1 - 2.10,,Confirm default cgroup usage,medium,Docker,daemon config,0,0
+8158,CIS_Kubernetes_1.2 - 1.5.8,,Ensure that the --max-wals argument is set to 0 (etcd),medium,Kubernetes,k8s master,0,0
+61716,CIS_Linux_2.0.0 - 1.7.1.6,,Ensure permissions on /etc/issue.net are configured,low,Linux,linux,0,0
+63521,CIS_Linux_2.0.0 - 3.5.2.1,,Ensure default deny firewall policy,medium,Linux,linux,0,0
+36,CIS_Docker_v1.3.1 - 3.6,,Verify that /etc/docker directory permissions are set to 755 or more restrictive,high,Docker,daemon config files,0,0
+6518,CIS_Linux_2.0.0 - 5.1.8,,Ensure at/cron is restricted to authorized users,high,Linux,linux,1,0
+3001118,CIS_OpenShift_1.1.0 - 1.1.18,,Ensure that the controller-manager.conf file ownership is set to root:root,high,OpenShift,openshift master,0,0
+6116,CIS_Linux_2.0.0 - 1.1.6,,Ensure separate partition exists for /var,medium,Linux,linux,0,0
+641113,CIS_Linux_2.0.0 - 4.1.14,,Ensure successful file system mounts are collected,high,Linux,linux,0,0
+66212,CIS_Linux_2.0.0 - 6.2.12,,Ensure no users have .netrc files,medium,Linux,linux,0,0
+5035,,,Verify that ownership of CRI config directories under /etc is set to root:root,high,CRI,host config,0,0
+300125,CIS_OpenShift_1.1.0 - 1.2.5,,Ensure that the kubelet uses certificates to authenticate,high,OpenShift,openshift master,0,0
+11,CIS_Docker_v1.3.1 - 1.1.1,,Create a separate partition for containers,medium,Docker,host config,0,0
+218,CIS_Docker_v1.3.1 - 2.16,,Disable userland Proxy,medium,Docker,daemon config,0,0
+37,CIS_Docker_v1.3.1 - 3.7,,Verify that registry certificate file ownership is set to root:root,high,Docker,daemon config files,0,0
+81426,CIS_Kubernetes1.20_1.0.0 - 1.1.8,,Ensure that the etcd pod specification file ownership is set to root:root,high,Kubernetes,k8s master,0,0
+602214,CIS_Linux_2.0.0 - 2.2.1.4,,Ensure systemd-timesyncd is configured,low,Linux,linux,0,0
+604223,CIS_Linux_2.0.0 - 4.2.2.3,,Ensure journald is configured to write logfiles to persistent disk,medium,Linux,linux,0,0
+3001113,CIS_OpenShift_1.1.0 - 1.1.13,,Ensure that the admin.conf file permissions are set to 644 or more restrictive,high,OpenShift,openshift master,0,0
+120,CIS_Docker_v1.3.1 - 1.1.15,,Audit Docker files and directories - /usr/bin/containerd-shim,medium,Docker,host config,0,0
+61111,CIS_Linux_2.0.0 - 1.1.1.1,,Ensure mounting of cramfs filesystems is disabled,low,Linux,linux,0,0
+6112,CIS_Linux_2.0.0 - 1.1.2,,Ensure /tmp is configured,high,Linux,linux,1,0
+65213,CIS_Linux_2.0.0 - 5.2.17,,Ensure SSH LoginGraceTime is set to one minute or less,medium,Linux,linux,0,0
+66210,CIS_Linux_2.0.0 - 6.2.10,,Ensure users' dot files are not group or world writable,high,Linux,linux,0,0
+8313,CIS_Kubernetes_1.2 - 3.1.3,,Ensure that the --insecure-allow-any-token argument is not set (federation-apiserver),critical,Kubernetes,k8s federation,0,0
+427,,,Configure TLS per service using Destination Rule traffic policy,high,Istio,istio,0,0

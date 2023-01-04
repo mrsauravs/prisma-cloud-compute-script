@@ -1,0 +1,69 @@
+: GET_client_certs_pem failed at Tuesday 03 January 2023 09:20:17 PM IST
+500: POST_coderepos_ci_evaluate failed at Tuesday 03 January 2023 09:21:23 PM IST
+{"err":"no such role: "}400: PUT_users failed at Tuesday 03 January 2023 09:22:19 PM IST
+500: POST_credentials failed at Tuesday 03 January 2023 09:22:19 PM IST
+{"err":"credential id does not exist"}404: DELETE_credentials_id failed at Tuesday 03 January 2023 09:22:19 PM IST
+{"err":"credential \u003cCREDENTIAL_ID1\u003e was not found "}400: PUT_settings_registry failed at Tuesday 03 January 2023 09:22:19 PM IST
+{"err":"AWS region type is required for AWS scan settings: 1"}400: POST_settings_serverless_scan failed at Tuesday 03 January 2023 09:22:19 PM IST
+{"err":"failed to unmarshal: json: cannot unmarshal object into Go value of type []shared.ServerlessScanSpecification"}400: PUT_settings_serverless_scan failed at Tuesday 03 January 2023 09:22:19 PM IST
+{"err":"failed to unmarshal: json: cannot unmarshal object into Go value of type []shared.TASDropletSpecification"}400: POST_settings_tas failed at Tuesday 03 January 2023 09:22:19 PM IST
+{"err":"failed to unmarshal: invalid character '}' after array element"}400: PUT_settings_coderepos failed at Tuesday 03 January 2023 09:22:19 PM IST
+{"err":"failed to unmarshal: json: cannot unmarshal object into Go value of type []shared.VMSpecification"}400: PUT_settings_vm failed at Tuesday 03 January 2023 09:22:19 PM IST
+{"err":"credential aws_docs does not exist"}400: POST_agentless_templates failed at Tuesday 03 January 2023 09:22:19 PM IST
+ 400: GET_audits_firewall_app_agentless_timeslice failed at Tuesday 03 January 2023 09:22:20 PM IST
+400: GET_audits_firewall_app_app-embedded_timeslice failed at Tuesday 03 January 2023 09:22:20 PM IST
+400: GET_audits_firewall_app_container_timeslice failed at Tuesday 03 January 2023 09:22:20 PM IST
+400: GET_audits_runtime_container_timeslice failed at Tuesday 03 January 2023 09:22:20 PM IST
+400: GET_audits_firewall_app_host_timeslice failed at Tuesday 03 January 2023 09:22:20 PM IST
+400: GET_audits_runtime_host_timeslice failed at Tuesday 03 January 2023 09:22:20 PM IST
+400: GET_audits_firewall_app_serverless_timeslice failed at Tuesday 03 January 2023 09:22:21 PM IST
+400: GET_audits_runtime_serverless_timeslice failed at Tuesday 03 January 2023 09:22:21 PM IST
+400: GET_authenticate_identity_redirect_url failed at Tuesday 03 January 2023 09:22:21 PM IST
+{"err":"failed to unmarshal: parsing time \"\\\"2021-0101T21:04:30.417Z\\\"\" as \"\\\"2006-01-02T15:04:05Z07:00\\\"\": cannot parse \"01T21:04:30.417Z\\\"\" as \"-\""}400: PUT_collections_id failed at Tuesday 03 January 2023 09:22:21 PM IST
+{"err":"collection id not found"}404: DELETE_collections_id failed at Tuesday 03 January 2023 09:22:21 PM IST
+400: GET_collections_id_usages failed at Tuesday 03 January 2023 09:22:21 PM IST
+{"modified":"2023-01-03T15:52:21.935612593Z","owner":"admin","name":"","previousName":"","_id":9000}200: PUT_custom_compliance failed at Tuesday 03 January 2023 09:22:21 PM IST
+{"err":"failed to parse check ID strconv.Atoi: parsing \"id\": invalid syntax"}400: DELETE_custom-compliance_id failed at Tuesday 03 January 2023 09:22:22 PM IST
+{"err":"invalid rule id: id"}400: DELETE_custom_rules_id failed at Tuesday 03 January 2023 09:22:22 PM IST
+{"err":"failed to unmarshal: invalid character 'i' looking for beginning of object key string"}400: PUT_custom_rules_id failed at Tuesday 03 January 2023 09:22:22 PM IST
+400: POST_defenders_app_embedded failed at Tuesday 03 January 2023 09:22:27 PM IST
+400: POST_defenders_fargate_json failed at Tuesday 03 January 2023 09:22:27 PM IST
+400: POST_defenders_fargate_yaml failed at Tuesday 03 January 2023 09:22:27 PM IST
+400: GET_defenders_install_bundle failed at Tuesday 03 January 2023 09:22:28 PM IST
+400: POST_defenders_serverless_bundle failed at Tuesday 03 January 2023 09:22:28 PM IST
+{"err":"failed to find defender id: []"}400: DELETE_defenders_id failed at Tuesday 03 January 2023 09:22:28 PM IST
+{"err":"failed to find defender id. Error: \u003cnil\u003e"}400: POST_defenders_id_features failed at Tuesday 03 January 2023 09:22:28 PM IST
+{"err":"no such defender id"}400: POST_defenders_id_restart failed at Tuesday 03 January 2023 09:22:28 PM IST
+{"err":"no such defender id"}400: POST_defenders_id_upgrade failed at Tuesday 03 January 2023 09:22:28 PM IST
+{"err":"group id not found"}404: DELETE_groups_id failed at Tuesday 03 January 2023 09:22:28 PM IST
+{"err":"missing host data"}400: POST_hosts_evaluate failed at Tuesday 03 January 2023 09:22:28 PM IST
+{"err":"missing images data"}400: POST_images_evaluate failed at Tuesday 03 January 2023 09:22:28 PM IST
+000
+{"err":"runtime  is not supported"}400: POST_images_twistlock_defender_layer failed at Tuesday 03 January 2023 09:22:34 PM IST
+404: GET_policies_cloud_platforms failed at Tuesday 03 January 2023 09:22:34 PM IST
+{"err":"failed to unmarshal: invalid character ']' after object key:value pair"}400: PUT_policies_compliance_ci_images failed at Tuesday 03 January 2023 09:22:34 PM IST
+000: GET_policies_compliance_ci_images failed at Tuesday 03 January 2023 09:22:34 PM IST
+{"err":"failed to unmarshal: invalid character ':' after array element"}400: PUT_policies_compliance_serverless failed at Tuesday 03 January 2023 09:22:35 PM IST
+404: PUT_policies_firewall_app_agentless failed at Tuesday 03 January 2023 09:22:35 PM IST
+{"err":"network list id does not exist"}404: DELETE_policies_firewall_app_network_list_id failed at Tuesday 03 January 2023 09:22:35 PM IST
+{"err":"failed to unmarshal: invalid character '}' looking for beginning of object key string"}400: PUT_policies_firewall_app_out_of_band failed at Tuesday 03 January 2023 09:22:35 PM IST
+500: GET_policies_firewall_app_out_of_band_impacted failed at Tuesday 03 January 2023 09:22:35 PM IST
+{"err":"invalid filesystem runtime rule effect "}400: PUT_policies_runtime_app_embedded failed at Tuesday 03 January 2023 09:22:35 PM IST
+{"err":"invalid network default effect runtime rule effect "}400: POST_policies_runtime_container failed at Tuesday 03 January 2023 09:22:35 PM IST
+{"err":"invalid network default effect runtime rule effect "}400: PUT_policies_runtime_container failed at Tuesday 03 January 2023 09:22:35 PM IST
+{"err":"invalid processes runtime rule effect "}400: POST_policies_runtime_host failed at Tuesday 03 January 2023 09:22:36 PM IST
+{"err":"invalid processes runtime rule effect "}400: PUT_policies_runtime_host failed at Tuesday 03 January 2023 09:22:36 PM IST
+{"err":"failed to unmarshal: invalid character '\"' after object key:value pair"}400: POST_policies_runtime_serverless failed at Tuesday 03 January 2023 09:22:36 PM IST
+{"err":"base images rule must be defined with registry/repository:tag pattern"}400: POST_policies_vulnerability_base_images failed at Tuesday 03 January 2023 09:22:36 PM IST
+500: DELETE_policies_vulnerability_base_images_id failed at Tuesday 03 January 2023 09:22:36 PM IST
+{"err":"failed to unmarshal: invalid character '}' looking for beginning of object key string"}400: PUT_policies_vulnerability_ci_images failed at Tuesday 03 January 2023 09:22:36 PM IST
+{"err":"failed to unmarshal: invalid character '}' looking for beginning of object key string"}400: PUT_policies_vulnerability_ci_serverless failed at Tuesday 03 January 2023 09:22:36 PM IST
+{"err":"failed to unmarshal: invalid character '}' looking for beginning of object key string"}400: PUT_policies_vulnerability_coderepos failed at Tuesday 03 January 2023 09:22:36 PM IST
+{"err":"\u003cCOLLECTION_NAME\u003e contains invalid characters, valid characters are A-Z a-z 0-9 _ - : "}400: PUT_policies_vulnerability_host failed at Tuesday 03 January 2023 09:22:36 PM IST
+{"err":"failed to unmarshal: invalid character '}' looking for beginning of object key string"}400: PUT_policies_vulnerability_images failed at Tuesday 03 January 2023 09:22:36 PM IST
+{"err":"\u003cCOLLECTION_NAME\u003e contains invalid characters, valid characters are A-Z a-z 0-9 _ - : "}400: PUT_policies_vulnerability_serverless failed at Tuesday 03 January 2023 09:22:36 PM IST
+404: DELETE_registry_webhook_webhook failed at Tuesday 03 January 2023 09:22:37 PM IST
+404: POST_registry_webhook_webhook failed at Tuesday 03 January 2023 09:22:37 PM IST
+{"scanId":"scan-2023-01-03T15:52:37.300.tar.gz"}200: POST_scans_sonatype failed at Tuesday 03 January 2023 09:22:37 PM IST
+404: GET_scans_id failed at Tuesday 03 January 2023 09:22:37 PM IST
+{"functions":null}200: POST_serverless_evaluate failed at Tuesday 03 January 2023 09:22:37 PM IST

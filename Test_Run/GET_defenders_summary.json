@@ -1,0 +1,7 @@
+[{"category":"container","connected":1,"deployed":1,"licensed":0}
+,{"category":"host","connected":0,"deployed":0,"licensed":0}
+,{"category":"serverless","connected":0,"deployed":0,"licensed":0}
+,{"category":"appEmbedded","connected":0,"deployed":0,"licensed":0}
+,{"category":"hostAgentless","connected":0,"deployed":0,"licensed":0}
+,{"category":"containerAgentless","connected":0,"deployed":0,"licensed":0}
+]

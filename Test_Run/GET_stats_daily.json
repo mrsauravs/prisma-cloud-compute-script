@@ -1,0 +1,2 @@
+[{"_id":"01-02-2023","time":1672617600,"access":{"docker":{"allowed":0,"denied":0},"sshd":{"allowed":0,"denied":0},"sudo":{"allowed":0,"denied":0}},"vulnerabilities":{"imageCve":4,"imageCompliance":0,"containerCompliance":0},"hostComplianceCount":1,"host":{},"container":{},"serverless":{},"containerAppFirewall":{},"hostAppFirewall":{},"appEmbeddedAppFirewall":{},"serverlessAppFirewall":{},"AgentlessAppFirewall":{},"containerNetworkFirewall":{"alerted":0,"blocked":0},"hostNetworkFirewall":{"alerted":0,"blocked":0}}
+]

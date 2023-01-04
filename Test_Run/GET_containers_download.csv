@@ -1,0 +1,3 @@
+Hostname,Command,Name,Id,Image,Compliance ID,Severity,Custom Labels,Description,Cause,Cluster,Namespace,Scanned By
+servo-vmware71,defender,twistlock_defender_23_01_735,492faa583e2d8a3f5e972ffcfc27baa73b830a47db80d3b9ca0adc046095e50c,twistlock/private:defender_23_01_735,0,,,No compliance issues,,,,Defender
+servo-vmware71,server,twistlock_console,f79fcb783f9b6e7b2c87ac9648eb0b8bdf4936becb7428af3a0d1ad3f4fb3b8b,twistlock/private:console_23_01_735,0,,,No compliance issues,,,,Defender

@@ -1,0 +1,6 @@
+[{"username":"admin","password":"","role":"admin","authType":"basic","lastModified":"2023-01-03T14:57:38.517Z"}
+,{"username":"saurabh","password":"","role":"admin","authType":"basic","lastModified":"2023-01-03T14:59:03.266Z"}
+,{"username":"auditor","password":"","role":"auditor","authType":"basic","lastModified":"2023-01-03T14:59:34.34Z"}
+,{"username":"devOps","password":"","role":"devOps","authType":"basic","lastModified":"2023-01-03T14:59:57.695Z"}
+,{"username":"user","password":"","role":"user","authType":"basic","lastModified":"2023-01-03T15:00:26.368Z"}
+]

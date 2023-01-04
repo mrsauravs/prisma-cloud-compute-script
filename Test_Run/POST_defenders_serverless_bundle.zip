@@ -1,0 +1,1 @@
+{"err":"failed to unmarshal: json: cannot unmarshal array into Go struct field ServerlessBundleRequest.provider of type common.CloudProvider"}

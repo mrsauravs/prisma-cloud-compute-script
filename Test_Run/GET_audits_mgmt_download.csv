@@ -1,0 +1,86 @@
+Username,SourceIP,Type,Status,API,Time,Changes
+admin,172.17.0.1,settings,,/api/v1/settings/license,2023-01-03 14:58:24.391,"  {""WAASLogScrubbingSpecs"":[{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""Email"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""Amex Card"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""BCGlobal"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""Carte Blanche Card"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""Diners Club Card"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""Discover Card"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""Insta Payment Card"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""JCB Card"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""Korean Local Card"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""Laser Card"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""Maestro Card"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""MasterCard"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""Solo Card"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""Switch Card"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""Union Pay Card"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""Visa Card"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""ABA transit routing numbers"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""SWIFT Code"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""IBAN Codes"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false},{""key"": ""****"",""keyPattern"":false,""location"":"""",""modified"":""0001-01-01T00:00:00Z"",""name"":""US Social Security Number"",""owner"":"""",""previousName"":"""",""sensitiveData"":true,""skipLogScrubbing"":true,""valuePattern"":false}],""accessCaCert"": ""****"",""alerts"":{""aggregationPeriodMs"":3600000,""securityAdvisorWebhook"":""RblFHQH5GxdcAz3Vb37yFCcTJWA=""},""certSettings"":{""caExpiration"":""0001-01-01T00:00:00Z"",""consoleSAN"":[""127.0.0.1"",""192.168.0.110"",""172.17.0.1"",""twistlock-console"",""servo-vmware71""],""defenderOldCAExpiration"":null},""certificatePeriodDays"":365,""checkRevocation"":false,""clusteredDB"":{},""codeRepoSettings"":{""webhookUrlSuffix"":""RblFHQH5GxdcAz3Vb37yFCcTJWA=""},""communicationPort"":0,""consoleCaCert"": ""****"",""consoleCustomCert"":{""encrypted"": ""****""},""consoleNames"":[],""customLabels"":{""labels"":[]},""defenderSettings"":{""admissionControlEnabled"":false,""admissionControlWebhookSuffix"":""m8q250livm3q72n70kj59jkjoqqz"",""appEmbeddedFileSystemTracingEnabled"":false,""automaticUpgrade"":false,""disconnectPeriodDays"":1,""hostCustomComplianceEnabled"":false,""listeningPort"":9998},""forensic"":{""appEmbeddedDiskUsageMb"":10,""containerDiskUsageMb"":100,""enabled"":true,""hostDiskUsageMb"":10,""incidentSnapshotsCap"":100},""hasAdmin"":true,""hostAutoDeploy"":[],""hpkp"":{""certs"": ""****"",""enabled"":false,""fingerprints"":[]},""identitySettings"":{""ldap"":{""accountPassword"":{""encrypted"": ""****""},""accountUpn"":"""",""caCert"": ""****"",""enabled"":false,""groupSearchBase"":"""",""searchBase"":"""",""type"":""activedirectory"",""url"":"""",""userSearchBase"":"""",""userSearchIdentifier"":""""},""oauth"":{""authURL"":"""",""cert"": ""****"",""clientID"":"""",""clientSecret"":{""encrypted"": ""****""},""groupClaim"":"""",""groupScope"":"""",""openIDIssuesURL"":"""",""openshiftBaseURL"":"""",""providerAlias"":"""",""providerName"":"""",""tokenURL"":"""",""userClaim"":""""},""openid"":{""authURL"":"""",""cert"": ""****"",""clientID"":"""",""clientSecret"":{""encrypted"": ""****""},""groupClaim"":""groups"",""groupScope"":"""",""openIDIssuesURL"":"""",""openshiftBaseURL"":"""",""providerAlias"":"""",""providerName"":"""",""tokenURL"":"""",""userClaim"":""""},""saml"":{""appId"":"""",""appSecret"":{""encrypted"": ""****""},""audience"":"""",""cert"": ""****"",""consoleURL"":"""",""enabled"":false,""issuer"":"""",""providerAlias"":"""",""skipAuthnContext"":false,""tenantId"":"""",""type"":""okta"",""url"":""""}},""intelligenceService"":{""address"":""https://intelligence.twistlock.com"",""customEndpointCACert"": ""****"",""enabled"":true,""token"":"""",""windowsFeedEnabled"":false},""ldapEnabled"":false,""licenseKey"": ""****"",""logging"":{""consoleAddress"":"""",""enableMetricsCollection"":false,""includeRuntimeLink"":false,""stdout"":{""allProcEvents"":false,""enabled"":false,""verboseScan"":false},""syslog"":{""addr"":"""",""allProcEvents"":false,""enabled"":false,""id"":"""",""verboseScan"":false}},""logon"":{""basicAuthDisabled"":false,""includeTLS"":false,""sessionTimeoutSec"":1800,""strongPassword"":false,""useSupportCredentials"":true},""oauthEnabled"":false,""oidcEnabled"":false,""projects"":{""master"":false,""redirectURL"":""""},""proxy"":{""ca"":"""",""httpProxy"":"""",""noProxy"":"""",""password"":{""encrypted"": ""****""},""user"":""""},""registry"":{""harborScannerUrlSuffix"":""n_FayE7HioJk7ncDlLT6TUWiSR0="",""webhookUrlSuffix"":""RblFHQH5GxdcAz3Vb37yFCcTJWA=""},""runtimeSecretScrubbingSettings"":{""skipDefault"":false},""samlEnabled"":false,""scan"":{""agentlessScanPeriodMs"":86400000,""cloudPlatformsScanPeriodMs"":86400000,""codeReposScanPeriodMs"":86400000,""containersScanPeriodMs"":86400000,""extractArchive"":false,""imagesScanPeriodMs"":86400000,""registryScanPeriodMs"":86400000,""registryScanRetentionDays"":1,""scanRunningImages"":true,""serverlessScanPeriodMs"":86400000,""showNegligibleVulnerabilities"":false,""systemScanPeriodMs"":86400000,""tasDropletsScanPeriodMs"":86400000,""vmScanPeriodMs"":86400000},""secretsStores"":{""refreshPeriodHours"":0,""secretsStores"":[]},""securedConsolePort"":0,""serverlessAutoDeploy"":[],""serverlessScan"":[],""tasDroplets"":[],""telemetry"":{""enabled"":true},""trustedCerts"":[],""trustedCertsEnabled"":false,""version"":""23.01.735"",""vms"":[],""webAppsDiscoverySettings"":{""disabled"":false},""wildFireSettings"":{""apiKey"": ""****"",""apiKeyExpiration"": ""****"",""lastError"":"""",""policy"":null}}"
+admin,172.17.0.1,user,,/api/v23.01/users,2023-01-03 14:59:03.268," {
+ 	""elements"": [
+ 		[
+  			{""authType"":""basic"",""lastModified"":""2023-01-03T14:57:38.517Z"",""password"":"""",""role"":""admin"",""username"":""admin""},
++			{""authType"":""basic"",""lastModified"":""2023-01-03T14:59:03.266Z"",""password"":"""",""role"":""admin"",""username"":""saurabh""}
+ 		]
+ 	]
+ }"
+admin,172.17.0.1,user,,/api/v23.01/users,2023-01-03 14:59:34.350," {
+ 	""elements"": [
+ 		[
+  			{""authType"":""basic"",""lastModified"":""2023-01-03T14:57:38.517Z"",""password"":"""",""role"":""admin"",""username"":""admin""},
+  			{""authType"":""basic"",""lastModified"":""2023-01-03T14:59:03.266Z"",""password"":"""",""role"":""admin"",""username"":""saurabh""},
++			{""authType"":""basic"",""lastModified"":""2023-01-03T14:59:34.34Z"",""password"":"""",""role"":""auditor"",""username"":""auditor""}
+ 		]
+ 	]
+ }"
+admin,172.17.0.1,user,,/api/v23.01/users,2023-01-03 14:59:57.697," {
+ 	""elements"": [
+ 		[
+  			{""authType"":""basic"",""lastModified"":""2023-01-03T14:57:38.517Z"",""password"":"""",""role"":""admin"",""username"":""admin""},
+  			{""authType"":""basic"",""lastModified"":""2023-01-03T14:59:03.266Z"",""password"":"""",""role"":""admin"",""username"":""saurabh""},
+  			{""authType"":""basic"",""lastModified"":""2023-01-03T14:59:34.34Z"",""password"":"""",""role"":""auditor"",""username"":""auditor""},
++			{""authType"":""basic"",""lastModified"":""2023-01-03T14:59:57.695Z"",""password"":"""",""role"":""devOps"",""username"":""devOps""}
+ 		]
+ 	]
+ }"
+admin,172.17.0.1,user,,/api/v23.01/users,2023-01-03 15:00:26.371," {
+ 	""elements"": [
+ 		[
+  			{""authType"":""basic"",""lastModified"":""2023-01-03T14:57:38.517Z"",""password"":"""",""role"":""admin"",""username"":""admin""},
+  			{""authType"":""basic"",""lastModified"":""2023-01-03T14:59:03.266Z"",""password"":"""",""role"":""admin"",""username"":""saurabh""},
+  			{""authType"":""basic"",""lastModified"":""2023-01-03T14:59:34.34Z"",""password"":"""",""role"":""auditor"",""username"":""auditor""},
+  			{""authType"":""basic"",""lastModified"":""2023-01-03T14:59:57.695Z"",""password"":"""",""role"":""devOps"",""username"":""devOps""},
++			{""authType"":""basic"",""lastModified"":""2023-01-03T15:00:26.368Z"",""password"":"""",""role"":""user"",""username"":""user""}
+ 		]
+ 	]
+ }"
+saurabh,172.17.0.1,login,successful login attempt,/api/v23.01/authenticate,2023-01-03 15:00:51.720,
+admin,172.17.0.1,login,successful login attempt,/api/v1/authenticate,2023-01-03 15:03:24.555,
+admin,172.17.0.1,login,successful login attempt,/api/v23.01/authenticate,2023-01-03 15:50:17.509,
+admin,172.17.0.1,user,,/api/v23.01/users/saurabh,2023-01-03 15:51:23.459," {
+ 	""elements"": [
+ 		[
+  			{""authType"":""basic"",""lastModified"":""2023-01-03T14:57:38.517Z"",""password"":"""",""role"":""admin"",""username"":""admin""},
+ 			{
+ 				""authType"": ""basic"",
+-				""lastModified"": ""2023-01-03T14:59:03.266Z"",
++				""lastModified"": ""2023-01-03T14:59:34.34Z"",
+ 				""password"": """",
+-				""role"": ""admin"",
++				""role"": ""auditor"",
+-				""username"": ""saurabh"",
++				""username"": ""auditor""
+ 			},
+ 			{
+ 				""authType"": ""basic"",
+-				""lastModified"": ""2023-01-03T14:59:34.34Z"",
++				""lastModified"": ""2023-01-03T14:59:57.695Z"",
+ 				""password"": """",
+-				""role"": ""auditor"",
++				""role"": ""devOps"",
+-				""username"": ""auditor"",
++				""username"": ""devOps""
+ 			},
+ 			{
+ 				""authType"": ""basic"",
+-				""lastModified"": ""2023-01-03T14:59:57.695Z"",
++				""lastModified"": ""2023-01-03T15:00:26.368Z"",
+ 				""password"": """",
+-				""role"": ""devOps"",
++				""role"": ""user"",
+-				""username"": ""devOps"",
++				""username"": ""user""
+ 			},
+-			{""authType"":""basic"",""lastModified"":""2023-01-03T15:00:26.368Z"",""password"":"""",""role"":""user"",""username"":""user""}
+ 		]
+ 	]
+ }"
+admin,172.17.0.1,settings,,/api/v23.01/settings/registry,2023-01-03 15:52:19.368," {
+ 	""harborScannerUrlSuffix"": ""n_FayE7HioJk7ncDlLT6TUWiSR0="",
++	""specifications"": [{""cap"":5,""collections"":[""All""],""credential"":{""_id"":"""",""accountGUID"":"""",""accountID"":"""",""accountName"":"""",""apiToken"":{""encrypted"": ""****""},""created"":""0001-01-01T00:00:00Z"",""lastModified"":""0001-01-01T00:00:00Z"",""owner"":"""",""prismaLastModified"":0,""secret"":{""encrypted"": ""****""},""tokens"":null,""type"":"""",""useAWSRole"":false},""credentialID"":"""",""harborDeploymentSecurity"":false,""namespace"":"""",""os"":""linux"",""registry"":"""",""repository"":""library/ubuntu"",""scanners"":2,""tag"":""16.04"",""version"":""2"",""versionPattern"":""""}],
+ 	""webhookUrlSuffix"": ""RblFHQH5GxdcAz3Vb37yFCcTJWA=""
+ }"
