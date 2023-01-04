@@ -6,7 +6,7 @@ Both scripts are written to match a specific workflow but more advanced workflow
 
 ## What to do for a fresh one-box installation?
 
-It is recommended that you set up a one-box installation, see Install one-box.
+It is recommended that you set up a one-box installation, see [Install one-box](https://docs.paloaltonetworks.com/prisma/prisma-cloud/21-08/prisma-cloud-compute-edition-admin/install/install_onebox).
 
 - For a fresh on-prem installation, always run both scripts cURLscriptBasic.sh and cURLscriptAdvanced.sh
     - Run the scripts under a blank folder to see and use output files easily.
