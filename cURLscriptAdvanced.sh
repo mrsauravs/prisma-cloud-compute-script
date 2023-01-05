@@ -207,9 +207,15 @@ else
 echo "$PUT_users: PUT_users failed at $(date)" >> failure_response.txt
 fi
 
-# Current - Get a list of current collections assigned to a user
+# Current - Get a list of collections assigned to a user in a current project
 
-GET_current_collections=$(curl -k -H 'Content-Type: application/json' -u $api_user -w "%{http_code}\n" -o GET_current_collections.json -X GET "${api_path}/current/collections")
+echo "Enter a user name for which you want to see a list of collections assigned in the current project?"
+read user_collections
+echo "Enter the password for this user"
+read user_collections_password
+
+collection_user="$user_collections:$user_collections_password"
+GET_current_collections=$(curl -k -H 'Content-Type: application/json' -u $collection_user -w "%{http_code}\n" -o GET_current_collections.json -X GET "${api_path}/current/collections")
 if [[ $GET_current_collections == 200 ]]; then
 echo "GET_current_collections is success at $(date)" >> success_response.txt
 else
