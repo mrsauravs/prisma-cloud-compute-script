@@ -33,18 +33,15 @@ fi
 echo "Do you wish to upgrade an outdated Defender?"
 read answer
 
-while [[ $answer == "Yes" ]] | [[ $answer == "yes"]]
-do
+if [[ $answer == "Yes" ]] || [[ $answer == "yes"]],
+then
     echo "Which Defender you wish to upgrade? Refer to file GET_outdated_Defenders.json for Defender names."
     read defender_name
     POST_defenders_id_upgrade=$(curl -k -H 'Content-Type: application/json' -u $api_user -w "%{http_code}\n" -X POST "${api_path}/defenders/${defender_name}/upgrade")
     if [[ $POST_defenders_id_upgrade == 200 ]]; 
-    then
         echo "$POST_defenders_id_upgrade: Successfully upgraded a Defender at $(date)" >> Results.txt
-        continue
     else
-    echo "$POST_defenders_id_upgrade: Failed to upgrade a Defender at $(date)" >> Results.txt
+        echo "$POST_defenders_id_upgrade: Failed to upgrade a Defender at $(date)" >> Results.txt
     fi
-done
-exit
+fi
 echo "Skipped Defender upgradation."
