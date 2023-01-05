@@ -23,9 +23,9 @@ echo "Getting a list of outdated Defenders"
 
 GET_outdated_defenders=$(curl -k -H 'Content-Type: application/json' -u $api_user -w "%{http_code}\n" -o GET_outdated_Defenders.json -X GET "${api_path}/defenders/names?latest=false")
 if [[ $GET_outdated_defenders == 200 ]]; then
-echo "$GET_outdated_defenders: Successfully retrieved a list of outdated Defenders at $(date).\n Please see the file GET_outdated_Defenders.json to see the list of Defenders." >> Results.txt
+echo "$GET_outdated_defenders: Successfully retrieved a list of outdated Defenders at $(date).\n Please see the file GET_outdated_Defenders.json to see the list of Defenders."
 else
-echo "$GET_ooutdated_defenders: Failed to retrieve a list of outdated Defenders at $(date)" >> Results.txt
+echo "$GET_ooutdated_defenders: Failed to retrieve a list of outdated Defenders at $(date)"
 fi
 
 # Upgrading the outdated Defenders
@@ -38,9 +38,9 @@ echo "Which Defender you wish to upgrade? Refer to file GET_outdated_Defenders.j
 read defender_name
 POST_defenders_id_upgrade=$(curl -k -H 'Content-Type: application/json' -u $api_user -w "%{http_code}\n" -X POST "${api_path}/defenders/${defender_name}/upgrade")
     if [[ $POST_defenders_id_upgrade == 200 ]]; then
-    echo "$POST_defenders_id_upgrade: Successfully upgraded a Defender at $(date)" >> Results.txt
+    echo "$POST_defenders_id_upgrade: Successfully upgraded a Defender at $(date)"
     else
-    echo "$POST_defenders_id_upgrade: Failed to upgrade a Defender at $(date)" >> Results.txt
+    echo "$POST_defenders_id_upgrade: Failed to upgrade a Defender at $(date)"
     fi
 else
 echo "Skipped Defender upgradation."
