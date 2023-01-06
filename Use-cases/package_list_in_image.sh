@@ -19,7 +19,10 @@ read password
 api_user="$admin:$password"
 
 # Images
-GET_images=$(curl -k -H 'Content-Type: application/json' -u $api_user -w "%{http_code}\n" -o GET_images_new.json -X GET "${api_path}/images")
+
+echo "Enter the image ID to view the packages inside it"
+read image_name
+GET_images=$(curl -k -H 'Content-Type: application/json' -u $api_user -w "%{http_code}\n" -o GET_images_new.json -X GET "${api_path}/images?id=${image_name}")
 if [[ $GET_images == 200 ]]; then
 echo "$GET_images: GET_images is success at $(date)" >> success_response.txt
 else
