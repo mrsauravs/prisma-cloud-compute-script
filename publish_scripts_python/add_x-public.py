@@ -1,5 +1,9 @@
 import json
-with open('input.json', 'r') as json_file:
+
+input_file = input("Enter the path and name of the input JSON file: ")
+output_file = input("Enter the path and name of the output JSON file: ")
+
+with open(input_file, 'r') as json_file:
     json_data = json.load(json_file)
     for path, methods in json_data["paths"].items():
         for method in ["put", "get", "delete", "post", "patch"]:
@@ -7,5 +11,5 @@ with open('input.json', 'r') as json_file:
                 methods[method]["x-public"] = True
                 methods[method]["tags"].remove("Supported API")
 
-with open('output.json', 'w') as json_file:
+with open(output_file, 'w') as json_file:
     json.dump(json_data, json_file, indent=4)
