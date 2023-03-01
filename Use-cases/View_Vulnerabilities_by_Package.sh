@@ -21,7 +21,7 @@ api_user="$admin:$password"
 
 GET_stats_vulnerabilities_in_package=$(curl -k -H 'Content-Type: application/json' -u $api_user -w "%{http_code}\n" -o GET_stats_vulnerabilities_in_package.csv -X GET "${api_path}/stats/vulnerabilities/download?package")
 if [[ $GET_stats_vulnerabilities_in_package == 200 ]]; then
-echo "$GET_stats_vulnerabilities_in_package: Successfully retrieved list of vulnerabilities in a package at $(date). Refer to the file GET_stats_vulnerabilities_in_package.json."
+echo "$GET_stats_vulnerabilities_in_package: Successfully retrieved list of vulnerabilities in a package at $(date). Refer to the file GET_stats_vulnerabilities_in_package.csv."
 else
 echo "$GET_stats_vulnerabilities_in_package: Failed to retrieve the list of vulnerabilities in a package at $(date)"
 fi
