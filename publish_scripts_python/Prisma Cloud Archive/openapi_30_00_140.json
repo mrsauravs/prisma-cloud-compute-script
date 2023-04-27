@@ -55126,18 +55126,6 @@
             }
         },
         {
-            "name": "Cloud-Scan-Rules"
-        },
-        {
-            "name": "Clustered-Db"
-        },
-        {
-            "name": "Coderepos"
-        },
-        {
-            "name": "Coderepos-Ci"
-        },
-        {
             "name": "Collections",
             "description": {
                 "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/collections/collections.md"
@@ -55213,9 +55201,6 @@
             }
         },
         {
-            "name": "Projects"
-        },
-        {
             "name": "Registry",
             "description": {
                 "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/registry/registry.md"
@@ -55256,13 +55241,6 @@
             "description": {
                 "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/statuses/statuses.md"
             }
-        },
-        {
-            "description": "This API is an officially supported route",
-            "externalDocs": {
-                "url": "https://cdn.twistlock.com/docs/api/twistlock_api.html"
-            },
-            "name": "Supported API"
         },
         {
             "name": "Tags",
