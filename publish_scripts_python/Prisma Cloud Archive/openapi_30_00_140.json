@@ -55093,9 +55093,6 @@
             }
         },
         {
-            "name": "Alert-Profiles"
-        },
-        {
             "name": "Application-Control"
         },
         {
@@ -55115,12 +55112,6 @@
             "description": {
                 "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/authenticate-client/authenticate-client.md"
             }
-        },
-        {
-            "name": "Backups"
-        },
-        {
-            "name": "Ccs"
         },
         {
             "name": "Certs",
@@ -55153,9 +55144,6 @@
             }
         },
         {
-            "name": "Config"
-        },
-        {
             "name": "Containers",
             "description": {
                 "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/containers/containers.md"
@@ -55183,9 +55171,6 @@
             }
         },
         {
-            "name": "Cves"
-        },
-        {
             "name": "Defenders",
             "description": {
                 "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/defenders.md"
@@ -55198,16 +55183,10 @@
             "name": "Feeds"
         },
         {
-            "name": "Forensic"
-        },
-        {
             "name": "Groups",
             "description": {
                 "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/groups/groups.md"
             }
-        },
-        {
-            "name": "Harbor"
         },
         {
             "name": "Hosts",
@@ -55220,15 +55199,6 @@
             "description": {
                 "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/images/images.md"
             }
-        },
-        {
-            "name": "Kubernetes"
-        },
-        {
-            "name": "Logout"
-        },
-        {
-            "name": "Logs"
         },
         {
             "name": "Policies",
@@ -55246,34 +55216,16 @@
             "name": "Projects"
         },
         {
-            "name": "Radar"
-        },
-        {
-            "name": "Rbac"
-        },
-        {
             "name": "Registry",
             "description": {
                 "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/registry/registry.md"
             }
         },
         {
-            "name": "Runtime"
-        },
-        {
-            "name": "Sandbox"
-        },
-        {
             "name": "Scans",
             "description": {
                 "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/scans/scans.md"
             }
-        },
-        {
-            "name": "Scripts"
-        },
-        {
-            "name": "Security-Advisor"
         },
         {
             "name": "Serverless",
@@ -55292,9 +55244,6 @@
             "description": {
                 "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/signup/signup.md"
             }
-        },
-        {
-            "name": "Static"
         },
         {
             "name": "Stats",
@@ -55322,12 +55271,6 @@
             }
         },
         {
-            "name": "Tas-Droplets"
-        },
-        {
-            "name": "Trust"
-        },
-        {
             "name": "Users",
             "description": {
                 "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/users/users.md"
@@ -55353,9 +55296,6 @@
         },
         {
             "name": "Waas"
-        },
-        {
-            "name": "Xsoar-Alerts"
         },
         {
             "name": "_Ping",
