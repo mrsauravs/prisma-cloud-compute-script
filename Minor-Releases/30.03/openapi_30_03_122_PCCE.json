@@ -38649,7 +38649,7 @@
                     }
                 },
                 "tags": [
-                    "Coderepos-Ci"
+                    "Coderepos-CI"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorCI",
@@ -38689,7 +38689,7 @@
                     }
                 },
                 "tags": [
-                    "Coderepos-Ci"
+                    "Coderepos-CI"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorCI",
@@ -56469,7 +56469,7 @@
                     }
                 },
                 "tags": [
-                    "Vms"
+                    "VMs"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorHosts",
@@ -56701,7 +56701,7 @@
                     }
                 },
                 "tags": [
-                    "Vms"
+                    "VMs"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorHosts",
@@ -56940,7 +56940,7 @@
                     }
                 },
                 "tags": [
-                    "Vms"
+                    "VMs"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorHosts",
@@ -57179,7 +57179,7 @@
                     }
                 },
                 "tags": [
-                    "Vms"
+                    "VMs"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorHosts",
@@ -57231,7 +57231,7 @@
                     }
                 },
                 "tags": [
-                    "Vms"
+                    "VMs"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorHosts",
@@ -57264,7 +57264,7 @@
                     }
                 },
                 "tags": [
-                    "Waas"
+                    "WAAS"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorWAAS",
