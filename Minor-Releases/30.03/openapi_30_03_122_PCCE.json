@@ -20163,226 +20163,6 @@
     },
     "openapi": "3.0.3",
     "paths": {
-        "/api/v1/certs/ca.pem": {
-            "get": {
-                "description": {
-                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/certs/capem_get.md"
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "Certs"
-                ],
-                "x-prisma-cloud-target-env": {
-                    "permission": "accessUI",
-                    "saas": true,
-                    "self-hosted": true
-                },
-                "operationId": "get-certs-ca.pem",
-                "summary": "Get CA PEM Certificate File"
-            }
-        },
-        "/api/v1/certs/server-certs.sh": {
-            "get": {
-                "description": {
-                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/certs/server-certs_get.md"
-                },
-                "parameters": [
-                    {
-                        "description": "OS is the target os.\n",
-                        "in": "query",
-                        "name": "os",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "description": "IPs is the list of addresses for which the certificates are generated.\n",
-                        "in": "query",
-                        "name": "ip",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "description": "Hostname is the target defender hostname.\n",
-                        "in": "query",
-                        "name": "hostname",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/-_uint8"
-                                }
-                            }
-                        },
-                        "description": ""
-                    },
-                    "default": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "Certs"
-                ],
-                "x-prisma-cloud-target-env": {
-                    "permission": "manageDefenders",
-                    "saas": true,
-                    "self-hosted": true
-                },
-                "operationId": "get-certs-server-certs.sh",
-                "summary": "Get Server Certificates"
-            }
-        },
-        "/api/v1/registry/webhook/webhook": {
-            "delete": {
-                "description": "RegistryWebhook listen to registry updates\n",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "Registry"
-                ],
-                "x-prisma-cloud-target-env": {
-                    "permission": "none",
-                    "saas": true,
-                    "self-hosted": true
-                },
-                "operationId": "delete-registry-webhook-webhook",
-                "summary": " Registry Webhook"
-            },
-            "post": {
-                "description": "RegistryWebhook listen to registry updates\n",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/types.RegistryWebhookRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "Registry"
-                ],
-                "x-prisma-cloud-target-env": {
-                    "permission": "none",
-                    "saas": true,
-                    "self-hosted": true
-                },
-                "operationId": "post-registry-webhook-webhook",
-                "summary": " Registry Webhook"
-            }
-        },
-        "/api/v1/signup": {
-            "post": {
-                "description": {
-                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/signup/post.md"
-                },
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/api.AuthenticationRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "Signup"
-                ],
-                "x-prisma-cloud-target-env": {
-                    "permission": "none",
-                    "saas": false,
-                    "self-hosted": true
-                },
-                "operationId": "post-signup",
-                "summary": "Create Admin Account"
-            }
-        },
-        "/api/v1/util/prisma-cloud-jenkins-plugin.hpi": {
-            "get": {
-                "description": {
-                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/util/twistlock_jenkins_plugin_get.md"
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "Util"
-                ],
-                "x-prisma-cloud-target-env": {
-                    "permission": "downloads",
-                    "saas": true,
-                    "self-hosted": true
-                },
-                "operationId": "get-util-prisma-cloud-jenkins-plugin.hpi",
-                "summary": "Download Jenkins Plugin for Prisma Cloud Compute"
-            }
-        },
-        "/api/v1/util/tas-tile": {
-            "get": {
-                "description": {
-                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/util/twistlock_tas_tile_get.md"
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "Util"
-                ],
-                "x-prisma-cloud-target-env": {
-                    "permission": "manageDefenders",
-                    "saas": true,
-                    "self-hosted": true
-                },
-                "operationId": "get-util-tas-tile",
-                "summary": "Download VMware TAS Tile for Prisma Cloud Compute"
-            }
-        },
         "/api/v30.03/_ping": {
             "get": {
                 "description": {
@@ -37956,6 +37736,89 @@
                 "summary": "Get Client Authentication Access Token"
             }
         },
+        "/api/v1/certs/ca.pem": {
+            "get": {
+                "description": {
+                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/certs/capem_get.md"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Certs"
+                ],
+                "x-prisma-cloud-target-env": {
+                    "permission": "accessUI",
+                    "saas": true,
+                    "self-hosted": true
+                },
+                "operationId": "get-certs-ca.pem",
+                "summary": "Get CA PEM Certificate File"
+            }
+        },
+        "/api/v1/certs/server-certs.sh": {
+            "get": {
+                "description": {
+                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/certs/server-certs_get.md"
+                },
+                "parameters": [
+                    {
+                        "description": "OS is the target os.\n",
+                        "in": "query",
+                        "name": "os",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "IPs is the list of addresses for which the certificates are generated.\n",
+                        "in": "query",
+                        "name": "ip",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Hostname is the target defender hostname.\n",
+                        "in": "query",
+                        "name": "hostname",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/-_uint8"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Certs"
+                ],
+                "x-prisma-cloud-target-env": {
+                    "permission": "manageDefenders",
+                    "saas": true,
+                    "self-hosted": true
+                },
+                "operationId": "get-certs-server-certs.sh",
+                "summary": "Get Server Certificates"
+            }
+        },
         "/api/v30.03/cloud/discovery": {
             "get": {
                 "description": {
@@ -49601,6 +49464,59 @@
                 "summary": "Download Runtime Host Profiles"
             }
         },
+        "/api/v1/registry/webhook/webhook": {
+            "delete": {
+                "description": "RegistryWebhook listen to registry updates\n",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Registry"
+                ],
+                "x-prisma-cloud-target-env": {
+                    "permission": "none",
+                    "saas": true,
+                    "self-hosted": true
+                },
+                "operationId": "delete-registry-webhook-webhook",
+                "summary": " Registry Webhook"
+            },
+            "post": {
+                "description": "RegistryWebhook listen to registry updates\n",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/types.RegistryWebhookRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Registry"
+                ],
+                "x-prisma-cloud-target-env": {
+                    "permission": "none",
+                    "saas": true,
+                    "self-hosted": true
+                },
+                "operationId": "post-registry-webhook-webhook",
+                "summary": " Registry Webhook"
+            }
+        },
         "/api/v30.03/registry": {
             "get": {
                 "description": {
@@ -51845,6 +51761,40 @@
                 "x-public": true,
                 "operationId": "post-serverless-stop",
                 "summary": "Stop Serverless Function Scan"
+            }
+        },
+        "/api/v1/signup": {
+            "post": {
+                "description": {
+                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/signup/post.md"
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/api.AuthenticationRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Signup"
+                ],
+                "x-prisma-cloud-target-env": {
+                    "permission": "none",
+                    "saas": false,
+                    "self-hosted": true
+                },
+                "operationId": "post-signup",
+                "summary": "Create Admin Account"
             }
         },
         "/api/v30.03/settings/certificates": {
@@ -56155,6 +56105,56 @@
                 "x-public": true,
                 "operationId": "get-util-osx-twistcli",
                 "summary": "Download twistcli for MacOS"
+            }
+        },
+        "/api/v1/util/prisma-cloud-jenkins-plugin.hpi": {
+            "get": {
+                "description": {
+                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/util/twistlock_jenkins_plugin_get.md"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Util"
+                ],
+                "x-prisma-cloud-target-env": {
+                    "permission": "downloads",
+                    "saas": true,
+                    "self-hosted": true
+                },
+                "operationId": "get-util-prisma-cloud-jenkins-plugin.hpi",
+                "summary": "Download Jenkins Plugin for Prisma Cloud Compute"
+            }
+        },
+        "/api/v1/util/tas-tile": {
+            "get": {
+                "description": {
+                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/util/twistlock_tas_tile_get.md"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Util"
+                ],
+                "x-prisma-cloud-target-env": {
+                    "permission": "manageDefenders",
+                    "saas": true,
+                    "self-hosted": true
+                },
+                "operationId": "get-util-tas-tile",
+                "summary": "Download VMware TAS Tile for Prisma Cloud Compute"
             }
         },
         "/api/v30.03/util/twistcli": {
