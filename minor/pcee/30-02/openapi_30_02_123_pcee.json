@@ -3148,8 +3148,7 @@
                         "basic",
                         "dtr",
                         "kubeconfig",
-                        "certificate",
-                        "gitlabToken"
+                        "certificate"
                     ]
                 ],
                 "type": "string"
@@ -7861,17 +7860,14 @@
             "shared.AgentlessAccountState": {
                 "description": "AgentlessAccountState holds the information about the agentless account state",
                 "properties": {
-                    "lastScan": {
-                        "description": "LastScan is a timestamp of the end of the last scan.\n",
-                        "format": "date-time",
+                    "err": {
+                        "description": "Err is the description of last error that occurred within the account.\n",
                         "type": "string"
                     },
-                    "regions": {
-                        "description": "Regions is an array of regions scanned in account.\n",
-                        "items": {
-                            "$ref": "#/components/schemas/shared.AgentlessRegionState"
-                        },
-                        "type": "array"
+                    "modified": {
+                        "description": "Modified holds the timestamp of the last permissions check.\n",
+                        "format": "date-time",
+                        "type": "string"
                     },
                     "scanStatus": {
                         "$ref": "#/components/schemas/shared.AgentlessAccountScanStatus"
@@ -7889,40 +7885,6 @@
                     "value": {
                         "description": "Value is the tag value.\n",
                         "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "shared.AgentlessRegionState": {
-                "description": "AgentlessRegionState  holds information about the statuses scans in a region",
-                "properties": {
-                    "availabilityDomain": {
-                        "description": "AvailabilityDomain is the code name of OCI availabilityDomain.\n",
-                        "type": "string"
-                    },
-                    "errorsInfo": {
-                        "description": "ErrorsInfo holds information about the errors that occured during in region scan.\n",
-                        "items": {
-                            "$ref": "#/components/schemas/shared.ScanErrorInfo"
-                        },
-                        "type": "array"
-                    },
-                    "lastScan": {
-                        "description": "LastScan is a timestamp of the end of the last scan.\n",
-                        "format": "date-time",
-                        "type": "string"
-                    },
-                    "region": {
-                        "description": "Region is the code name of the region.\n",
-                        "type": "string"
-                    },
-                    "scanID": {
-                        "description": "ScanID is the id of scan cycle the region was last scanned in.\n",
-                        "type": "integer"
-                    },
-                    "score": {
-                        "description": "Score is an aggregated score of the errors in the region.\n",
-                        "type": "integer"
                     }
                 },
                 "type": "object"
@@ -7948,6 +7910,9 @@
             "shared.AgentlessScanSpecification": {
                 "description": "AgentlessScanSpecification contains information for setting up an agentless scan for a group of accounts",
                 "properties": {
+                    "accountState": {
+                        "$ref": "#/components/schemas/shared.AgentlessAccountState"
+                    },
                     "autoScale": {
                         "description": "AutoScale indicates that the number of concurrent scanners should be selected automatically.\n",
                         "type": "boolean"
@@ -8922,9 +8887,6 @@
             "shared.CloudScanRule": {
                 "description": "CloudScanRule is a rule for discovery/compliance/serverless radar scanning",
                 "properties": {
-                    "agentlessAccountState": {
-                        "$ref": "#/components/schemas/shared.AgentlessAccountState"
-                    },
                     "agentlessScanSpec": {
                         "$ref": "#/components/schemas/shared.AgentlessScanSpecification"
                     },
@@ -9941,37 +9903,6 @@
                 },
                 "type": "object"
             },
-            "shared.GitlabRegistrySpec": {
-                "description": "GitlabRegistrySpec represents a specification for registry scanning in GitLab",
-                "properties": {
-                    "excludedGroupIDs": {
-                        "description": ".\n",
-                        "items": {
-                            "$ref": "#/components/schemas/string"
-                        },
-                        "type": "array"
-                    },
-                    "groupIDs": {
-                        "description": ".\n",
-                        "items": {
-                            "$ref": "#/components/schemas/string"
-                        },
-                        "type": "array"
-                    },
-                    "projectIDs": {
-                        "description": ".\n",
-                        "items": {
-                            "$ref": "#/components/schemas/string"
-                        },
-                        "type": "array"
-                    },
-                    "userID": {
-                        "description": ".\n",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
             "shared.GraceDaysPolicy": {
                 "description": "GraceDaysPolicy indicates the grace days policy by severity",
                 "properties": {
@@ -10301,11 +10232,6 @@
                             "$ref": "#/components/schemas/string"
                         },
                         "type": "array"
-                    },
-                    "malwareAnalyzedTime": {
-                        "description": "MalwareAnalyzedTime is the WildFire evaluator analyzing time shown as progress in UI and cannot to be overwritten by a new scan result.\n",
-                        "format": "date-time",
-                        "type": "string"
                     },
                     "missingDistroVulnCoverage": {
                         "description": "Indicates if the image OS is covered in the IS (true) or not (false).\n",
@@ -11222,11 +11148,6 @@
                             "$ref": "#/components/schemas/string"
                         },
                         "type": "array"
-                    },
-                    "malwareAnalyzedTime": {
-                        "description": "MalwareAnalyzedTime is the WildFire evaluator analyzing time shown as progress in UI and cannot to be overwritten by a new scan result.\n",
-                        "format": "date-time",
-                        "type": "string"
                     },
                     "missingDistroVulnCoverage": {
                         "description": "Indicates if the image OS is covered in the IS (true) or not (false).\n",
@@ -12670,9 +12591,6 @@
                         },
                         "type": "array"
                     },
-                    "gitlabRegistrySpec": {
-                        "$ref": "#/components/schemas/shared.GitlabRegistrySpec"
-                    },
                     "harborDeploymentSecurity": {
                         "description": "Indicates whether the Prisma Cloud plugin uses temporary tokens provided by Harbor to scan images in projects where Harbor's deployment security setting is enabled.\n",
                         "type": "boolean"
@@ -13056,36 +12974,6 @@
                     ]
                 ],
                 "type": "string"
-            },
-            "shared.ScanErrorInfo": {
-                "description": "ScanErrorInfo holds information about the errors that occurred during the scan",
-                "properties": {
-                    "category": {
-                        "description": "Category is the category of error.\n",
-                        "type": "string"
-                    },
-                    "cause": {
-                        "description": "Cause describes what caused the error.\n",
-                        "type": "string"
-                    },
-                    "error": {
-                        "description": "Error holds the full error string.\n",
-                        "type": "string"
-                    },
-                    "recommendation": {
-                        "description": "Recommendation provides more information about error and suggestions for possible fixes.\n",
-                        "type": "string"
-                    },
-                    "score": {
-                        "description": "Score is a rating of how relevant the error is to the customer.\n",
-                        "type": "integer"
-                    },
-                    "source": {
-                        "description": "Source is details on where the error occurred.\n",
-                        "type": "string"
-                    }
-                },
-                "type": "object"
             },
             "shared.ScanResultType": {
                 "description": "ScanResultType represents a cloud scan result type",
@@ -13939,10 +13827,6 @@
             "shared.WildFirePolicy": {
                 "description": "WildFirePolicy is the global wildfire usage policy, set by the client",
                 "properties": {
-                    "agentlessEnabled": {
-                        "description": "AgentlessEnabled indicates whether agentless scan will consult WF.\n",
-                        "type": "boolean"
-                    },
                     "complianceEnabled": {
                         "description": "ComplianceEnabled indicates whether compliance malware scan will consult WF.\n",
                         "type": "boolean"
@@ -17001,8 +16885,7 @@
                         "Kubernetes",
                         "CRI",
                         "OpenShift",
-                        "Application Control",
-                        "Prisma Cloud Labs"
+                        "Application Control"
                     ]
                 ],
                 "type": "string"
@@ -17204,8 +17087,7 @@
                         "windows",
                         "binary",
                         "nuget",
-                        "go",
-                        "unknown"
+                        "go"
                     ]
                 ],
                 "type": "string"
@@ -17328,9 +17210,7 @@
                         "docker_stig",
                         "openshift_master",
                         "openshift_worker",
-                        "application_control_linux",
-                        "image_malware",
-                        "host_malware"
+                        "application_control_linux"
                     ]
                 ],
                 "type": "string"
@@ -17478,27 +17358,6 @@
                             "$ref": "#/components/schemas/vuln.TagInfo"
                         },
                         "type": "array"
-                    },
-                    "wildfireMalware": {
-                        "$ref": "#/components/schemas/vuln.WildFireMalware"
-                    }
-                },
-                "type": "object"
-            },
-            "vuln.WildFireMalware": {
-                "description": "WildFireMalware holds the data for WildFire malicious MD5",
-                "properties": {
-                    "md5": {
-                        "description": "MD5 is the hash of the malicious binary.\n",
-                        "type": "string"
-                    },
-                    "path": {
-                        "description": "Path is the path to malicious binary.\n",
-                        "type": "string"
-                    },
-                    "verdict": {
-                        "description": "Verdict is the malicious source like grayware, malware and phishing.\n",
-                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -20159,197 +20018,12 @@
     },
     "info": {
         "title": "Prisma Cloud Compute API",
-        "version": "30.03.119"
+        "version": "30.02.123"
+        
     },
     "openapi": "3.0.3",
     "paths": {
-        "/api/v1/certs/ca.pem": {
-            "get": {
-                "description": {
-                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/certs/capem_get.md"
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "Certs"
-                ],
-                "x-prisma-cloud-target-env": {
-                    "permission": "accessUI",
-                    "saas": true,
-                    "self-hosted": true
-                },
-                "operationId": "get-certs-ca.pem",
-                "summary": "Get CA PEM Certificate File"
-            }
-        },
-        "/api/v1/certs/server-certs.sh": {
-            "get": {
-                "description": {
-                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/certs/server-certs_get.md"
-                },
-                "parameters": [
-                    {
-                        "description": "OS is the target os.\n",
-                        "in": "query",
-                        "name": "os",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "description": "IPs is the list of addresses for which the certificates are generated.\n",
-                        "in": "query",
-                        "name": "ip",
-                        "schema": {
-                            "type": "string"
-                        }
-                    },
-                    {
-                        "description": "Hostname is the target defender hostname.\n",
-                        "in": "query",
-                        "name": "hostname",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/-_uint8"
-                                }
-                            }
-                        },
-                        "description": ""
-                    },
-                    "default": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "Certs"
-                ],
-                "x-prisma-cloud-target-env": {
-                    "permission": "manageDefenders",
-                    "saas": true,
-                    "self-hosted": true
-                },
-                "operationId": "get-certs-server-certs.sh",
-                "summary": "Get Server Certificates"
-            }
-        },
-        "/api/v1/registry/webhook/webhook": {
-            "delete": {
-                "description": "RegistryWebhook listen to registry updates\n",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "Registry"
-                ],
-                "x-prisma-cloud-target-env": {
-                    "permission": "none",
-                    "saas": true,
-                    "self-hosted": true
-                },
-                "operationId": "delete-registry-webhook-webhook",
-                "summary": " Registry Webhook"
-            },
-            "post": {
-                "description": "RegistryWebhook listen to registry updates\n",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/types.RegistryWebhookRequest"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "Registry"
-                ],
-                "x-prisma-cloud-target-env": {
-                    "permission": "none",
-                    "saas": true,
-                    "self-hosted": true
-                },
-                "operationId": "post-registry-webhook-webhook",
-                "summary": " Registry Webhook"
-            }
-        },
-        "/api/v1/util/prisma-cloud-jenkins-plugin.hpi": {
-            "get": {
-                "description": {
-                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/util/twistlock_jenkins_plugin_get.md"
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "Util"
-                ],
-                "x-prisma-cloud-target-env": {
-                    "permission": "downloads",
-                    "saas": true,
-                    "self-hosted": true
-                },
-                "operationId": "get-util-prisma-cloud-jenkins-plugin.hpi",
-                "summary": "Download Jenkins Plugin for Prisma Cloud Compute"
-            }
-        },
-        "/api/v1/util/tas-tile": {
-            "get": {
-                "description": {
-                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/util/twistlock_tas_tile_get.md"
-                },
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "default": {
-                        "description": ""
-                    }
-                },
-                "tags": [
-                    "Util"
-                ],
-                "x-prisma-cloud-target-env": {
-                    "permission": "manageDefenders",
-                    "saas": true,
-                    "self-hosted": true
-                },
-                "operationId": "get-util-tas-tile",
-                "summary": "Download VMware TAS Tile for Prisma Cloud Compute"
-            }
-        },
-        "/api/v30.03/_ping": {
+        "/api/v30.02/_ping": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/_ping/get.md"
@@ -20382,7 +20056,7 @@
                 "summary": "Ping"
             }
         },
-        "/api/v30.03/agentless/progress": {
+        "/api/v30.02/agentless/progress": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/agentless/get_agentless_progress.md"
@@ -20415,7 +20089,7 @@
                 "summary": "View the Agentless Scan Progress"
             }
         },
-        "/api/v30.03/agentless/scan": {
+        "/api/v30.02/agentless/scan": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/agentless/post_agentless_scan.md"
@@ -20441,7 +20115,7 @@
                 "summary": "Start Agentless Scan"
             }
         },
-        "/api/v30.03/agentless/stop": {
+        "/api/v30.02/agentless/stop": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/agentless/post_agentless_stop.md"
@@ -20467,7 +20141,7 @@
                 "summary": "Stop an Ongoing Scan"
             }
         },
-        "/api/v30.03/agentless/templates": {
+        "/api/v30.02/agentless/templates": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/agentless/post_agentless_templates.md"
@@ -20502,7 +20176,7 @@
                 "summary": "Download Agentless Permission Templates"
             }
         },
-        "/api/v30.03/application-control/host": {
+        "/api/v30.02/application-control/host": {
             "get": {
                 "description": "HostApplicationControlRules returns the host application control rules\n",
                 "responses": {
@@ -20571,7 +20245,7 @@
                 "summary": " Upsert Host Application Control Rule"
             }
         },
-        "/api/v30.03/application-control/host/{id}": {
+        "/api/v30.02/application-control/host/{id}": {
             "delete": {
                 "description": "DeleteHostApplicationControlRule removes the given rule from the list of host application control rules\n",
                 "parameters": [
@@ -20605,7 +20279,7 @@
                 "summary": " Delete Host Application Control Rule"
             }
         },
-        "/api/v30.03/audits/access": {
+        "/api/v30.02/audits/access": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/access_get.md"
@@ -20846,7 +20520,7 @@
                 "summary": "Get Docker Access Audit Events"
             }
         },
-        "/api/v30.03/audits/access/download": {
+        "/api/v30.02/audits/access/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/access_download_get.md"
@@ -21080,7 +20754,7 @@
                 "summary": "Download Docker Access Audit Events"
             }
         },
-        "/api/v30.03/audits/admission": {
+        "/api/v30.02/audits/admission": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/admission_get.md"
@@ -21293,7 +20967,7 @@
                 "summary": "Get Admission Audit Events"
             }
         },
-        "/api/v30.03/audits/admission/download": {
+        "/api/v30.02/audits/admission/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/admission_download_get.md"
@@ -21499,7 +21173,7 @@
                 "summary": "Download Admission Audit Events"
             }
         },
-        "/api/v30.03/audits/firewall/app/agentless": {
+        "/api/v30.02/audits/firewall/app/agentless": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/waas_agentless_get.md"
@@ -22016,7 +21690,7 @@
                 "summary": "Get WAAS Agentless Audit Events"
             }
         },
-        "/api/v30.03/audits/firewall/app/agentless/download": {
+        "/api/v30.02/audits/firewall/app/agentless/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/waas_agentless_download_get.md"
@@ -22526,7 +22200,7 @@
                 "summary": "Download WAAS Agentless Audit Events"
             }
         },
-        "/api/v30.03/audits/firewall/app/agentless/timeslice": {
+        "/api/v30.02/audits/firewall/app/agentless/timeslice": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/waas_agentless_timeslice_get.md"
@@ -23051,7 +22725,7 @@
                 "summary": "Get WAAS Agentless Audit Events for a Timeframe"
             }
         },
-        "/api/v30.03/audits/firewall/app/app-embedded": {
+        "/api/v30.02/audits/firewall/app/app-embedded": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/waas_app_embedded_get.md"
@@ -23568,7 +23242,7 @@
                 "summary": "Get WAAS App-embedded Audit Events"
             }
         },
-        "/api/v30.03/audits/firewall/app/app-embedded/download": {
+        "/api/v30.02/audits/firewall/app/app-embedded/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/waas_app_embedded_download_get.md"
@@ -24078,7 +23752,7 @@
                 "summary": "Download WAAS App-embedded Audit Events"
             }
         },
-        "/api/v30.03/audits/firewall/app/app-embedded/timeslice": {
+        "/api/v30.02/audits/firewall/app/app-embedded/timeslice": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/waas_app_embedded_timeslice_get.md"
@@ -24603,7 +24277,7 @@
                 "summary": "Get WAAS App-embedded Audit Events for a Timeframe"
             }
         },
-        "/api/v30.03/audits/firewall/app/container": {
+        "/api/v30.02/audits/firewall/app/container": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/waas_container_get.md"
@@ -25120,7 +24794,7 @@
                 "summary": "Get WAAS Container Audit Events"
             }
         },
-        "/api/v30.03/audits/firewall/app/container/download": {
+        "/api/v30.02/audits/firewall/app/container/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/waas_container_download_get.md"
@@ -25630,7 +25304,7 @@
                 "summary": "Download WAAS Container Audit Events"
             }
         },
-        "/api/v30.03/audits/firewall/app/container/timeslice": {
+        "/api/v30.02/audits/firewall/app/container/timeslice": {
             "get": {
                 "description": "ContainerAppFirewallAuditTimeslice returns container firewall audit buckets according to the query timeframe\n",
                 "parameters": [
@@ -26153,7 +25827,7 @@
                 "summary": " Container App Firewall Audit Timeslice"
             }
         },
-        "/api/v30.03/audits/firewall/app/host": {
+        "/api/v30.02/audits/firewall/app/host": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/waas_host_get.md"
@@ -26670,7 +26344,7 @@
                 "summary": "Get WAAS Host Audit Events"
             }
         },
-        "/api/v30.03/audits/firewall/app/host/download": {
+        "/api/v30.02/audits/firewall/app/host/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/waas_host_download_get.md"
@@ -27180,7 +26854,7 @@
                 "summary": "Download WAAS Host Audit Events"
             }
         },
-        "/api/v30.03/audits/firewall/app/host/timeslice": {
+        "/api/v30.02/audits/firewall/app/host/timeslice": {
             "get": {
                 "description": "HostAppFirewallAuditTimeslice returns host firewall audit buckets according to the query timeframe\n",
                 "parameters": [
@@ -27703,7 +27377,7 @@
                 "summary": " Host App Firewall Audit Timeslice"
             }
         },
-        "/api/v30.03/audits/firewall/app/serverless": {
+        "/api/v30.02/audits/firewall/app/serverless": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/waas_serverless_get.md"
@@ -28220,7 +27894,7 @@
                 "summary": "Get WAAS Serverless Audit Events"
             }
         },
-        "/api/v30.03/audits/firewall/app/serverless/download": {
+        "/api/v30.02/audits/firewall/app/serverless/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/waas_serverless_download_get.md"
@@ -28730,7 +28404,7 @@
                 "summary": "Download WAAS Serverless Audit Events"
             }
         },
-        "/api/v30.03/audits/firewall/app/serverless/timeslice": {
+        "/api/v30.02/audits/firewall/app/serverless/timeslice": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/waas_serverless_timeslice_get.md"
@@ -29255,7 +28929,7 @@
                 "summary": "Get WAAS Serverless Audit Events for a Timeframe"
             }
         },
-        "/api/v30.03/audits/firewall/network/container": {
+        "/api/v30.02/audits/firewall/network/container": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/firewall_network_container_get.md"
@@ -29448,11 +29122,12 @@
                     "self-hosted": true
                 },
                 "x-public": true,
+                "deprecated": true,
                 "operationId": "get-audits-firewall-network-container",
                 "summary": "Get CNNS Container Audit Events"
             }
         },
-        "/api/v30.03/audits/firewall/network/container/download": {
+        "/api/v30.02/audits/firewall/network/container/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/firewall_network_container_download_get.md"
@@ -29638,11 +29313,12 @@
                     "self-hosted": true
                 },
                 "x-public": true,
+                "deprecated": true,
                 "operationId": "get-audits-firewall-network-container-download",
                 "summary": "Download CNNS Container Audit Events"
             }
         },
-        "/api/v30.03/audits/firewall/network/host": {
+        "/api/v30.02/audits/firewall/network/host": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/firewall_network_host_get.md"
@@ -29827,11 +29503,12 @@
                     "self-hosted": true
                 },
                 "x-public": true,
+                "deprecated": true,
                 "operationId": "get-audits-firewall-network-host",
                 "summary": "Get CNNS Host Audit Events"
             }
         },
-        "/api/v30.03/audits/firewall/network/host/download": {
+        "/api/v30.02/audits/firewall/network/host/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/firewall_network_host_download_get.md"
@@ -30009,11 +29686,12 @@
                     "self-hosted": true
                 },
                 "x-public": true,
+                "deprecated": true,
                 "operationId": "get-audits-firewall-network-host-download",
                 "summary": "Download CNNS Host Audit Events"
             }
         },
-        "/api/v30.03/audits/incidents": {
+        "/api/v30.02/audits/incidents": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/incidents_get.md"
@@ -30306,7 +29984,7 @@
                 "summary": "Get Incident Audit Events"
             }
         },
-        "/api/v30.03/audits/incidents/acknowledge/{id}": {
+        "/api/v30.02/audits/incidents/acknowledge/{id}": {
             "patch": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/incidents_archive_patch.md"
@@ -30351,7 +30029,7 @@
                 "summary": "Archive an Incident Audit Event"
             }
         },
-        "/api/v30.03/audits/incidents/download": {
+        "/api/v30.02/audits/incidents/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/incidents_download_get.md"
@@ -30637,7 +30315,7 @@
                 "summary": "Download Incident Audit Events"
             }
         },
-        "/api/v30.03/audits/kubernetes": {
+        "/api/v30.02/audits/kubernetes": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/kubernetes_get.md"
@@ -30838,7 +30516,7 @@
                 "summary": "Get Kubernetes Audit Events"
             }
         },
-        "/api/v30.03/audits/kubernetes/download": {
+        "/api/v30.02/audits/kubernetes/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/kubernetes_download_get.md"
@@ -31032,7 +30710,7 @@
                 "summary": "Download Kubernetes Audit Events"
             }
         },
-        "/api/v30.03/audits/mgmt": {
+        "/api/v30.02/audits/mgmt": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/mgmt_get.md"
@@ -31221,7 +30899,7 @@
                 "summary": "Get Management Audit Events"
             }
         },
-        "/api/v30.03/audits/mgmt/download": {
+        "/api/v30.02/audits/mgmt/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/mgmt_download_get.md"
@@ -31403,7 +31081,7 @@
                 "summary": "Download Management Audit Events"
             }
         },
-        "/api/v30.03/audits/mgmt/filters": {
+        "/api/v30.02/audits/mgmt/filters": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/mgmt_filters_get.md"
@@ -31592,7 +31270,7 @@
                 "summary": "Get Management Audit Event Filters"
             }
         },
-        "/api/v30.03/audits/runtime/app-embedded": {
+        "/api/v30.02/audits/runtime/app-embedded": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_app_embedded_get.md"
@@ -32062,7 +31740,7 @@
                 "summary": "Get Runtime App-embedded Audit Events"
             }
         },
-        "/api/v30.03/audits/runtime/app-embedded/download": {
+        "/api/v30.02/audits/runtime/app-embedded/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_app_embedded_download_get.md"
@@ -32525,7 +32203,7 @@
                 "summary": "Download Runtime App-embedded Audit Events"
             }
         },
-        "/api/v30.03/audits/runtime/container": {
+        "/api/v30.02/audits/runtime/container": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_container_get.md"
@@ -32995,7 +32673,7 @@
                 "summary": "Get Runtime Container Audit Events"
             }
         },
-        "/api/v30.03/audits/runtime/container/download": {
+        "/api/v30.02/audits/runtime/container/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_container_download_get.md"
@@ -33458,7 +33136,7 @@
                 "summary": "Download Runtime Container Audit Events"
             }
         },
-        "/api/v30.03/audits/runtime/container/timeslice": {
+        "/api/v30.02/audits/runtime/container/timeslice": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_container_timeslice_get.md"
@@ -33936,7 +33614,7 @@
                 "summary": "Get Runtime Container Audit Events for a Timeframe"
             }
         },
-        "/api/v30.03/audits/runtime/file-integrity": {
+        "/api/v30.02/audits/runtime/file-integrity": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_file-integrity_get.md"
@@ -34161,7 +33839,7 @@
                 "summary": "Get Runtime File Integrity Audit Events"
             }
         },
-        "/api/v30.03/audits/runtime/file-integrity/download": {
+        "/api/v30.02/audits/runtime/file-integrity/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_file-integrity_download_get.md"
@@ -34379,7 +34057,7 @@
                 "summary": "Download Runtime File Integrity Audit Events"
             }
         },
-        "/api/v30.03/audits/runtime/host": {
+        "/api/v30.02/audits/runtime/host": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_host_get.md"
@@ -34849,7 +34527,7 @@
                 "summary": "Get Runtime Host Audit Events"
             }
         },
-        "/api/v30.03/audits/runtime/host/download": {
+        "/api/v30.02/audits/runtime/host/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_host_download_get.md"
@@ -35312,7 +34990,7 @@
                 "summary": "Download Runtime Host Audit Events"
             }
         },
-        "/api/v30.03/audits/runtime/host/timeslice": {
+        "/api/v30.02/audits/runtime/host/timeslice": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_host_timeslice_get.md"
@@ -35790,7 +35468,7 @@
                 "summary": "Get Runtime Host Audit Events for a Timeframe"
             }
         },
-        "/api/v30.03/audits/runtime/log-inspection": {
+        "/api/v30.02/audits/runtime/log-inspection": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_log-inspection_get.md"
@@ -36003,7 +35681,7 @@
                 "summary": "Get Runtime Log Inspection Audit Events"
             }
         },
-        "/api/v30.03/audits/runtime/log-inspection/download": {
+        "/api/v30.02/audits/runtime/log-inspection/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_log-inspection_download_get.md"
@@ -36209,7 +35887,7 @@
                 "summary": "Download Runtime Log Inspection Audit Events"
             }
         },
-        "/api/v30.03/audits/runtime/serverless": {
+        "/api/v30.02/audits/runtime/serverless": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_serverless_get.md"
@@ -36511,7 +36189,7 @@
                 "summary": "Get Runtime Serverless Audit Events"
             }
         },
-        "/api/v30.03/audits/runtime/serverless/download": {
+        "/api/v30.02/audits/runtime/serverless/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_serverless_download_get.md"
@@ -36974,7 +36652,7 @@
                 "summary": "Download Serverless Audit Events"
             }
         },
-        "/api/v30.03/audits/runtime/serverless/timeslice": {
+        "/api/v30.02/audits/runtime/serverless/timeslice": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/runtime_serverless_timeslice_get.md"
@@ -37452,7 +37130,7 @@
                 "summary": "Get Runtime Serverless Audit Events for a Timeframe"
             }
         },
-        "/api/v30.03/audits/trust": {
+        "/api/v30.02/audits/trust": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/trust_get.md"
@@ -37653,7 +37331,7 @@
                 "summary": "Get Trust Audit Events"
             }
         },
-        "/api/v30.03/audits/trust/download": {
+        "/api/v30.02/audits/trust/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/trust_download_get.md"
@@ -37847,7 +37525,7 @@
                 "summary": "Download Trust Audit Events"
             }
         },
-        "/api/v30.03/authenticate": {
+        "/api/v30.02/authenticate": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/authenticate/post.md"
@@ -37889,7 +37567,90 @@
                 "summary": "Get User Authentication Access Token"
             }
         },
-        "/api/v30.03/cloud/discovery": {
+        "/api/v1/certs/ca.pem": {
+            "get": {
+                "description": {
+                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/certs/capem_get.md"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Certs"
+                ],
+                "x-prisma-cloud-target-env": {
+                    "permission": "accessUI",
+                    "saas": true,
+                    "self-hosted": true
+                },
+                "operationId": "get-certs-ca.pem",
+                "summary": "Get CA PEM Certificate File"
+            }
+        },
+        "/api/v1/certs/server-certs.sh": {
+            "get": {
+                "description": {
+                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/certs/server-certs_get.md"
+                },
+                "parameters": [
+                    {
+                        "description": "OS is the target os.\n",
+                        "in": "query",
+                        "name": "os",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "IPs is the list of addresses for which the certificates are generated.\n",
+                        "in": "query",
+                        "name": "ip",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "description": "Hostname is the target defender hostname.\n",
+                        "in": "query",
+                        "name": "hostname",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/-_uint8"
+                                }
+                            }
+                        },
+                        "description": ""
+                    },
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Certs"
+                ],
+                "x-prisma-cloud-target-env": {
+                    "permission": "manageDefenders",
+                    "saas": true,
+                    "self-hosted": true
+                },
+                "operationId": "get-certs-server-certs.sh",
+                "summary": "Get Server Certificates"
+            }
+        },
+        "/api/v30.02/cloud/discovery": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/cloud/discovery_get.md"
@@ -38092,7 +37853,7 @@
                 "summary": "Get Cloud Discovery Scan Results"
             }
         },
-        "/api/v30.03/cloud/discovery/download": {
+        "/api/v30.02/cloud/discovery/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/cloud/discovery_download_get.md"
@@ -38288,7 +38049,7 @@
                 "summary": "Download Cloud Discovery Scan Results"
             }
         },
-        "/api/v30.03/cloud/discovery/entities": {
+        "/api/v30.02/cloud/discovery/entities": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/cloud/discovery_entities_get.md"
@@ -38491,7 +38252,7 @@
                 "summary": "Get Discovered Cloud Entities"
             }
         },
-        "/api/v30.03/cloud/discovery/scan": {
+        "/api/v30.02/cloud/discovery/scan": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/cloud/discovery_scan_post.md"
@@ -38517,7 +38278,7 @@
                 "summary": "Start a Cloud Discovery Scan"
             }
         },
-        "/api/v30.03/cloud/discovery/stop": {
+        "/api/v30.02/cloud/discovery/stop": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/cloud/discovery_stop_post.md"
@@ -38543,7 +38304,7 @@
                 "summary": "Stop a Cloud Discovery Scan"
             }
         },
-        "/api/v30.03/cloud/discovery/vms": {
+        "/api/v30.02/cloud/discovery/vms": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/cloud/discovery_vms_get.md"
@@ -38698,7 +38459,7 @@
                 "summary": "Get Discovered VMs"
             }
         },
-        "/api/v30.03/coderepos-ci": {
+        "/api/v30.02/coderepos-ci": {
             "post": {
                 "description": "AddCICodeRepo adds a CI code repo scan result\n",
                 "requestBody": {
@@ -38719,7 +38480,7 @@
                     }
                 },
                 "tags": [
-                    "Coderepos-Ci"
+                    "Coderepos-CI"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorCI",
@@ -38731,7 +38492,7 @@
                 "summary": " Add CI Code Repo"
             }
         },
-        "/api/v30.03/coderepos-ci/evaluate": {
+        "/api/v30.02/coderepos-ci/evaluate": {
             "post": {
                 "description": "ResolveCodeRepos adds vulnerability data for the given code repo scan result\n",
                 "requestBody": {
@@ -38759,7 +38520,7 @@
                     }
                 },
                 "tags": [
-                    "Coderepos-Ci"
+                    "Coderepos-CI"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorCI",
@@ -38771,7 +38532,7 @@
                 "summary": " Resolve Code Repos"
             }
         },
-        "/api/v30.03/collections": {
+        "/api/v30.02/collections": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/collections/get.md"
@@ -38847,7 +38608,7 @@
                 "summary": "Add a New Collection"
             }
         },
-        "/api/v30.03/collections/{id}": {
+        "/api/v30.02/collections/{id}": {
             "delete": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/collections/name_delete.md"
@@ -38926,7 +38687,7 @@
                 "summary": "Update an Existing Collection"
             }
         },
-        "/api/v30.03/collections/{id}/usages": {
+        "/api/v30.02/collections/{id}/usages": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/collections/name_usages_get.md"
@@ -38969,7 +38730,7 @@
                 "summary": "Get Policies for a Collection"
             }
         },
-        "/api/v30.03/containers": {
+        "/api/v30.02/containers": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/containers/get.md"
@@ -39228,7 +38989,7 @@
                 "summary": "Get Container Scan Results"
             }
         },
-        "/api/v30.03/containers/count": {
+        "/api/v30.02/containers/count": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/containers/count_get.md"
@@ -39487,7 +39248,7 @@
                 "summary": "Get Containers Count"
             }
         },
-        "/api/v30.03/containers/download": {
+        "/api/v30.02/containers/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/containers/download_get.md"
@@ -39739,7 +39500,7 @@
                 "summary": "Download Container Scan Results"
             }
         },
-        "/api/v30.03/containers/names": {
+        "/api/v30.02/containers/names": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/containers/names_get.md"
@@ -39998,7 +39759,7 @@
                 "summary": "Get Container Names"
             }
         },
-        "/api/v30.03/containers/scan": {
+        "/api/v30.02/containers/scan": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/containers/scan_post.md"
@@ -40024,7 +39785,7 @@
                 "summary": "Start a Container Scan"
             }
         },
-        "/api/v30.03/credentials": {
+        "/api/v30.02/credentials": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/credentials/get.md"
@@ -40240,7 +40001,7 @@
                 "summary": "Add Credentials"
             }
         },
-        "/api/v30.03/credentials/{id}": {
+        "/api/v30.02/credentials/{id}": {
             "delete": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/credentials/id_delete.md"
@@ -40276,7 +40037,7 @@
                 "summary": "Delete a Credential"
             }
         },
-        "/api/v30.03/credentials/{id}/usages": {
+        "/api/v30.02/credentials/{id}/usages": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/credentials/id_usages_get.md"
@@ -40319,7 +40080,7 @@
                 "summary": "Get Credential Usages"
             }
         },
-        "/api/v30.03/current/collections": {
+        "/api/v30.02/current/collections": {
             "get": {
                 "description": "UserCollections returns collections in the current project that the user has permission to access\n",
                 "responses": {
@@ -40350,7 +40111,7 @@
                 "summary": " User Collections"
             }
         },
-        "/api/v30.03/custom-compliance": {
+        "/api/v30.02/custom-compliance": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/custom-compliance/get.md"
@@ -40423,7 +40184,7 @@
                 "summary": "Update Custom Compliance Checks"
             }
         },
-        "/api/v30.03/custom-compliance/{id}": {
+        "/api/v30.02/custom-compliance/{id}": {
             "delete": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/custom-compliance/id_delete.md"
@@ -40459,7 +40220,7 @@
                 "summary": "Delete a Custom Compliance Check"
             }
         },
-        "/api/v30.03/custom-rules": {
+        "/api/v30.02/custom-rules": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/custom-rules/get.md"
@@ -40492,7 +40253,7 @@
                 "summary": "Get Custom Rules"
             }
         },
-        "/api/v30.03/custom-rules/{id}": {
+        "/api/v30.02/custom-rules/{id}": {
             "delete": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/custom-rules/id_delete.md"
@@ -40569,7 +40330,7 @@
                 "summary": " Update Custom Rule"
             }
         },
-        "/api/v30.03/defenders": {
+        "/api/v30.02/defenders": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/get.md"
@@ -40848,7 +40609,7 @@
                 "summary": "Get Deployed Defenders"
             }
         },
-        "/api/v30.03/defenders/app-embedded": {
+        "/api/v30.02/defenders/app-embedded": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/app_embedded_post.md"
@@ -40883,7 +40644,7 @@
                 "summary": "Generate a Docker File for App-embedded Defender"
             }
         },
-        "/api/v30.03/defenders/daemonset.yaml": {
+        "/api/v30.02/defenders/daemonset.yaml": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/daemonset_yaml_post.md"
@@ -40925,7 +40686,7 @@
                 "summary": "Generate Daemonset Deployment YAML File"
             }
         },
-        "/api/v30.03/defenders/download": {
+        "/api/v30.02/defenders/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/download_get.md"
@@ -41197,7 +40958,7 @@
                 "summary": "Download Deployed Defenders"
             }
         },
-        "/api/v30.03/defenders/fargate.json": {
+        "/api/v30.02/defenders/fargate.json": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/fargate_json_post.md"
@@ -41341,7 +41102,7 @@
                 "summary": "Generate a Protected JSON Fargate Task Definition"
             }
         },
-        "/api/v30.03/defenders/fargate.yaml": {
+        "/api/v30.02/defenders/fargate.yaml": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/fargate_yaml_post.md"
@@ -41476,7 +41237,7 @@
                 "summary": "Generate a Protected YAML Fargate Task Definition"
             }
         },
-        "/api/v30.03/defenders/helm/twistlock-defender-helm.tar.gz": {
+        "/api/v30.02/defenders/helm/twistlock-defender-helm.tar.gz": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/helm_post.md"
@@ -41511,7 +41272,7 @@
                 "summary": "Generate a Helm Deployment Chart for Defender"
             }
         },
-        "/api/v30.03/defenders/image-name": {
+        "/api/v30.02/defenders/image-name": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/image-name_get.md"
@@ -41544,7 +41305,7 @@
                 "summary": "Get Docker Image Name for Defender"
             }
         },
-        "/api/v30.03/defenders/install-bundle": {
+        "/api/v30.02/defenders/install-bundle": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/install-bundle_get.md"
@@ -41679,7 +41440,7 @@
                 "summary": "Get Certificate Bundle for Defender"
             }
         },
-        "/api/v30.03/defenders/names": {
+        "/api/v30.02/defenders/names": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/names_get.md"
@@ -41958,7 +41719,7 @@
                 "summary": "Get Defender Names"
             }
         },
-        "/api/v30.03/defenders/serverless/bundle": {
+        "/api/v30.02/defenders/serverless/bundle": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/serverless-bundle_post.md"
@@ -41993,7 +41754,7 @@
                 "summary": "Generate Serverless Bundle for Defender"
             }
         },
-        "/api/v30.03/defenders/summary": {
+        "/api/v30.02/defenders/summary": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/summary_get.md"
@@ -42026,7 +41787,7 @@
                 "summary": "Get Defenders Summary"
             }
         },
-        "/api/v30.03/defenders/upgrade": {
+        "/api/v30.02/defenders/upgrade": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/upgrade_post.md"
@@ -42298,7 +42059,7 @@
                 "summary": "Upgrade Connected Single Linux Defenders"
             }
         },
-        "/api/v30.03/defenders/{id}": {
+        "/api/v30.02/defenders/{id}": {
             "delete": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/id_delete.md"
@@ -42334,7 +42095,7 @@
                 "summary": "Delete a Defender"
             }
         },
-        "/api/v30.03/defenders/{id}/features": {
+        "/api/v30.02/defenders/{id}/features": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/id_features_post.md"
@@ -42386,7 +42147,7 @@
                 "summary": "Update Defender Configuration"
             }
         },
-        "/api/v30.03/defenders/{id}/restart": {
+        "/api/v30.02/defenders/{id}/restart": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/id_restart_post.md"
@@ -42422,7 +42183,7 @@
                 "summary": "Restart a Defender"
             }
         },
-        "/api/v30.03/defenders/{id}/upgrade": {
+        "/api/v30.02/defenders/{id}/upgrade": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/id_upgrade_post.md"
@@ -42458,7 +42219,7 @@
                 "summary": "Upgrade a Defender"
             }
         },
-        "/api/v30.03/feeds/custom/custom-vulnerabilities": {
+        "/api/v30.02/feeds/custom/custom-vulnerabilities": {
             "get": {
                 "description": "CustomVulnerabilities returns the custom vulnerabilities feed\n",
                 "responses": {
@@ -42520,7 +42281,7 @@
                 "summary": " Set Custom Vulnerabilities"
             }
         },
-        "/api/v30.03/feeds/custom/malware": {
+        "/api/v30.02/feeds/custom/malware": {
             "get": {
                 "description": "CustomMalwareFeed returns the custom malware feed\n",
                 "responses": {
@@ -42582,7 +42343,7 @@
                 "summary": " Set Custom Malware Feed"
             }
         },
-        "/api/v30.03/groups": {
+        "/api/v30.02/groups": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/groups/get.md"
@@ -42615,7 +42376,7 @@
                 "summary": "Get Groups"
             }
         },
-        "/api/v30.03/groups/names": {
+        "/api/v30.02/groups/names": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/groups/names.md"
@@ -42648,7 +42409,7 @@
                 "summary": "Get Group Names"
             }
         },
-        "/api/v30.03/hosts": {
+        "/api/v30.02/hosts": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/hosts/get.md"
@@ -42875,7 +42636,7 @@
                 "summary": "Get Host Scan Results"
             }
         },
-        "/api/v30.03/hosts/download": {
+        "/api/v30.02/hosts/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/hosts/download_get.md"
@@ -43095,7 +42856,7 @@
                 "summary": "Download Host Scan Results"
             }
         },
-        "/api/v30.03/hosts/evaluate": {
+        "/api/v30.02/hosts/evaluate": {
             "post": {
                 "description": "ResolveHosts adds vulnerability data for the given host\n",
                 "requestBody": {
@@ -43135,7 +42896,7 @@
                 "summary": " Resolve Hosts"
             }
         },
-        "/api/v30.03/hosts/info": {
+        "/api/v30.02/hosts/info": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/hosts/info_get.md"
@@ -43362,7 +43123,7 @@
                 "summary": "Get Host Information"
             }
         },
-        "/api/v30.03/hosts/scan": {
+        "/api/v30.02/hosts/scan": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/hosts/scan_post.md"
@@ -43388,7 +43149,7 @@
                 "summary": "Start a Host Scan"
             }
         },
-        "/api/v30.03/images": {
+        "/api/v30.02/images": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/images/get.md"
@@ -43679,7 +43440,7 @@
                 "summary": "Get Image Scan Results"
             }
         },
-        "/api/v30.03/images/download": {
+        "/api/v30.02/images/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/images/download_get.md"
@@ -43963,7 +43724,7 @@
                 "summary": "Download Image Scan Results"
             }
         },
-        "/api/v30.03/images/evaluate": {
+        "/api/v30.02/images/evaluate": {
             "post": {
                 "description": "ResolveImages adds vulnerability data for the given images\n",
                 "requestBody": {
@@ -44003,7 +43764,7 @@
                 "summary": " Resolve Images"
             }
         },
-        "/api/v30.03/images/names": {
+        "/api/v30.02/images/names": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/images/names_get.md"
@@ -44294,7 +44055,7 @@
                 "summary": "Get Image Names"
             }
         },
-        "/api/v30.03/images/scan": {
+        "/api/v30.02/images/scan": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/images/scan_post.md"
@@ -44329,7 +44090,7 @@
                 "summary": "Start Image Scan"
             }
         },
-        "/api/v30.03/images/twistlock_defender_app_embedded.tar.gz": {
+        "/api/v30.02/images/twistlock_defender_app_embedded.tar.gz": {
             "get": {
                 "description": "DownloadAppEmbeddedDefender generates the embedded defender bundle and serves it to the user\n",
                 "responses": {
@@ -44353,7 +44114,7 @@
                 "summary": " Download App-Embedded Defender"
             }
         },
-        "/api/v30.03/images/twistlock_defender_layer.zip": {
+        "/api/v30.02/images/twistlock_defender_layer.zip": {
             "post": {
                 "description": "DownloadServerlessLayerBundle returns a ZIP file with a Lambda layer containing the Defender runtime\n",
                 "requestBody": {
@@ -44386,7 +44147,7 @@
                 "summary": " Download Serverless Layer Bundle"
             }
         },
-        "/api/v30.03/policies/compliance/ci/images": {
+        "/api/v30.02/policies/compliance/ci/images": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/compliance_ci_images_get.md"
@@ -44452,7 +44213,7 @@
                 "summary": "Update Continuous Integration (CI) Image Compliance Policy"
             }
         },
-        "/api/v30.03/policies/compliance/ci/serverless": {
+        "/api/v30.02/policies/compliance/ci/serverless": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/compliance_ci_serverless_get.md"
@@ -44518,7 +44279,7 @@
                 "summary": "Update Continuous Integration (CI) Serverless Compliance Policy"
             }
         },
-        "/api/v30.03/policies/compliance/container": {
+        "/api/v30.02/policies/compliance/container": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/compliance_container_get.md"
@@ -44584,7 +44345,7 @@
                 "summary": "Update Container Compliance Policy"
             }
         },
-        "/api/v30.03/policies/compliance/container/impacted": {
+        "/api/v30.02/policies/compliance/container/impacted": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/compliance_container_impacted_get.md"
@@ -44739,7 +44500,7 @@
                 "summary": "Get Impacted Container Compliance Policy"
             }
         },
-        "/api/v30.03/policies/compliance/host": {
+        "/api/v30.02/policies/compliance/host": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/compliance_host_get.md"
@@ -44805,7 +44566,7 @@
                 "summary": "Update Host Compliance Policy"
             }
         },
-        "/api/v30.03/policies/compliance/serverless": {
+        "/api/v30.02/policies/compliance/serverless": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/compliance_serverless_get.md"
@@ -44871,7 +44632,7 @@
                 "summary": "Update Serverless Compliance Policy"
             }
         },
-        "/api/v30.03/policies/compliance/vms/impacted": {
+        "/api/v30.02/policies/compliance/vms/impacted": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/compliance_vms_impacted_get.md"
@@ -45026,7 +44787,7 @@
                 "summary": "Get Impacted VMs Compliance Policy"
             }
         },
-        "/api/v30.03/policies/firewall/app/agentless": {
+        "/api/v30.02/policies/firewall/app/agentless": {
             "get": {
                 "description": "AgentlessAppFirewallPolicy returns the agentless application firewall policy\n",
                 "responses": {
@@ -45088,7 +44849,7 @@
                 "summary": " Set Agentless App Firewall Policy"
             }
         },
-        "/api/v30.03/policies/firewall/app/agentless/impacted": {
+        "/api/v30.02/policies/firewall/app/agentless/impacted": {
             "get": {
                 "description": "AgentlessAppFirewallPolicyImpacted returns a list of mirrored VMs for which the firewall policy rule applies to\n",
                 "parameters": [
@@ -45241,7 +45002,7 @@
                 "summary": " Agentless App Firewall Policy Impacted"
             }
         },
-        "/api/v30.03/policies/firewall/app/agentless/resources": {
+        "/api/v30.02/policies/firewall/app/agentless/resources": {
             "get": {
                 "description": "AgentlessAppFirewallPolicyResources returns the WAAS VPC configuration resources\n",
                 "parameters": [
@@ -45394,7 +45155,7 @@
                 "summary": " Agentless App Firewall Policy Resources"
             }
         },
-        "/api/v30.03/policies/firewall/app/agentless/state": {
+        "/api/v30.02/policies/firewall/app/agentless/state": {
             "get": {
                 "description": "AgentlessAppFirewallPolicyState returns the state for the agentless app firewall policy\n",
                 "responses": {
@@ -45425,7 +45186,7 @@
                 "summary": " Agentless App Firewall Policy State"
             }
         },
-        "/api/v30.03/policies/firewall/app/apispec": {
+        "/api/v30.02/policies/firewall/app/apispec": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/firewall_app_apispec_post.md"
@@ -45458,7 +45219,7 @@
                 "summary": "Generate a WAAS API Specification Object"
             }
         },
-        "/api/v30.03/policies/firewall/app/app-embedded": {
+        "/api/v30.02/policies/firewall/app/app-embedded": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/firewall_app-embedded_get.md"
@@ -45524,7 +45285,7 @@
                 "summary": "Update WAAS App-embedded Policy"
             }
         },
-        "/api/v30.03/policies/firewall/app/container": {
+        "/api/v30.02/policies/firewall/app/container": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/firewall_app_container_get.md"
@@ -45590,7 +45351,7 @@
                 "summary": "Update WAAS Container Policy"
             }
         },
-        "/api/v30.03/policies/firewall/app/container/impacted": {
+        "/api/v30.02/policies/firewall/app/container/impacted": {
             "get": {
                 "description": "ContainerAppFirewallPolicyImpacted returns a list of containers for which the firewall policy rule applies to\n",
                 "parameters": [
@@ -45743,7 +45504,7 @@
                 "summary": " Container App Firewall Policy Impacted"
             }
         },
-        "/api/v30.03/policies/firewall/app/host": {
+        "/api/v30.02/policies/firewall/app/host": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/firewall_app_host_get.md"
@@ -45809,7 +45570,7 @@
                 "summary": "Update WAAS Host Policy"
             }
         },
-        "/api/v30.03/policies/firewall/app/host/impacted": {
+        "/api/v30.02/policies/firewall/app/host/impacted": {
             "get": {
                 "description": "HostAppFirewallPolicyImpacted returns a list of hosts for which the firewall policy rule applies to\n",
                 "parameters": [
@@ -45962,7 +45723,7 @@
                 "summary": " Host App Firewall Policy Impacted"
             }
         },
-        "/api/v30.03/policies/firewall/app/network-list": {
+        "/api/v30.02/policies/firewall/app/network-list": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/firewall_app_network_list_get.md"
@@ -46061,7 +45822,7 @@
                 "summary": "Update WAAS Network List"
             }
         },
-        "/api/v30.03/policies/firewall/app/network-list/{id}": {
+        "/api/v30.02/policies/firewall/app/network-list/{id}": {
             "delete": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/firewall_app_network_list_id_delete.md"
@@ -46097,7 +45858,7 @@
                 "summary": "Delete WAAS Network List"
             }
         },
-        "/api/v30.03/policies/firewall/app/out-of-band": {
+        "/api/v30.02/policies/firewall/app/out-of-band": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/firewall_app_out-of-band_get.md"
@@ -46163,7 +45924,7 @@
                 "summary": "Update Out-of-Band WAAS Policy"
             }
         },
-        "/api/v30.03/policies/firewall/app/out-of-band/impacted": {
+        "/api/v30.02/policies/firewall/app/out-of-band/impacted": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/firewall_app_out-of-band_impacted_get.md"
@@ -46318,7 +46079,7 @@
                 "summary": "Get Impacted Resources for Out-of-Band WAAS Policy"
             }
         },
-        "/api/v30.03/policies/firewall/app/serverless": {
+        "/api/v30.02/policies/firewall/app/serverless": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/firewall_app_serverless_get.md"
@@ -46384,7 +46145,7 @@
                 "summary": "Update WAAS Serverless Policy"
             }
         },
-        "/api/v30.03/policies/firewall/network": {
+        "/api/v30.02/policies/firewall/network": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/firewall_network_container_get.md"
@@ -46413,6 +46174,7 @@
                     "self-hosted": true
                 },
                 "x-public": true,
+                "deprecated": true,
                 "operationId": "get-policies-firewall-network",
                 "summary": "Get CNNS Container and Host Policy"
             },
@@ -46446,11 +46208,12 @@
                     "self-hosted": true
                 },
                 "x-public": true,
+                "deprecated": true,
                 "operationId": "put-policies-firewall-network",
                 "summary": "Update CNNS Container and Host Policy"
             }
         },
-        "/api/v30.03/policies/runtime/app-embedded": {
+        "/api/v30.02/policies/runtime/app-embedded": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/runtime_app-embedded_get.md"
@@ -46549,7 +46312,7 @@
                 "summary": "Update Runtime App-embedded Policy"
             }
         },
-        "/api/v30.03/policies/runtime/container": {
+        "/api/v30.02/policies/runtime/container": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/runtime_container_get.md"
@@ -46646,7 +46409,7 @@
                 "summary": "Update Runtime Container Policy"
             }
         },
-        "/api/v30.03/policies/runtime/container/impacted": {
+        "/api/v30.02/policies/runtime/container/impacted": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/runtime_container_impacted_get.md"
@@ -46801,7 +46564,7 @@
                 "summary": "Update Runtime Impacted Container Policy"
             }
         },
-        "/api/v30.03/policies/runtime/host": {
+        "/api/v30.02/policies/runtime/host": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/runtime_host_get.md"
@@ -46898,7 +46661,7 @@
                 "summary": "Update Runtime Host Policy"
             }
         },
-        "/api/v30.03/policies/runtime/serverless": {
+        "/api/v30.02/policies/runtime/serverless": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/runtime_serverless_get.md"
@@ -46995,7 +46758,7 @@
                 "summary": "Update Runtime Serverless Policy"
             }
         },
-        "/api/v30.03/policies/vulnerability/base-images": {
+        "/api/v30.02/policies/vulnerability/base-images": {
             "get": {
                 "description": "BaseImagesRules returns all the base image scopes and the list of base images digests for each of them\n",
                 "responses": {
@@ -47057,7 +46820,7 @@
                 "summary": " Add Base Images Rule"
             }
         },
-        "/api/v30.03/policies/vulnerability/base-images/download": {
+        "/api/v30.02/policies/vulnerability/base-images/download": {
             "get": {
                 "description": "DownloadBaseImagesRules downloads the base images rules data to CSV\n",
                 "responses": {
@@ -47081,7 +46844,7 @@
                 "summary": " Download Base Images Rules"
             }
         },
-        "/api/v30.03/policies/vulnerability/base-images/{id}": {
+        "/api/v30.02/policies/vulnerability/base-images/{id}": {
             "delete": {
                 "description": "DeleteBaseImagesRule removes all base images under a given scope\n",
                 "parameters": [
@@ -47115,7 +46878,7 @@
                 "summary": " Delete Base Images Rule"
             }
         },
-        "/api/v30.03/policies/vulnerability/ci/images": {
+        "/api/v30.02/policies/vulnerability/ci/images": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/vulnerability_ci_images_get.md"
@@ -47181,7 +46944,7 @@
                 "summary": "Update CI Image Vulnerability Policy"
             }
         },
-        "/api/v30.03/policies/vulnerability/ci/serverless": {
+        "/api/v30.02/policies/vulnerability/ci/serverless": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/vulnerability_ci_serverless_get.md"
@@ -47247,7 +47010,7 @@
                 "summary": "Update CI Serverless Vulnerability Policy"
             }
         },
-        "/api/v30.03/policies/vulnerability/coderepos": {
+        "/api/v30.02/policies/vulnerability/coderepos": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/vulnerability_coderepos_get.md"
@@ -47313,7 +47076,7 @@
                 "summary": "Update Code Repository Vulnerability Policy"
             }
         },
-        "/api/v30.03/policies/vulnerability/coderepos/impacted": {
+        "/api/v30.02/policies/vulnerability/coderepos/impacted": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/vulnerability_coderepos_impacted_get.md"
@@ -47468,7 +47231,7 @@
                 "summary": "Get Impacted Code Repository Vulnerability Policy"
             }
         },
-        "/api/v30.03/policies/vulnerability/host": {
+        "/api/v30.02/policies/vulnerability/host": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/vulnerability_host_get.md"
@@ -47534,7 +47297,7 @@
                 "summary": "Update Host Vulnerability Policy"
             }
         },
-        "/api/v30.03/policies/vulnerability/host/impacted": {
+        "/api/v30.02/policies/vulnerability/host/impacted": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/vulnerability_host_impacted_get.md"
@@ -47689,7 +47452,7 @@
                 "summary": "Get Impacted Host Vulnerability Policy"
             }
         },
-        "/api/v30.03/policies/vulnerability/images": {
+        "/api/v30.02/policies/vulnerability/images": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/vulnerability_images_get.md"
@@ -47755,7 +47518,7 @@
                 "summary": "Update Image Vulnerability Policy"
             }
         },
-        "/api/v30.03/policies/vulnerability/images/impacted": {
+        "/api/v30.02/policies/vulnerability/images/impacted": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/vulnerability_images_impacted_get.md"
@@ -47910,7 +47673,7 @@
                 "summary": "Get Impacted Image Vulnerability Policy"
             }
         },
-        "/api/v30.03/policies/vulnerability/serverless": {
+        "/api/v30.02/policies/vulnerability/serverless": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/vulnerability_serverless_get.md"
@@ -47976,7 +47739,7 @@
                 "summary": "Update Serverless Vulnerability Policy"
             }
         },
-        "/api/v30.03/profiles/app-embedded": {
+        "/api/v30.02/profiles/app-embedded": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/profiles/app-embedded_get.md"
@@ -48195,7 +47958,7 @@
                 "summary": "Get App-embedded Profiles"
             }
         },
-        "/api/v30.03/profiles/app-embedded/download": {
+        "/api/v30.02/profiles/app-embedded/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/profiles/app-embedded_download_get.md"
@@ -48407,7 +48170,7 @@
                 "summary": "Download App-embedded Profiles"
             }
         },
-        "/api/v30.03/profiles/container": {
+        "/api/v30.02/profiles/container": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/profiles/container_get.md"
@@ -48650,7 +48413,7 @@
                 "summary": "Get Runtime Container Profiles"
             }
         },
-        "/api/v30.03/profiles/container/download": {
+        "/api/v30.02/profiles/container/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/profiles/container_download_get.md"
@@ -48886,7 +48649,7 @@
                 "summary": "Download Runtime Container Profiles"
             }
         },
-        "/api/v30.03/profiles/container/learn": {
+        "/api/v30.02/profiles/container/learn": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/profiles/container_learn_post.md"
@@ -48912,7 +48675,7 @@
                 "summary": "Relearn Runtime Container Profiles"
             }
         },
-        "/api/v30.03/profiles/host": {
+        "/api/v30.02/profiles/host": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/profiles/host_get.md"
@@ -49155,7 +48918,7 @@
                 "summary": "Get Runtime Host Profiles"
             }
         },
-        "/api/v30.03/profiles/host/download": {
+        "/api/v30.02/profiles/host/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/profiles/host_download_get.md"
@@ -49391,7 +49154,60 @@
                 "summary": "Download Runtime Host Profiles"
             }
         },
-        "/api/v30.03/registry": {
+        "/api/v1/registry/webhook/webhook": {
+            "delete": {
+                "description": "RegistryWebhook listen to registry updates\n",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Registry"
+                ],
+                "x-prisma-cloud-target-env": {
+                    "permission": "none",
+                    "saas": true,
+                    "self-hosted": true
+                },
+                "operationId": "delete-registry-webhook-webhook",
+                "summary": " Registry Webhook"
+            },
+            "post": {
+                "description": "RegistryWebhook listen to registry updates\n",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/types.RegistryWebhookRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Registry"
+                ],
+                "x-prisma-cloud-target-env": {
+                    "permission": "none",
+                    "saas": true,
+                    "self-hosted": true
+                },
+                "operationId": "post-registry-webhook-webhook",
+                "summary": " Registry Webhook"
+            }
+        },
+        "/api/v30.02/registry": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/registry/get.md"
@@ -49630,7 +49446,7 @@
                 "summary": "Get Registry Scan Results"
             }
         },
-        "/api/v30.03/registry/download": {
+        "/api/v30.02/registry/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/registry/download_get.md"
@@ -49862,7 +49678,7 @@
                 "summary": "Download Registry Scan Results"
             }
         },
-        "/api/v30.03/registry/names": {
+        "/api/v30.02/registry/names": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/registry/names_get.md"
@@ -50101,7 +49917,7 @@
                 "summary": "Get Registry Image Names"
             }
         },
-        "/api/v30.03/registry/progress": {
+        "/api/v30.02/registry/progress": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/registry/get_registry_progress.md"
@@ -50176,7 +49992,7 @@
                 "summary": "View Registry Scan Progress"
             }
         },
-        "/api/v30.03/registry/scan": {
+        "/api/v30.02/registry/scan": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/registry/scan_post.md"
@@ -50211,7 +50027,7 @@
                 "summary": "Start a Registry Scan"
             }
         },
-        "/api/v30.03/registry/stop": {
+        "/api/v30.02/registry/stop": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/registry/stop_post.md"
@@ -50237,7 +50053,7 @@
                 "summary": "Stop a Registry Scan"
             }
         },
-        "/api/v30.03/sandbox": {
+        "/api/v30.02/sandbox": {
             "post": {
                 "description": "AddSandboxScanResult adds a sandbox scan result, the scan is augmented with geolocation data and returned to the client\n",
                 "requestBody": {
@@ -50277,7 +50093,7 @@
                 "summary": " Add Sandbox Scan Result"
             }
         },
-        "/api/v30.03/scans": {
+        "/api/v30.02/scans": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/scans/get.md"
@@ -50545,7 +50361,7 @@
                 "summary": " Add CLI Scan Result"
             }
         },
-        "/api/v30.03/scans/download": {
+        "/api/v30.02/scans/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/scans/download_get.md"
@@ -50775,7 +50591,7 @@
                 "summary": "Download CI Image Scan Results"
             }
         },
-        "/api/v30.03/scans/{id}": {
+        "/api/v30.02/scans/{id}": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/scans/id_get.md"
@@ -50811,7 +50627,7 @@
                 "summary": "Get CI Image Scan Results"
             }
         },
-        "/api/v30.03/serverless": {
+        "/api/v30.02/serverless": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/serverless/get.md"
@@ -51058,7 +50874,7 @@
                 "summary": "Get Serverless Function Scan Results"
             }
         },
-        "/api/v30.03/serverless/download": {
+        "/api/v30.02/serverless/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/serverless/download_get.md"
@@ -51298,7 +51114,7 @@
                 "summary": "Download Serverless Function Scan Results"
             }
         },
-        "/api/v30.03/serverless/evaluate": {
+        "/api/v30.02/serverless/evaluate": {
             "post": {
                 "description": "ResolveFunctions adds vulnerability data for the given functions\n",
                 "requestBody": {
@@ -51338,7 +51154,7 @@
                 "summary": " Resolve Functions"
             }
         },
-        "/api/v30.03/serverless/names": {
+        "/api/v30.02/serverless/names": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/serverless/names_get.md"
@@ -51585,7 +51401,7 @@
                 "summary": "Get Serverless Function Names"
             }
         },
-        "/api/v30.03/serverless/scan": {
+        "/api/v30.02/serverless/scan": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/serverless/scan_post.md"
@@ -51611,7 +51427,7 @@
                 "summary": "Start Serverless Function Scan"
             }
         },
-        "/api/v30.03/serverless/stop": {
+        "/api/v30.02/serverless/stop": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/serverless/stop_post.md"
@@ -51637,7 +51453,7 @@
                 "summary": "Stop Serverless Function Scan"
             }
         },
-        "/api/v30.03/settings/certs": {
+        "/api/v30.02/settings/certs": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/certs_get.md"
@@ -51670,7 +51486,7 @@
                 "summary": "Get Certificate Settings for Prisma Cloud Compute"
             }
         },
-        "/api/v30.03/settings/coderepos": {
+        "/api/v30.02/settings/coderepos": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/coderepos_get.md"
@@ -51736,7 +51552,7 @@
                 "summary": "Update Code Repository Settings"
             }
         },
-        "/api/v30.03/settings/custom-labels": {
+        "/api/v30.02/settings/custom-labels": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/custom-labels_get.md"
@@ -51802,7 +51618,7 @@
                 "summary": "Add Alert Labels"
             }
         },
-        "/api/v30.03/settings/defender": {
+        "/api/v30.02/settings/defender": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/defender_get.md"
@@ -51835,7 +51651,7 @@
                 "summary": "Get Advanced Defender Settings"
             }
         },
-        "/api/v30.03/settings/intelligence": {
+        "/api/v30.02/settings/intelligence": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/intelligence_get.md"
@@ -51868,7 +51684,7 @@
                 "summary": "Get Intelligence Stream Settings"
             }
         },
-        "/api/v30.03/settings/license": {
+        "/api/v30.02/settings/license": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/license_get.md"
@@ -51901,7 +51717,7 @@
                 "summary": "Get Prisma Cloud Compute License"
             }
         },
-        "/api/v30.03/settings/logging": {
+        "/api/v30.02/settings/logging": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/logging_get.md"
@@ -51967,7 +51783,7 @@
                 "summary": "Add Logging Settings"
             }
         },
-        "/api/v30.03/settings/logon": {
+        "/api/v30.02/settings/logon": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/logon_get.md"
@@ -52000,7 +51816,7 @@
                 "summary": "Get Logon Settings"
             }
         },
-        "/api/v30.03/settings/proxy": {
+        "/api/v30.02/settings/proxy": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/proxy_get.md"
@@ -52066,7 +51882,7 @@
                 "summary": "Add Proxy Settings for Prisma Cloud Compute"
             }
         },
-        "/api/v30.03/settings/registry": {
+        "/api/v30.02/settings/registry": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/registry_get.md"
@@ -52185,7 +52001,7 @@
                 "summary": "Update Registry Settings"
             }
         },
-        "/api/v30.03/settings/saml": {
+        "/api/v30.02/settings/saml": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/saml_get.md"
@@ -52218,7 +52034,7 @@
                 "summary": "Get SAML Settings of Prisma Cloud Compute"
             }
         },
-        "/api/v30.03/settings/scan": {
+        "/api/v30.02/settings/scan": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/scan_get.md"
@@ -52284,7 +52100,7 @@
                 "summary": "Add Global Scan Settings"
             }
         },
-        "/api/v30.03/settings/tas": {
+        "/api/v30.02/settings/tas": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/tas_get.md"
@@ -52350,7 +52166,7 @@
                 "summary": "Add TAS Settings"
             }
         },
-        "/api/v30.03/settings/vm": {
+        "/api/v30.02/settings/vm": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/vm_get.md"
@@ -52416,7 +52232,7 @@
                 "summary": "Update VM Image Scan Settings"
             }
         },
-        "/api/v30.03/settings/wildfire": {
+        "/api/v30.02/settings/wildfire": {
             "get": {
                 "description": "WildFireSettings returns the wildfire settings\n",
                 "responses": {
@@ -52447,7 +52263,7 @@
                 "summary": " WildFire Settings"
             }
         },
-        "/api/v30.03/stats/app-firewall/count": {
+        "/api/v30.02/stats/app-firewall/count": {
             "get": {
                 "description": "AppFirewallCount returns the number of app firewalls in use\n",
                 "responses": {
@@ -52478,7 +52294,7 @@
                 "summary": " App Firewall Count"
             }
         },
-        "/api/v30.03/stats/compliance": {
+        "/api/v30.02/stats/compliance": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/stats/compliance_get.md"
@@ -52578,8 +52394,7 @@
                                     "Kubernetes",
                                     "CRI",
                                     "OpenShift",
-                                    "Application Control",
-                                    "Prisma Cloud Labs"
+                                    "Application Control"
                                 ]
                             ],
                             "type": "string"
@@ -52632,7 +52447,7 @@
                 "summary": "Get Compliance Stats"
             }
         },
-        "/api/v30.03/stats/compliance/download": {
+        "/api/v30.02/stats/compliance/download": {
             "get": {
                 "description": "DownloadComplianceStats downloads the compliance stats\n",
                 "parameters": [
@@ -52730,8 +52545,7 @@
                                     "Kubernetes",
                                     "CRI",
                                     "OpenShift",
-                                    "Application Control",
-                                    "Prisma Cloud Labs"
+                                    "Application Control"
                                 ]
                             ],
                             "type": "string"
@@ -52777,7 +52591,7 @@
                 "summary": " Download Compliance Stats"
             }
         },
-        "/api/v30.03/stats/compliance/refresh": {
+        "/api/v30.02/stats/compliance/refresh": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/stats/compliance_refresh_post.md"
@@ -52877,8 +52691,7 @@
                                     "Kubernetes",
                                     "CRI",
                                     "OpenShift",
-                                    "Application Control",
-                                    "Prisma Cloud Labs"
+                                    "Application Control"
                                 ]
                             ],
                             "type": "string"
@@ -52931,7 +52744,7 @@
                 "summary": "Refresh Compliance Stats"
             }
         },
-        "/api/v30.03/stats/daily": {
+        "/api/v30.02/stats/daily": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/stats/daily_get.md"
@@ -52964,7 +52777,7 @@
                 "summary": "Get Daily Compliance Stats"
             }
         },
-        "/api/v30.03/stats/dashboard": {
+        "/api/v30.02/stats/dashboard": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/stats/dashboard_get.md"
@@ -52997,7 +52810,7 @@
                 "summary": "Get Dashboard Stats"
             }
         },
-        "/api/v30.03/stats/events": {
+        "/api/v30.02/stats/events": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/stats/events_get.md"
@@ -53086,7 +52899,7 @@
                 "summary": "Get Event Stats"
             }
         },
-        "/api/v30.03/stats/license": {
+        "/api/v30.02/stats/license": {
             "get": {
                 "description": "LicenseStats returns the license stats including the credit per defender\n",
                 "responses": {
@@ -53117,7 +52930,7 @@
                 "summary": " License Stats"
             }
         },
-        "/api/v30.03/stats/vulnerabilities": {
+        "/api/v30.02/stats/vulnerabilities": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/stats/vulnerabilities_get.md"
@@ -53362,7 +53175,7 @@
                 "summary": "Get Vulnerability (CVEs) Stats"
             }
         },
-        "/api/v30.03/stats/vulnerabilities/download": {
+        "/api/v30.02/stats/vulnerabilities/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/stats/vulnerabilities_download_get.md"
@@ -53600,7 +53413,7 @@
                 "summary": "Download Vulnerability (CVEs) Stats"
             }
         },
-        "/api/v30.03/stats/vulnerabilities/impacted-resources": {
+        "/api/v30.02/stats/vulnerabilities/impacted-resources": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/stats/vulnerabilities_impacted_resources_get.md"
@@ -53845,7 +53658,7 @@
                 "summary": "Get Impacted Resources Vulnerability (CVE) Stats"
             }
         },
-        "/api/v30.03/stats/vulnerabilities/impacted-resources/download": {
+        "/api/v30.02/stats/vulnerabilities/impacted-resources/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/stats/vulnerabilities_impacted_resources_download_get.md"
@@ -54083,7 +53896,7 @@
                 "summary": "Download Impacted Resources Vulnerability (CVE) Stats"
             }
         },
-        "/api/v30.03/stats/vulnerabilities/refresh": {
+        "/api/v30.02/stats/vulnerabilities/refresh": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/stats/vulnerabilities_refresh_post.md"
@@ -54230,7 +54043,7 @@
                 "summary": "Refresh Vulnerability Stats"
             }
         },
-        "/api/v30.03/statuses/registry": {
+        "/api/v30.02/statuses/registry": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/statuses/registry_get.md"
@@ -54263,7 +54076,7 @@
                 "summary": "Get Registry Scan Status"
             }
         },
-        "/api/v30.03/tags": {
+        "/api/v30.02/tags": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/tags/get.md"
@@ -54329,7 +54142,7 @@
                 "summary": "Add Tags"
             }
         },
-        "/api/v30.03/tags/{id}": {
+        "/api/v30.02/tags/{id}": {
             "delete": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/tags/name_delete.md"
@@ -54408,7 +54221,7 @@
                 "summary": "Update a Tag"
             }
         },
-        "/api/v30.03/tags/{id}/vuln": {
+        "/api/v30.02/tags/{id}/vuln": {
             "delete": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/tags/tag_cve_delete.md"
@@ -54487,7 +54300,7 @@
                 "summary": "Set Tag Vulnerability Metadata"
             }
         },
-        "/api/v30.03/tas-droplets": {
+        "/api/v30.02/tas-droplets": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/tas-droplets/get.md"
@@ -54734,7 +54547,7 @@
                 "summary": "Get TAS Droplets"
             }
         },
-        "/api/v30.03/tas-droplets/download": {
+        "/api/v30.02/tas-droplets/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/tas-droplets/download_get.md"
@@ -54974,7 +54787,7 @@
                 "summary": "Add TAS Droplets"
             }
         },
-        "/api/v30.03/tas-droplets/progress": {
+        "/api/v30.02/tas-droplets/progress": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/tas-droplets/progress_get.md"
@@ -55007,7 +54820,7 @@
                 "summary": "View TAS Droplets Scan Progress"
             }
         },
-        "/api/v30.03/tas-droplets/scan": {
+        "/api/v30.02/tas-droplets/scan": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/tas-droplets/scan_post.md"
@@ -55033,7 +54846,7 @@
                 "summary": "Scan TAS Droplets"
             }
         },
-        "/api/v30.03/tas-droplets/stop": {
+        "/api/v30.02/tas-droplets/stop": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/tas-droplets/stop_post.md"
@@ -55059,7 +54872,7 @@
                 "summary": "Stop TAS Droplets Ongoing Scan"
             }
         },
-        "/api/v30.03/trust/data": {
+        "/api/v30.02/trust/data": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/trust/data_get.md"
@@ -55125,7 +54938,7 @@
                 "summary": "Update Trusted Repository, Image, and Registry"
             }
         },
-        "/api/v30.03/users": {
+        "/api/v30.02/users": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/users/get.md"
@@ -55158,7 +54971,7 @@
                 "summary": "Get Users"
             }
         },
-        "/api/v30.03/util/arm64/twistcli": {
+        "/api/v30.02/util/arm64/twistcli": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/util/twistcli_arm64_get.md"
@@ -55184,7 +54997,7 @@
                 "summary": "Download ARM64 twistcli for Linux OS"
             }
         },
-        "/api/v30.03/util/osx/arm64/twistcli": {
+        "/api/v30.02/util/osx/arm64/twistcli": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/util/osx_twistcli_arm64_get.md"
@@ -55210,7 +55023,7 @@
                 "summary": "Download ARM64 twistcli for MacOS"
             }
         },
-        "/api/v30.03/util/osx/twistcli": {
+        "/api/v30.02/util/osx/twistcli": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/util/osx_twistcli_get.md"
@@ -55236,7 +55049,57 @@
                 "summary": "Download twistcli for MacOS"
             }
         },
-        "/api/v30.03/util/twistcli": {
+        "/api/v1/util/prisma-cloud-jenkins-plugin.hpi": {
+            "get": {
+                "description": {
+                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/util/twistlock_jenkins_plugin_get.md"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Util"
+                ],
+                "x-prisma-cloud-target-env": {
+                    "permission": "downloads",
+                    "saas": true,
+                    "self-hosted": true
+                },
+                "operationId": "get-util-prisma-cloud-jenkins-plugin.hpi",
+                "summary": "Download Jenkins Plugin for Prisma Cloud Compute"
+            }
+        },
+        "/api/v1/util/tas-tile": {
+            "get": {
+                "description": {
+                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/util/twistlock_tas_tile_get.md"
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "default": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "Util"
+                ],
+                "x-prisma-cloud-target-env": {
+                    "permission": "manageDefenders",
+                    "saas": true,
+                    "self-hosted": true
+                },
+                "operationId": "get-util-tas-tile",
+                "summary": "Download VMware TAS Tile for Prisma Cloud Compute"
+            }
+        },
+        "/api/v30.02/util/twistcli": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/util/twistcli_get.md"
@@ -55262,7 +55125,7 @@
                 "summary": "Download twistcli for Linux OS"
             }
         },
-        "/api/v30.03/util/windows/twistcli.exe": {
+        "/api/v30.02/util/windows/twistcli.exe": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/util/windows_twistcli_get.md"
@@ -55288,7 +55151,7 @@
                 "summary": "Download twistcli for Microsoft Windows"
             }
         },
-        "/api/v30.03/version": {
+        "/api/v30.02/version": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/version/get.md"
@@ -55321,7 +55184,7 @@
                 "summary": "Get Prisma Cloud Compute Version"
             }
         },
-        "/api/v30.03/vms": {
+        "/api/v30.02/vms": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/vms/get.md"
@@ -55548,7 +55411,7 @@
                     }
                 },
                 "tags": [
-                    "Vms"
+                    "VMs"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorHosts",
@@ -55560,7 +55423,7 @@
                 "summary": "Get VM Image Scan Results"
             }
         },
-        "/api/v30.03/vms/download": {
+        "/api/v30.02/vms/download": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/vms/download_get.md"
@@ -55780,7 +55643,7 @@
                     }
                 },
                 "tags": [
-                    "Vms"
+                    "VMs"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorHosts",
@@ -55792,7 +55655,7 @@
                 "summary": "Download VM Image Scan Results"
             }
         },
-        "/api/v30.03/vms/labels": {
+        "/api/v30.02/vms/labels": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/vms/labels_get.md"
@@ -56019,7 +55882,7 @@
                     }
                 },
                 "tags": [
-                    "Vms"
+                    "VMs"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorHosts",
@@ -56031,7 +55894,7 @@
                 "summary": "Get VM Image Tags"
             }
         },
-        "/api/v30.03/vms/names": {
+        "/api/v30.02/vms/names": {
             "get": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/vms/names_get.md"
@@ -56258,7 +56121,7 @@
                     }
                 },
                 "tags": [
-                    "Vms"
+                    "VMs"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorHosts",
@@ -56270,7 +56133,7 @@
                 "summary": "Get VM Image Names"
             }
         },
-        "/api/v30.03/vms/scan": {
+        "/api/v30.02/vms/scan": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/vms/scan_post.md"
@@ -56284,7 +56147,7 @@
                     }
                 },
                 "tags": [
-                    "Vms"
+                    "VMs"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorHosts",
@@ -56296,7 +56159,7 @@
                 "summary": "Start VM Image Scan"
             }
         },
-        "/api/v30.03/vms/stop": {
+        "/api/v30.02/vms/stop": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/vms/stop_post.md"
@@ -56310,7 +56173,7 @@
                     }
                 },
                 "tags": [
-                    "Vms"
+                    "VMs"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorHosts",
@@ -56322,7 +56185,7 @@
                 "summary": "Stop VM Image Scan"
             }
         },
-        "/api/v30.03/waas/openapi-scans": {
+        "/api/v30.02/waas/openapi-scans": {
             "post": {
                 "description": {
                     "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/waas/openapi-scans_post.md"
@@ -56343,7 +56206,7 @@
                     }
                 },
                 "tags": [
-                    "Waas"
+                    "WAAS"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorWAAS",
@@ -56355,211 +56218,5 @@
                 "summary": "Scan OpenAPI Specification File for WAAS Observations"
             }
         }
-    },
-    "tags": [
-        {
-            "name": "Agentless",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/agentless/agentless.md"
-            }
-        },
-        {
-            "name": "Application-Control"
-        },
-        {
-            "name": "Audits",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/audits/audits.md"
-            }
-        },
-        {
-            "name": "Authenticate",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/authenticate/authenticate.md"
-            }
-        },
-        {
-            "name": "Authenticate-Client",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/authenticate-client/authenticate-client.md"
-            }
-        },
-        {
-            "name": "Certs",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/certs/certs.md"
-            }
-        },
-        {
-            "name": "Cloud",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/cloud/cloud.md"
-            }
-        },
-        {
-            "name": "Collections",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/collections/collections.md"
-            }
-        },
-        {
-            "name": "Containers",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/containers/containers.md"
-            }
-        },
-        {
-            "name": "Credentials",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/credentials/credentials.md"
-            }
-        },
-        {
-            "name": "Current"
-        },
-        {
-            "name": "Custom-Compliance",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/custom-compliance/custom-compliance.md"
-            }
-        },
-        {
-            "name": "Custom-Rules",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/custom-rules/custom-rules.md"
-            }
-        },
-        {
-            "name": "Defenders",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/defenders/defenders.md"
-            }
-        },
-        {
-            "name": "Feeds",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/feeds/feeds.md"
-            }
-        },
-        {
-            "name": "Groups",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/groups/groups.md"
-            }
-        },
-        {
-            "name": "Hosts",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/hosts/hosts.md"
-            }
-        },
-        {
-            "name": "Images",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/images/images.md"
-            }
-        },
-        {
-            "name": "Policies",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/policies/policies.md"
-            }
-        },
-        {
-            "name": "Profiles",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/profiles/profiles.md"
-            }
-        },
-        {
-            "name": "Registry",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/registry/registry.md"
-            }
-        },
-        {
-            "name": "Scans",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/scans/scans.md"
-            }
-        },
-        {
-            "name": "Serverless",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/serverless/serverless.md"
-            }
-        },
-        {
-            "name": "Settings",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/settings/settings.md"
-            }
-        },
-        {
-            "name": "Signup",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/signup/signup.md"
-            }
-        },
-        {
-            "name": "Stats",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/stats/stats.md"
-            }
-        },
-        {
-            "name": "Statuses",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/statuses/statuses.md"
-            }
-        },
-        {
-            "name": "Tags",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/tags/tags.md"
-            }
-        },
-        {
-            "name": "Tas-Droplets"
-        },
-        {
-            "name": "Trust",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/trust/trust.md"
-            }
-        },
-        {
-            "name": "Users",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/users/users.md"
-            }
-        },
-        {
-            "name": "Util",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/util/util.md"
-            }
-        },
-        {
-            "name": "Version",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/version/version.md"
-            }
-        },
-        {
-            "name": "VMs",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/vms/vms.md"
-            }
-        },
-        {
-            "name": "WAAS"
-        },
-        {
-            "name": "_Ping",
-            "description": {
-                "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/_ping/_ping.md"
-            }
-        }
-    ]
+    }
 }
