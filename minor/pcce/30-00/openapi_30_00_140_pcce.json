@@ -42177,7 +42177,9 @@
         },
         "/api/v30.00/feeds/custom/malware": {
             "get": {
-                "description": "CustomMalwareFeed returns the custom malware feed\n",
+                "description": {
+                    "$ref": "https://raw.githubusercontent.com/PaloAltoNetworks/prisma-cloud-docs/master/api/descriptions/feeds/malware_get.md"
+                },
                 "responses": {
                     "200": {
                         "content": {
