@@ -57205,7 +57205,7 @@
                     }
                 },
                 "tags": [
-                    "Vms"
+                    "VMs"
                 ],
                 "x-prisma-cloud-target-env": {
                     "permission": "monitorHosts",
